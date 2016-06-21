@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -6,9 +7,9 @@ module.exports = {
     './src/index'
   ],
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/public/'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
@@ -25,13 +26,20 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
+    loaders: [
+      {
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015', 'stage-1']
+        }
+      },
+      {
+        test: /\.scss?$/,
+        loader: 'style!css!sass',
+        include: path.join(__dirname, 'styles')
       }
-    }]
+    ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

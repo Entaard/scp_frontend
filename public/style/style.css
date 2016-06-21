@@ -12,3 +12,23 @@ td:first-of-type {
   height: 200px;
   width: 250px;
 }
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.loading-blur {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.screen-center {
+  position: absolute !important;
+  top: 32%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+}

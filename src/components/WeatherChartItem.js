@@ -16,8 +16,8 @@ class WeatherChartItem extends Component {
     return (
       <div>
         <Sparklines data={this.props.data} height={156}>
-          <SparklinesLine color={this.props.color} />
-          <SparklinesReferenceLine type="avg" />
+          <SparklinesLine color={this.props.color}/>
+          <SparklinesReferenceLine type="avg"/>
         </Sparklines>
         <div>{this.title()}</div>
       </div>

@@ -23,16 +23,16 @@ class WeatherItem extends Component {
 
   chartContent() {
     return [
-      { data: this.temperatures(), color: "orange", unit: "K" },
-      { data: this.pressures(), color: "green", unit: "hPa" },
-      { data: this.humidities(), color: "blue", unit: "%" },
+      {data: this.temperatures(), color: "orange", unit: "K"},
+      {data: this.pressures(), color: "green", unit: "hPa"},
+      {data: this.humidities(), color: "blue", unit: "%"},
     ];
   }
 
   renderGoogleMap() {
     return (
       <td>
-        <GoogleMapItem city={this.props.weather.city} />
+        <GoogleMapItem city={this.props.weather.city}/>
       </td>
     );
   }
@@ -42,7 +42,7 @@ class WeatherItem extends Component {
       return (
         <td key={item.unit}>
           <WeatherChartItem
-            data={item.data} 
+            data={item.data}
             color={item.color}
             unit={item.unit}
           />

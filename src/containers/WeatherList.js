@@ -7,7 +7,7 @@ class WeatherList extends Component {
   renderList() {
     return this.props.weather.map((weather) => {
       return (
-        <WeatherItem weather={weather} key={weather.city.id} />
+        <WeatherItem weather={weather} key={weather.city.id}/>
       );
     });
   }
@@ -32,7 +32,7 @@ class WeatherList extends Component {
 }
 
 function mapStateToProps(state) {
-  return { weather: state.weather };
+  return {weather: state.weather};
 }
 
 export default connect(mapStateToProps)(WeatherList);

@@ -1,7 +1,7 @@
-import { FETCH_WEATHER } from '../actions/SearchAction'; 
+import { FETCH_WEATHER } from '../actions/SearchAction';
 
-export default function(state = [], action) {
-  switch(action.type) {
+export default function (state = [], action) {
+  switch (action.type) {
     case FETCH_WEATHER:
       return [action.payload.data, ...state];
   }

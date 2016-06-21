@@ -41,6 +41,7 @@
     "react-sparklines": "^1.5.2",
     "redux": "^3.0.4",
     "redux-promise": "^0.5.3",
+    "spinkit": "^1.2.5",
     "webpack-hot-middleware": "^2.10.0"
   }
 }

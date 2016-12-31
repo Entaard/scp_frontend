@@ -4,12 +4,17 @@
   "description": "FPT Capstone",
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
+  "engines": {
+    "node": "7.2.0",
+    "npm": "3.10.9"
+  },
   "scripts": {
     "start": "node ./src/app.js",
     "dev": "webpack -w --config webpack.config.js",
     "build": "webpack -p --config webpack.prod.config.js --progress --profile --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "heroku-postbuild": "webpack -p --config webpack.prod.config.js --progress --profile --colors"
   },
   "author": "",
   "license": "ISC",

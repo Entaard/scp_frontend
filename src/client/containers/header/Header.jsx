@@ -1,10 +1,20 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
 import HeaderLogin from './HeaderLogin'
-import HeaderCart from './HeaderCart'
-import HeaderSearch from './Search'
-import {Link} from 'react-router'
+import HeaderCart from '../../components/HeaderCart'
+import HeaderSearch from '../../components/Search'
 
 export class Header extends Component {
+  renderWishListButton() {
+    return (
+      <div className="header-link">
+        <Link to="/wish-list"><i className="icon icon-heart"></i>
+          <span className="badge">3</span><span className="link-text">Wishlist</span></Link>
+      </div>
+    )
+  }
+
   render() {
     return (
       <header className="page-header fullboxed variant-9 sticky always">
@@ -33,16 +43,16 @@ export class Header extends Component {
             <div className="header-top-right">
               <div className="header-links">
                 <div className="header-link header-select dropdown-link header-language">
-                  <a href="#"><img src="images/flags/eng.png" alt/></a>
+                  <a href="#"><img src="images/flags/eng.png"/></a>
                   <ul className="dropdown-container">
                     <li className="active">
-                      <a href="#"><img src="images/flags/eng.png" alt/>English</a>
+                      <a href="#"><img src="images/flags/eng.png"/>English</a>
                     </li>
                     <li>
-                      <a href="#"><img src="images/flags/fr.png" alt/>French</a>
+                      <a href="#"><img src="images/flags/fr.png"/>French</a>
                     </li>
                     <li>
-                      <a href="#"><img src="images/flags/den.png" alt/>German</a>
+                      <a href="#"><img src="images/flags/den.png"/>German</a>
                     </li>
                   </ul>
                 </div>
@@ -67,13 +77,10 @@ export class Header extends Component {
               <div className="collapsed-links-wrapper">
                 <div className="collapsed-links">
                   <div className="header-links">
-                    <div className="header-link">
-                      <Link to="/wish-list"><i className="icon icon-heart"></i><span className="badge">3</span><span
-                        className="link-text">Wishlist</span></Link>
-                    </div>
-                    <HeaderLogin/>
+                    {this.props.authenticated && this.renderWishListButton()}
+                    {!this.props.authenticated && <HeaderLogin/>}
                   </div>
-                  <HeaderCart/>
+                  {this.props.authenticated && <HeaderCart/>}
                 </div>
               </div>
               <HeaderSearch/>
@@ -339,7 +346,7 @@ export class Header extends Component {
                       <div className="megamenu-categories column-4">
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-03.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Only New</a></div>
                           <ul className="category-links">
                             <li><a href="#">New In Clothing</a></li>
@@ -349,7 +356,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-04.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Only Sale</a></div>
                           <ul className="category-links">
                             <li><a href="#">Sale Clothing</a></li>
@@ -360,7 +367,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-05.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Top</a><span className="menu-label-alt">NEW</span>
                           </div>
                           <ul className="category-links">
@@ -371,7 +378,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-06.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Bottom</a></div>
                           <ul className="category-links">
                             <li><a href="#">Shorts</a></li>
@@ -409,7 +416,7 @@ export class Header extends Component {
                       <div className="megamenu-categories column-2">
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-01.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title title-border"><a href="#">ACCESSORIES<span
                             className="menu-label">HOT</span></a>
                           </div>
@@ -433,7 +440,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-02.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title title-border"><a href="#">CLOTHING<span
                             className="menu-label-alt">NEW</span></a>
                           </div>
@@ -487,7 +494,7 @@ export class Header extends Component {
                       <div className="megamenu-categories column-3">
                         <div className="col">
                           <a className="category-image light" href="#"><img
-                            src="images/category/megamenu-category-07.jpg" alt/></a>
+                            src="images/category/megamenu-category-07.jpg"/></a>
                           <div className="category-title title-border"><a href="#">Cameras & Camcorders<span
                             className="menu-label">HOT</span></a></div>
                           <ul className="category-links">
@@ -502,7 +509,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image light" href="#"><img
-                            src="images/category/megamenu-category-09.jpg" alt/></a>
+                            src="images/category/megamenu-category-09.jpg"/></a>
                           <div className="category-title title-border"><a href="#">Cell Phones<span
                             className="menu-label-alt">NEW</span></a></div>
                           <ul className="category-links">
@@ -517,7 +524,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image light" href="#"><img
-                            src="images/category/megamenu-category-08.jpg" alt/></a>
+                            src="images/category/megamenu-category-08.jpg"/></a>
                           <div className="category-title title-border"><a href="#">Video Games<span
                             className="menu-label">HOT</span></a>
                           </div>
@@ -545,4 +552,11 @@ export class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated,
+    user: state.auth.user
+  }
+}
+
+export default connect(mapStateToProps)(Header);

@@ -2,6 +2,9 @@ const path = require('path');
 
 module.exports = {
   entry: [
+    'es5-shim/es5-shim',
+    'es5-shim/es5-sham',
+    'babel-polyfill',
     './src/client/index.js'
   ],
   output: {

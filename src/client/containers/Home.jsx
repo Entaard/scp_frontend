@@ -1,9 +1,20 @@
-import React, {Component} from 'react'
-import BlogItem from './BlogItem'
-import Swiper from './Swiper'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import BlogItem from '../components/BlogItem'
+import Swiper from '../components/Swiper'
+import { HOME } from '../actions/HomeAction'
+import { createAction } from '../utils/SagaUtils'
 
 export class Home extends Component {
+  componentDidMount() {
+    this.props.getHome()
+  }
+
   render() {
+    // TODO: for testing
+    if (this.props.home.success) {
+      alert(this.props.home.success)
+    }
     return (
       <div className="page-main">
         <div className="block fullwidth full-nopad bottom-space">
@@ -859,4 +870,16 @@ export class Home extends Component {
   }
 }
 
-export default Home;
+function mapDispatchToProps(dispatch) {
+  return {
+    getHome: createAction(HOME, dispatch)
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    home: state.home
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { updateSwiper } from '../utils/ViewUtils'
 
 export class Swiper extends Component {
   componentDidMount() {
-    $('.mainSlider').swiperUpdate();
+    updateSwiper()
   }
 
   render() {

@@ -4,6 +4,9 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
+    'es5-shim/es5-shim',
+    'es5-shim/es5-sham',
+    'babel-polyfill',
     './src/client/index'
   ],
   output: {

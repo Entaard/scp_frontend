@@ -45,5 +45,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    modulesDirectories: [
+      'node_modules'
+    ]
   }
 };

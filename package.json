@@ -6,7 +6,7 @@
   "repository": "https://github.com/FPT-SCP/scp_frontend.git",
   "engines": {
     "node": "7.2.0",
-    "npm": "3.10.9"
+    "npm": "4.1.1"
   },
   "scripts": {
     "start": "node ./src/app.js",

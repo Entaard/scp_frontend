@@ -30,7 +30,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-1": "^6.1.18",
     "babel-runtime": "^6.6.1",
-    "css-loader": "^0.26.1",
     "es5-shim": "^4.5.7",
     "expose-loader": "^0.7.1",
     "express": "^4.14.0",
@@ -57,8 +56,6 @@
     "redux-saga": "^0.14.1",
     "redux-thunk": "^2.1.0",
     "rx": "^4.1.0",
-    "sass-loader": "^4.1.1",
-    "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.10.0"
@@ -69,6 +66,7 @@
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "chai-jquery": "^2.0.0",
+    "css-loader": "^0.26.1",
     "enzyme": "^2.6.0",
     "istanbul": "^1.0.0-alpha",
     "jquery": "^3.1.1",
@@ -77,7 +75,9 @@
     "moxios": "^0.3.0",
     "react-addons-test-utils": "^15.4.1",
     "redux-mock-store": "^1.2.1",
+    "sass-loader": "^4.1.1",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "style-loader": "^0.13.1"
   }
 }

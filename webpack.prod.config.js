@@ -38,13 +38,12 @@ module.exports = {
         }
       },
       {
-        test: /\.scss?$/,
-        loader: 'style!css!sass',
-        include: path.join(__dirname, 'styles')
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css', '.scss'],
   }
 };

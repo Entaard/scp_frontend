@@ -5,8 +5,7 @@ export class HeaderCart extends Component {
   render() {
     return (
       <div className="header-link dropdown-link header-cart variant-1">
-        <a href="#"> <i className="icon icon-cart"></i> <span className="badge">3</span><span
-          className="link-text">My Cart</span></a>
+        <a href="#"> <i className="icon icon-cart"></i> <span className="badge">3</span></a>
         <div className="dropdown-container right">
           <div className="block block-minicart">
             <div className="minicart-content-wrapper">

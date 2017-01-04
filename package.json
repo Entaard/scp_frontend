@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "node ./src/app.js",
-    "dev": "webpack -w --config webpack.config.js",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "build": "webpack -p --config webpack.prod.config.js --progress --profile --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
@@ -30,6 +30,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-1": "^6.1.18",
     "babel-runtime": "^6.6.1",
+    "css-loader": "^0.26.1",
     "es5-shim": "^4.5.7",
     "expose-loader": "^0.7.1",
     "express": "^4.14.0",
@@ -37,6 +38,7 @@
     "imports-loader": "^0.6.5",
     "lodash": "^4.17.2",
     "moment": "^2.17.1",
+    "node-sass": "^4.1.1",
     "path": "^0.12.7",
     "promise": "^7.1.1",
     "react": "^0.14.8 || ^15.0.0",
@@ -55,7 +57,9 @@
     "redux-saga": "^0.14.1",
     "redux-thunk": "^2.1.0",
     "rx": "^4.1.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.10.0"
   },
   "devDependencies": {

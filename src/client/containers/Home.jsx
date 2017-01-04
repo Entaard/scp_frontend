@@ -11,10 +11,6 @@ export class Home extends Component {
   }
 
   render() {
-    // TODO: for testing
-    if (this.props.home.success) {
-      alert(this.props.home.success)
-    }
     return (
       <div className="page-main">
         <div className="block fullwidth full-nopad bottom-space">

@@ -6,7 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { useScroll } from 'react-router-scroll'
 import store from './store'
 import routes from './routes'
-import './styles/app.scss'
+require('./styles/app.scss')
 
 ReactDOM.render(
   <Provider store={store}>

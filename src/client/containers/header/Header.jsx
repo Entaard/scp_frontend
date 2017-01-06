@@ -1,24 +1,12 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-// import HeaderLogin from './HeaderLogin'
+import HeaderLogin from './HeaderLogin'
 import HeaderLogout from './HeaderLogout'
 import HeaderCart from './HeaderCart'
 import HeaderSearch from '../../components/Search'
 
 export class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  renderLoginBtn() {
-    return (
-      <div className="header-link dropdown-link header-account">
-        <a href="#"><i className="icon icon-user"></i></a>
-      </div>
-    )
-  }
-
   render() {
     return (
       <header className="page-header variant-1 fullboxed sticky smart">
@@ -29,8 +17,7 @@ export class Header extends Component {
             </div>
             {this.props.authenticated && <HeaderCart/>}
             <div className="header-links">
-              {!this.props.authenticated && this.renderLoginBtn()}
-              {this.props.authenticated && <HeaderLogout/>}
+              {this.props.authenticated ? <HeaderLogout/> : <HeaderLogin/>}
             </div>
             <HeaderSearch/>
             <div className="header-logo">
@@ -292,7 +279,7 @@ export class Header extends Component {
                       <div className="megamenu-categories column-4">
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-03.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Only New</a></div>
                           <ul className="category-links">
                             <li><a href="#">New In Clothing</a></li>
@@ -302,7 +289,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-04.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Only Sale</a></div>
                           <ul className="category-links">
                             <li><a href="#">Sale Clothing</a></li>
@@ -313,7 +300,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-05.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title"><a href="#">Top</a><span
                             className="menu-label-alt">NEW</span></div>
                           <ul className="category-links">
@@ -323,8 +310,8 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-06.jpg"
-                                                                      alt/></a>
+                          <a className="category-image" href="#">
+                            <img src="images/category/megamenu-category-06.jpg"/></a>
                           <div className="category-title"><a href="#">Bottom</a></div>
                           <ul className="category-links">
                             <li><a href="#">Shorts</a></li>
@@ -385,7 +372,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image" href="#"><img src="images/category/megamenu-category-02.jpg"
-                                                                      alt/></a>
+                          /></a>
                           <div className="category-title title-border"><a href="#">CLOTHING<span
                             className="menu-label-alt">NEW</span></a></div>
                           <ul className="category-links column-count-2">
@@ -455,7 +442,7 @@ export class Header extends Component {
                         </div>
                         <div className="col">
                           <a className="category-image light" href="#"><img
-                            src="images/category/megamenu-category-09.jpg" alt/></a>
+                            src="images/category/megamenu-category-09.jpg"/></a>
                           <div className="category-title title-border"><a href="#">Cell Phones<span
                             className="menu-label-alt">NEW</span></a>
                           </div>

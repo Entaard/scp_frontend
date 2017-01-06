@@ -1,21 +1,35 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import HeaderLogin from './HeaderLogin'
+// import HeaderLogin from './HeaderLogin'
 import HeaderLogout from './HeaderLogout'
 import HeaderCart from './HeaderCart'
 import HeaderSearch from '../../components/Search'
 
 export class Header extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  renderLoginBtn() {
+    return (
+      <div className="header-link dropdown-link header-account">
+        <a href="#"><i className="icon icon-user"></i></a>
+      </div>
+    )
+  }
+
   render() {
     return (
       <header className="page-header variant-1 fullboxed sticky smart">
         <div className="navbar">
           <div className="container">
-            <div className="menu-toggle"><a href="#" className="mobilemenu-toggle"><i className="icon icon-menu"></i></a></div>
+            <div className="menu-toggle"><a href="#" className="mobilemenu-toggle">
+              <i className="icon icon-menu"></i></a>
+            </div>
             {this.props.authenticated && <HeaderCart/>}
             <div className="header-links">
-              {!this.props.authenticated && <HeaderLogin/>}
+              {!this.props.authenticated && this.renderLoginBtn()}
               {this.props.authenticated && <HeaderLogout/>}
             </div>
             <HeaderSearch/>
@@ -35,7 +49,8 @@ export class Header extends Component {
                       <li><a href="index-bg-white.html" title="">White Background</a></li>
                       <li><a href="index-layout-6.html" title="">Wide + Side Panel</a></li>
                       <li><a href="index-layout-1.html" title="">Classic</a></li>
-                      <li><a href="index-layout-2.html" title="">Journal<span className="menu-label">new look</span></a>
+                      <li><a href="index-layout-2.html" title="">Journal<span
+                        className="menu-label">new look</span></a>
                       </li>
                       <li><a href="index-layout-3.html" title="">Banners Boom</a></li>
                       <li><a href="index-fullscreen-slider.html" title="">Fullscreen Slider</a></li>
@@ -140,7 +155,8 @@ export class Header extends Component {
                           <li><a href="wishlist.html" title="">Wishlist</a></li>
                         </ul>
                       </li>
-                      <li><a href="http:-shopify.big-skins.com/banners-grid-online-editor/" title="">Banners /Grid Editor<span className="menu-label-alt">EXCLUSIVE</span></a></li>
+                      <li><a href="http:-shopify.big-skins.com/banners-grid-online-editor/" title="">Banners /Grid
+                        Editor<span className="menu-label-alt">EXCLUSIVE</span></a></li>
                     </ul>
                   </li>
                   <li><a href="category.html">Men</a></li>
@@ -159,7 +175,8 @@ export class Header extends Component {
                       <li><a href="index-bg-white.html" title="">White Background</a></li>
                       <li><a href="index-layout-6.html" title="">Wide + Side Panel</a></li>
                       <li><a href="index-layout-1.html" title="">Classic</a></li>
-                      <li><a href="index-layout-2.html" title="">Journal<span className="menu-label">new look</span></a>
+                      <li><a href="index-layout-2.html" title="">Journal<span
+                        className="menu-label">new look</span></a>
                       </li>
                       <li><a href="index-layout-3.html" title="">Banners Boom</a></li>
                       <li><a href="index-fullscreen-slider.html" title="">Fullscreen Slider</a></li>
@@ -274,7 +291,8 @@ export class Header extends Component {
                     <div className="container">
                       <div className="megamenu-categories column-4">
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-03.jpg" alt/></a>
+                          <a className="category-image" href="#"><img src="images/category/megamenu-category-03.jpg"
+                                                                      alt/></a>
                           <div className="category-title"><a href="#">Only New</a></div>
                           <ul className="category-links">
                             <li><a href="#">New In Clothing</a></li>
@@ -283,17 +301,21 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-04.jpg" alt/></a>
+                          <a className="category-image" href="#"><img src="images/category/megamenu-category-04.jpg"
+                                                                      alt/></a>
                           <div className="category-title"><a href="#">Only Sale</a></div>
                           <ul className="category-links">
                             <li><a href="#">Sale Clothing</a></li>
-                            <li><a href="#"><b>Sale Shoes</b><span className="menu-label">THREE DAYS ONLY!</span></a></li>
+                            <li><a href="#"><b>Sale Shoes</b><span className="menu-label">THREE DAYS ONLY!</span></a>
+                            </li>
                             <li><a href="#">Sale Accessories</a></li>
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-05.jpg" alt/></a>
-                          <div className="category-title"><a href="#">Top</a><span className="menu-label-alt">NEW</span></div>
+                          <a className="category-image" href="#"><img src="images/category/megamenu-category-05.jpg"
+                                                                      alt/></a>
+                          <div className="category-title"><a href="#">Top</a><span
+                            className="menu-label-alt">NEW</span></div>
                           <ul className="category-links">
                             <li><a href="#">T-Shirts & Vests</a></li>
                             <li><a href="#">Jumpers & Cardigans</a></li>
@@ -301,7 +323,8 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-06.jpg" alt/></a>
+                          <a className="category-image" href="#"><img src="images/category/megamenu-category-06.jpg"
+                                                                      alt/></a>
                           <div className="category-title"><a href="#">Bottom</a></div>
                           <ul className="category-links">
                             <li><a href="#">Shorts</a></li>
@@ -338,14 +361,16 @@ export class Header extends Component {
                       </div>
                       <div className="megamenu-categories column-2">
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-01.jpg"/></a>
+                          <a className="category-image" href="#"><img
+                            src="images/category/megamenu-category-01.jpg"/></a>
                           <div className="category-title title-border"><a href="#">ACCESSORIES<span
                             className="menu-label">HOT</span></a></div>
                           <ul className="category-links column-count-2">
                             <li><a href="#">New In</a></li>
                             <li><a href="#">Belt Buckles</a></li>
                             <li><a href="#">Collar Tips</a></li>
-                            <li><a href="#">Fascinators & Headpieces<span className="menu-label">HOT PRICE</span></a></li>
+                            <li><a href="#">Fascinators & Headpieces<span className="menu-label">HOT PRICE</span></a>
+                            </li>
                             <li><a href="#">Gloves & Mittens</a></li>
                             <li><a href="#">Hair Accessories</a></li>
                             <li><a href="#">Handkerchiefs</a></li>
@@ -359,7 +384,8 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image" href="#"><img src="images/category/megamenu-category-02.jpg" alt/></a>
+                          <a className="category-image" href="#"><img src="images/category/megamenu-category-02.jpg"
+                                                                      alt/></a>
                           <div className="category-title title-border"><a href="#">CLOTHING<span
                             className="menu-label-alt">NEW</span></a></div>
                           <ul className="category-links column-count-2">
@@ -380,7 +406,8 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="megamenu-bottom">
-                          <a href="#"><img className="img-responsive" src="images/banners/banner-megamenu.jpg" alt="megamenu banner"/></a>
+                          <a href="#"><img className="img-responsive" src="images/banners/banner-megamenu.jpg"
+                                           alt="megamenu banner"/></a>
                         </div>
                       </div>
                     </div>
@@ -412,7 +439,8 @@ export class Header extends Component {
                       </div>
                       <div className="megamenu-categories column-3">
                         <div className="col">
-                          <a className="category-image light" href="#"><img src="images/category/megamenu-category-07.jpg"/></a>
+                          <a className="category-image light" href="#"><img
+                            src="images/category/megamenu-category-07.jpg"/></a>
                           <div className="category-title title-border"><a href="#">Cameras & Camcorders<span
                             className="menu-label">HOT</span></a></div>
                           <ul className="category-links">
@@ -426,8 +454,10 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image light" href="#"><img src="images/category/megamenu-category-09.jpg" alt/></a>
-                          <div className="category-title title-border"><a href="#">Cell Phones<span className="menu-label-alt">NEW</span></a>
+                          <a className="category-image light" href="#"><img
+                            src="images/category/megamenu-category-09.jpg" alt/></a>
+                          <div className="category-title title-border"><a href="#">Cell Phones<span
+                            className="menu-label-alt">NEW</span></a>
                           </div>
                           <ul className="category-links">
                             <li><a href="#">No-Contract Phones & Plans</a></li>
@@ -440,7 +470,8 @@ export class Header extends Component {
                           </ul>
                         </div>
                         <div className="col">
-                          <a className="category-image light" href="#"><img src="images/category/megamenu-category-08.jpg"/></a>
+                          <a className="category-image light" href="#"><img
+                            src="images/category/megamenu-category-08.jpg"/></a>
                           <div className="category-title title-border"><a href="#">Video Games<span
                             className="menu-label">HOT</span></a></div>
                           <ul className="category-links">

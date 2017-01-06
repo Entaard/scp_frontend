@@ -39,7 +39,7 @@ export class HeaderLogin extends Component {
   render() {
     return (
       <div className="header-link dropdown-link header-account">
-        <a href="#"><i className="icon icon-user"></i><span className="link-text">Login</span></a>
+        <a href="#"><i className="icon icon-user"></i></a>
         <div className="dropdown-container right">
           <div className="title">Registered Customers</div>
           <div className="top-text">If you have an account with us, please log in.</div>
@@ -54,7 +54,7 @@ export class HeaderLogin extends Component {
               required="true"/>
             <input
               id="password"
-              type="text"
+              type="password"
               value={this.state.password}
               onChange={this.handleInputChange}
               className="form-control"

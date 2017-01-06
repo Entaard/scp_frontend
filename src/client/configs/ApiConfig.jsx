@@ -34,9 +34,10 @@ export function configApi() {
     }
     return response;
   }, function (error) {
+    console.log(error.config);
     console.log(error.response.data);
     console.log(error.response.status);
-    console.log(error.response.data.code);
+    console.log(error.response.data.error.code);
     return Promise.reject(error);
   });
 }

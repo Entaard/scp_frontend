@@ -24,11 +24,8 @@ export class HeaderLogin extends Component {
       email: this.state.email,
       password: this.state.password
     }
-
     this.props.authWithEmail(request)
-      .then(() => {
-        this.setState({password: ''})
-      })
+      .then(() => this.setState({password: ''}))
   }
 
   handleInputChange(event) {

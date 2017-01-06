@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
-import { connect } from 'react-redux'
-import { AUTH_WITH_EMAIL } from '../../actions/AuthAction'
-import { createAction } from '../../utils/SagaUtils'
+import React, {Component} from 'react'
+import {Link} from 'react-router'
+import {connect} from 'react-redux'
+import {AUTH_WITH_EMAIL} from '../../actions/AuthAction'
+import {createAction} from '../../utils/SagaUtils'
 import ModalContainer from '../../components/ModalContainer'
+require('./Header.scss')
 
 export class HeaderLogin extends Component {
   constructor(props) {
@@ -23,11 +24,15 @@ export class HeaderLogin extends Component {
       email: this.state.email,
       password: this.state.password
     }
+
     this.props.authWithEmail(request)
+      .then(() => {
+        this.setState({password: ''})
+      })
   }
 
   handleInputChange(event) {
-    this.setState({ [event.target.id]: event.target.value })
+    this.setState({[event.target.id]: event.target.value})
   }
 
   renderError() {
@@ -40,7 +45,7 @@ export class HeaderLogin extends Component {
 
   renderModalContent() {
     return (
-      <div>
+      <div className="login-modal">
         <div className="title">Registered Customers</div>
         <div className="top-text">If you have an account with us, please log in.</div>
         <form onSubmit={this.handleSubmit}>
@@ -77,9 +82,13 @@ export class HeaderLogin extends Component {
         <ModalContainer
           content={this.renderModalContent()}
           showModal={this.state.showModal}
-          onClose={() => {this.setState({ showModal: false })}}
+          onClose={() => {
+            this.setState({showModal: false})
+          }}
         />
-        <a onClick={() => {this.setState({ showModal: true })}}>
+        <a onClick={() => {
+          this.setState({showModal: true})
+        }}>
           <i className="icon icon-user"></i>
         </a>
       </div>

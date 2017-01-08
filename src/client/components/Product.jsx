@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 
-export class HomeItem extends Component {
+export class Product extends Component {
   render() {
     return (
         <div className="product-item large category1">
@@ -19,11 +20,11 @@ export class HomeItem extends Component {
                            src="images/products/product-10.jpg"
                            alt=""/>
                     </a>
-                    <a href="quick-view.html"
+                    <Link to="/product-detail"
                        title="Quick View"
                        className="quick-view-link quick-view-btn">
                       <i className="icon icon-eye"></i><span>Quick View</span>
-                    </a>
+                    </Link>
                   </div>
 
                 </div>
@@ -92,4 +93,4 @@ export class HomeItem extends Component {
   }
 }
 
-export default HomeItem;
+export default Product;

@@ -7,8 +7,9 @@ import App from './components/App'
 import Home from './containers/Home'
 import Login from './components/Login'
 import NewAccount from './components/NewAccount'
-import Cart from './components/Cart'
+import Cart from './containers/Cart/Cart'
 import WishList from './components/WishList'
+import ProductDetail from './components/ProductDetail'
 import Test from './components/Test'
 
 export default (
@@ -19,5 +20,6 @@ export default (
     <Route path="/account-create" component={SkipAuth(NewAccount)}/>
     <Route path="/cart" component={RequireAuth(Cart)}/>
     <Route path="/wish-list" component={RequireAuth(WishList)}/>
+    <Route path="/product-detail" components={ProductDetail}/>
   </Route>
 );

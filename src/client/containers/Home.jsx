@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import BlogItem from '../components/BlogItem'
-import HomeItem from '../components/HomeItem'
+import Product from '../components/Product'
 import Swiper from '../components/Swiper'
 import {HOME} from '../actions/HomeAction'
 import {createAction} from '../utils/SagaUtils'
@@ -25,7 +25,7 @@ export class Home extends Component {
   renderProductItem() {
     return (
         items.map((item, index) => (
-            <HomeItem
+            <Product
                 key={item.id}
                 name={item.name}
                 price={item.price}

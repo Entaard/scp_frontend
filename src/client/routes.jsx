@@ -10,6 +10,9 @@ import NewAccount from './components/NewAccount'
 import Cart from './containers/Cart/Cart'
 import WishList from './components/WishList'
 import ProductDetail from './components/ProductDetail'
+import NotFound from './components/NotFound'
+import About from './components/About'
+import SearchResult from './components/SearchResult'
 import Test from './components/Test'
 
 export default (
@@ -21,5 +24,8 @@ export default (
     <Route path="/cart" component={RequireAuth(Cart)}/>
     <Route path="/wish-list" component={RequireAuth(WishList)}/>
     <Route path="/product-detail" components={ProductDetail}/>
+    <Route path="/about" components={About}/>
+    <Route path="/search-result" components={SearchResult}/>
+    <Route path="*" components={NotFound}/>
   </Route>
 );

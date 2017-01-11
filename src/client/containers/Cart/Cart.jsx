@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import CartItem from './CartItem'
-import BreadCrumbs from '../../components/BreadCrumbs'
 
 const items = [
   {id: 1, image: '', quantity: 1, name: 'Some shirt 1', price: 50.00},
@@ -27,11 +26,6 @@ export class Cart extends Component {
   render() {
     return (
         <div className="page-main">
-          <div className="block">
-            <div className="container">
-              <BreadCrumbs/>
-            </div>
-          </div>
           <div className="block">
             <div className="container">
               <div className="cart-table">
@@ -65,7 +59,7 @@ export class Cart extends Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-3 total-wrapper">
+                <div className="col-md-6 total-wrapper">
                   <table className="total-price">
                     <tbody>
                     <tr>
@@ -89,8 +83,8 @@ export class Cart extends Component {
                     <a href="#">Checkout with Multiple Addresses</a>
                   </div>
                 </div>
-                <div className="col-sm-6 col-md-5">
-                  <h2>Estimate Shipping and Tax</h2>
+                <div className="col-sm-6 col-md-6">
+                  <h2>Shipping address</h2>
                   <form className="white"
                         action="#">
                     <label>Country<span className="required">*</span></label>
@@ -781,24 +775,9 @@ export class Cart extends Component {
                         </option>
                       </select>
                     </div>
-                    <label>Zip/Postal Code</label>
+                    <label>Street address<span className="required">*</span></label>
                     <input type="text"
                            className="form-control"/>
-                    <div>
-                      <button className="btn btn-alt">Get A Quote</button>
-                    </div>
-                  </form>
-                </div>
-                <div className="col-sm-6 col-md-4">
-                  <h2>Discount Codes</h2>
-                  <form className="white"
-                        action="#">
-                    <label>Enter your coupon code if you have one.</label>
-                    <input type="text"
-                           className="form-control dashed"/>
-                    <div>
-                      <button className="btn btn-alt">Apply Coupon</button>
-                    </div>
                   </form>
                 </div>
               </div>

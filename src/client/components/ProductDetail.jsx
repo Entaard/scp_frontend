@@ -7,10 +7,6 @@ const items = [
   {id: 2, image: '', name: 'Some shirt 2', price: 100},
   {id: 3, image: '', name: 'Some shirt 3', price: 100},
   {id: 4, image: '', name: 'Some shirt 4', price: 123},
-  {id: 5, image: '', name: 'Some shirt 5', price: 234},
-  {id: 6, image: '', name: 'Some shirt 6', price: 221},
-  {id: 7, image: '', name: 'Some shirt 7', price: 121},
-  {id: 8, image: '', name: 'Some shirt 8', price: 111},
 ]
 export class ProductDetail extends Component {
 
@@ -291,12 +287,6 @@ export class ProductDetail extends Component {
                   <li><a href="#Tab1"
                          role="tab"
                          data-toggle="tab">Description</a></li>
-                  <li><a href="#Tab2"
-                         role="tab"
-                         data-toggle="tab">Custom tab</a></li>
-                  <li><a href="#Tab3"
-                         role="tab"
-                         data-toggle="tab">Sizing Guide</a></li>
                   <li><a href="#Tab4"
                          role="tab"
                          data-toggle="tab">Tags</a></li>
@@ -340,84 +330,6 @@ export class ProductDetail extends Component {
                         <tr>
                           <td><strong>WEIGHT</strong></td>
                           <td>0.05, 0.06, 0.07ess cards</td>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div role="tabpanel"
-                       className="tab-pane"
-                       id="Tab2">
-                    <h3 className="custom-color">Take a trivial example which of us ever undertakes</h3>
-                    <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is
-                      pain, but because occasionally circumstances occur in which toil and pain can procure him some
-                      great pleasure. To take a trivial example, which of us ever undertakes laborious physical
-                      exercise, except to obtain some advantage from it? But who has any right to find fault with a man
-                      who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that
-                      produces no resultant pleasure </p>
-                    <ul className="marker-simple-list two-columns">
-                      <li>Nam liberempore</li>
-                      <li>Cumsoluta nobisest</li>
-                      <li>Eligendptio cumque</li>
-                      <li>Nam liberempore</li>
-                      <li>Cumsoluta nobisest</li>
-                      <li>Eligendptio cumque</li>
-                    </ul>
-                  </div>
-                  <div role="tabpanel"
-                       className="tab-pane"
-                       id="Tab3">
-                    <h3>Single Size Conversion</h3>
-                    <div className="table-responsive">
-                      <table className="table table-bordered">
-                        <tbody>
-                        <tr>
-                          <td><strong>UK</strong></td>
-                          <td>
-                            <ul className="params-row">
-                              <li>18</li>
-                              <li>20</li>
-                              <li>22</li>
-                              <li>24</li>
-                              <li>26</li>
-                            </ul>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><strong>European</strong></td>
-                          <td>
-                            <ul className="params-row">
-                              <li>46</li>
-                              <li>48</li>
-                              <li>50</li>
-                              <li>52</li>
-                              <li>54</li>
-                            </ul>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><strong>US</strong></td>
-                          <td>
-                            <ul className="params-row">
-                              <li>14</li>
-                              <li>16</li>
-                              <li>18</li>
-                              <li>20</li>
-                              <li>22</li>
-                            </ul>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><strong>Australia</strong></td>
-                          <td>
-                            <ul className="params-row">
-                              <li>8</li>
-                              <li>10</li>
-                              <li>12</li>
-                              <li>14</li>
-                              <li>16</li>
-                            </ul>
-                          </td>
                         </tr>
                         </tbody>
                       </table>
@@ -612,59 +524,16 @@ export class ProductDetail extends Component {
                style={{overflow: 'hidden', height: '650px'}}>
             <div className="container">
               <div className="row">
-                <div className="col-md-6">
-                  <div className="title">
-                    <h2>From Blog</h2>
-                    <div className="carousel-arrows"></div>
-                  </div>
-                  <div className="blog-carousel">
-                    <div className="blog-item">
-                      <a href="blog.html"
-                         className="blog-item-photo"> <img className="product-image-photo"
-                                                           src="images/blog/blog-1.jpg"
-                                                           alt="From Blog"/> </a>
-                      <div className="blog-item-info">
-                        <a href="blog.html"
-                           className="blog-item-title">Inventore consectetur ullam</a>
-                        <div className="blog-item-teaser">Repellat aspernatur esse minus. Molestiae ipsum earum,
-                          aspernatur
-                          fugit veniam ducimus doloremque repellat suscipit. Cumque!
-                        </div>
-                        <div className="blog-item-links"><span className="pull-left"> <span><a href="#"
-                                                                                               className="readmore">Read more</a></span> </span>
-                          <span className="pull-right"> <span>Post by <a href="#">Admin</a></span> </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="blog-item">
-                      <a href="blog.html"
-                         className="blog-item-photo"> <img className="product-image-photo"
-                                                           src="images/blog/blog-2.jpg"
-                                                           alt="From Blog"/> </a>
-                      <div className="blog-item-info">
-                        <a href="blog.html"
-                           className="blog-item-title">Aperiam, vero facilis</a>
-                        <div className="blog-item-teaser">Commodo delectus consequuntur consectetur culpa ea doloremque
-                          repellat laoreet semper tincidunt lorem Euismod euismod Suspendisse
-                        </div>
-                        <div className="blog-item-links"><span className="pull-left"> <span><a href="#"
-                                                                                               className="readmore">Read more</a></span> </span>
-                          <span className="pull-right"> <span>Post by <a href="#">Admin</a></span> </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="col-md-6">
+                <div className="col-md-12">
 
                   <div className="title">
                     <h2 className="custom-color">Deal of the day</h2>
                     <div className="toggle-arrow"></div>
                     <div className="carousel-arrows"></div>
                   </div>
-                  <div className="collapsed-content">
-                    <div className="deal-carousel-2 products-grid product-variant-5">
+                  <div className="products-grid-wrapper isotope-wrapper">
+                    <div className="products-grid isotope four-in-row product-variant-5">
                       {this.renderProductItem()}
                     </div>
                   </div>

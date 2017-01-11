@@ -62,7 +62,7 @@ export class HeaderLogin extends Component {
             className="form-control"
             placeholder="Password*"
             required="true"/>
-          <button type="submit" className="btn">Sign in</button>
+          <button type="submit" className="btn">Login</button>
         </form>
         <div className="title">OR</div>
         {this.props.error && this.renderError()}

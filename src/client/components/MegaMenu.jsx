@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 export class MegaMenu extends Component {
   render() {
@@ -326,7 +327,7 @@ export class MegaMenu extends Component {
                 </div>
               </div>
             </li>
-            <li><a href="category.html">Sale</a></li>
+            <li><Link to="/about">About</Link></li>
           </ul>
         </div>
 

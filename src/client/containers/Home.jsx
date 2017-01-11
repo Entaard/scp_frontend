@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import BlogItem from '../components/BlogItem'
 import Product from '../components/Product'
 import Swiper from '../components/Swiper'
+import InstaFeed from '../components/InstaFeed'
 import {HOME} from '../actions/HomeAction'
 import {createAction} from '../utils/SagaUtils'
 
@@ -106,12 +107,7 @@ export class Home extends Component {
               </div>
             </div>
           </div>
-          <div className="block fullwidth full-nopad">
-            <div className="container">
-              <div id="instafeed"
-                   className="instagramm-feed-full"></div>
-            </div>
-          </div>
+          <InstaFeed />
         </div>
     )
   }

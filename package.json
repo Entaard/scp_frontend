@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node ./src/app.js",
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8081",
     "build": "webpack -p --config webpack.prod.config.js --progress --profile --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Header from '../containers/header/Header'
+import Header from '../containers/header/Header';
+import AdminHeader from '../components/AdminHeader';
 import Footer from './Footer'
 
 class App extends Component {

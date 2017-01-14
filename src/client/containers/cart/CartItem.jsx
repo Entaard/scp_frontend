@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 require('./Cart.scss')
 
 export class CartItem extends Component {
@@ -6,11 +7,11 @@ export class CartItem extends Component {
     return (
         <div className="table-row">
           <div className="photo">
-            <a href="product.html"><img src="images/products/product-1.jpg"
-                                        alt=""/></a>
+            <Link to="/product-detail"><img src="images/products/product-1.jpg"
+                                        alt=""/></Link>
           </div>
           <div className="name">
-            <a href="product.html">{this.props.name}</a>
+            <Link to="/product-detail">{this.props.name}</Link>
           </div>
           <div className="price">
             ${this.props.price}

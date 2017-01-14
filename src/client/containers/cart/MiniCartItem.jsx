@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router'
 
 export class MiniCartItem extends Component {
   render() {
     return (
         <li className="item product product-item">
           <div className="product">
-            <a className="product-item-photo"
-               href="#"
+            <Link className="product-item-photo"
+               to="/product-detail"
                title={this.props.name}>
 																			<span className="product-image-container">
 																<span className="product-image-wrapper">
@@ -15,10 +16,10 @@ export class MiniCartItem extends Component {
                                      alt={this.props.name}/>
 																</span>
 																			</span>
-            </a>
+            </Link>
             <div className="product-item-details">
               <div className="product-item-name">
-                <a href="#">{this.props.name}</a>
+                <Link to="/product-detail">{this.props.name}</Link>
               </div>
               <div className="product-item-qty">
                 <label className="label">Qty</label>

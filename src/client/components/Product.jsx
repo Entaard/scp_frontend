@@ -15,15 +15,10 @@ export class Product extends Component {
                 <div className="product-item-gallery">
 
                   <div className="product-item-gallery-main">
-                    <a href="#">
+                    <Link to="/product-detail">
                       <img className="product-image-photo"
                            src="images/products/product-10.jpg"
                            alt=""/>
-                    </a>
-                    <Link to="/product-detail"
-                       title="Quick View"
-                       className="quick-view-link quick-view-btn">
-                      <i className="icon icon-eye"></i><span>Quick View</span>
                     </Link>
                   </div>
 

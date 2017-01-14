@@ -25,31 +25,6 @@ export class ProductDetail extends Component {
   render() {
     return (
         <div className="page-main">
-          <div className="block">
-            <div className="container">
-              <ul className="breadcrumbs">
-                <li><a href="index.html"><i className="icon icon-home"></i></a></li>
-                <li>/<a href="#">Women</a></li>
-                <li>/<span>Black swimsuit with bindings</span></li>
-                <li className="product-nav">
-                  <i className="icon icon-angle-left"></i><a href="#"
-                                                             className="product-nav-prev">prev product
-                  <span className="product-nav-preview">
-										<span className="image"><img src="images/products/product-prev-preview.jpg"
-                                                 alt=""/><span className="price">$280</span></span>
-										<span className="name">Black swimsuit</span>
-									</span></a>/
-                  <a href="#"
-                     className="product-nav-next">next product
-                    <span className="product-nav-preview">
-										<span className="image"><img src="images/products/product-next-preview.jpg"
-                                                 alt=""/><span className="price">$280</span></span>
-										<span className="name">Black swimsuit</span>
-									</span></a><i className="icon icon-angle-right"></i>
-                </li>
-              </ul>
-            </div>
-          </div>
           <div className="block product-block">
             <div className="container">
               <div className="row">
@@ -105,16 +80,6 @@ export class ProductDetail extends Component {
                     <div className="product-description">
                       <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
                         sed quia nonkdni numquam eius modi tempora incidunt ut labore </p>
-                    </div>
-                    <div className="countdown-circle hidden-xs">
-                      <div className="countdown-wrapper">
-                        <div className="countdown"
-                             data-promoperiod="0"></div>
-                        <div className="countdown-text">
-                          <div className="text1">Discount 45% OFF</div>
-                          <div className="text2">Hurry, there are only <span>14</span> item(s) left!</div>
-                        </div>
-                      </div>
                     </div>
                     <div className="product-options">
                       <div className="product-size swatches">

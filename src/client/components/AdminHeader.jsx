@@ -1,31 +1,55 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router'
-import {connect} from 'react-redux'
-import HeaderLogin from './HeaderLogin'
-import HeaderLogout from './HeaderLogout'
-import MiniCart from '../cart/MiniCart'
-import MegaMenu from '../../components/MegaMenu'
-import HeaderSearch from '../../components/Search'
-
-export class Header extends Component {
+import React, {Component} from 'react';
+import {Link} from 'react-router';
+require('../containers/admin/admin.scss');
+export class AdminHeader extends Component {
   render() {
     return (
-        <header className="page-header variant-2 fullboxed sticky smart">
+        <header className="page-header variant-2 dark fullboxed sticky stickydark">
           <div className="navbar">
             <div className="container">
               <div className="menu-toggle"><a href="#"
-                                              className="mobilemenu-toggle">
-                <i className="icon icon-menu"></i></a>
-              </div>
-              {this.props.authenticated && <MiniCart/>}
+                                          className="mobilemenu-toggle"><i className="icon icon-menu"></i></a></div>
               <div className="header-links">
-                {this.props.authenticated ? <HeaderLogout/> : <HeaderLogin/>}
+                <div className="header-link dropdown-link header-account">
+                  <a href="#"><i className="icon icon-user"></i></a>
+                  <div className="dropdown-container right">
+                    <div className="title">Registered Customers</div>
+                    <div className="top-text">If you have an account with us, please log in.</div>
+                    <form action="#">
+                      <input type="text"
+                             className="form-control"
+                             placeholder="E-mail*"/>
+                      <input type="text"
+                             className="form-control"
+                             placeholder="Password*"/>
+                      <button type="submit"
+                              className="btn">Sign in
+                      </button>
+                    </form>
+                    <div className="title">OR</div>
+                    <div className="bottom-text">Create a <a href="account-create.html">New Account</a></div>
+                  </div>
+                </div>
               </div>
-              <HeaderSearch/>
+              <div className="header-link header-search header-search">
+                <div className="exp-search">
+                  <form>
+                    <input className="exp-search-input "
+                           placeholder="Search here ..."
+                           type="text"
+                           />
+                    <input className="exp-search-submit"
+                           type="submit"
+                           />
+                    <span className="exp-icon-search"><i className="icon icon-magnify"></i></span>
+                    <span className="exp-search-close"><i className="icon icon-close"></i></span>
+                  </form>
+                </div>
+              </div>
               <div className="header-logo">
-                <Link to="/"
-                      title="Logo"><img src="images/logo.png"
-                                        alt="Logo"/></Link>
+                <a href="index.html"
+                   title="Logo"><img src="images/logo.png"
+                                     alt="Logo"/></a>
               </div>
               <div className="mobilemenu dblclick">
                 <div className="mobilemenu-header">
@@ -43,12 +67,11 @@ export class Header extends Component {
                                title="">White Background</a></li>
                         <li><a href="index-layout-6.html"
                                title="">Wide + Side Panel</a></li>
+
                         <li><a href="index-layout-1.html"
                                title="">Classic</a></li>
                         <li><a href="index-layout-2.html"
-                               title="">Journal<span
-                            className="menu-label">new look</span></a>
-                        </li>
+                               title="">Journal<span className="menu-label">new look</span></a></li>
                         <li><a href="index-layout-3.html"
                                title="">Banners Boom</a></li>
                         <li><a href="index-fullscreen-slider.html"
@@ -69,15 +92,13 @@ export class Header extends Component {
                       <ul>
                         <li>
                           <a href="category.html"
-                             title="">Listing<span
-                              className="menu-label-alt">NEW FEATURES</span></a><span className="arrow"></span>
+                             title="">Listing<span className="menu-label-alt">NEW FEATURES</span></a><span className="arrow"></span>
                           <ul>
                             <li><a href="category.html"
                                    title="">Classic Listing</a>
                             </li>
                             <li><a href="category-fixed-sidebar.html"
-                                   title="">Listing Fixed Filter<span
-                                className="menu-label-alt">NEW </span></a>
+                                   title="">Listing Fixed Filter<span className="menu-label-alt">NEW </span></a>
                             </li>
                             <li><a href="category-no-filter.html"
                                    title="">Listing No Filter</a></li>
@@ -213,9 +234,8 @@ export class Header extends Component {
                                    title="">Wishlist</a></li>
                           </ul>
                         </li>
-                        <li><a href="http:-shopify.big-skins.com/banners-grid-online-editor/"
-                               title="">Banners /Grid
-                          Editor<span className="menu-label-alt">EXCLUSIVE</span></a></li>
+                        <li><a href="http://seiko-shopify.big-skins.com/banners-grid-online-editor/"
+                               title="">Banners / Grid Editor<span className="menu-label-alt">EXCLUSIVE</span></a></li>
                       </ul>
                     </li>
                     <li><a href="category.html">Men</a></li>
@@ -224,19 +244,10 @@ export class Header extends Component {
                   </ul>
                 </div>
               </div>
-              <MegaMenu/>
             </div>
           </div>
         </header>
     )
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    authenticated: state.auth.authenticated,
-    user: state.auth.user
-  }
-}
-
-export default connect(mapStateToProps)(Header);
+export default AdminHeader;

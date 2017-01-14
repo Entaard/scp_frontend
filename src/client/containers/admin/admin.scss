@@ -1,0 +1,30 @@
+@media screen and (min-width: 992px) {
+  html {
+    .open-panel {
+      #wrapper {
+        padding-left: 125px;
+        .sidebar-wrapper {
+          width: 125px;
+        }
+      }
+      .sidebar-wrapper {
+        width: 125px;
+      }
+    }
+  }
+}
+.sidebar-wrapper {
+  a.active {
+    background-color: #494e62;
+  }
+}
+.sidebar-wrapper li a.active:before {
+  left: 121px!important;
+  border-right: 4px solid #D2524E!important;
+}
+
+body.boxed .page-header.fullboxed {
+  width: 100vw!important;
+  margin-left: -50vw;
+  left: 50%;
+}

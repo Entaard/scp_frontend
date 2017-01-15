@@ -66,7 +66,7 @@ export class HeaderLogin extends Component {
         </form>
         <div className="title">OR</div>
         {this.props.error && this.renderError()}
-        <div className="bottom-text">
+        <div className="bottom-text" onClick={() => this.setState({showModal: false})}>
           Create a <Link to="/account-create">New Account</Link>
         </div>
       </div>

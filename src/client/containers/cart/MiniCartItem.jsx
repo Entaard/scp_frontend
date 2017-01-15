@@ -25,6 +25,7 @@ export class MiniCartItem extends Component {
                 <label className="label">Qty</label>
                 <input className="item-qty cart-item-qty"
                        maxLength="12"
+                       onChange={()=> console.log('change')}
                        value={this.props.quantity}/>
                 <button className="update-cart-item"
                         style={{display: 'none'}}
@@ -43,7 +44,7 @@ export class MiniCartItem extends Component {
                 </div>
                 <div className="product actions">
                   <div className="secondary">
-                    <a href="#"
+                    <a 
                        className="action delete"
                        title="Remove item">
                       <span>Delete</span>
@@ -51,7 +52,7 @@ export class MiniCartItem extends Component {
                   </div>
                   <div className="primary">
                     <a className="action edit"
-                       href="#"
+                       
                        title="Edit item">
                       <span>Edit</span>
                     </a>

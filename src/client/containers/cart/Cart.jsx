@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import CartItem from './CartItem'
+import React, {Component} from 'react';
+import CartItem from './CartItem';
+import { Link } from 'react-router';
 
 const items = [
   {id: 1, image: '', quantity: 1, name: 'Some shirt 1', price: 50.00},
@@ -51,7 +52,7 @@ export class Cart extends Component {
                 </div>
                 {this.renderCartItem()}
                 <div className="table-footer">
-                  <button className="btn btn-alt">CONTINUE SHOPPING</button>
+                  <Link to="/" className="btn btn-alt">CONTINUE SHOPPING</Link>
                   <button className="btn btn-alt pull-right"><i
                       className="icon icon-bin"></i><span>Clear Shopping Cart</span></button>
                   <button className="btn btn-alt pull-right"><i className="icon icon-sync"></i><span>UPDATE</span>

@@ -9,7 +9,7 @@ export class AdminProduct extends Component {
             <div className="product-item-info">
 
               <div className="product-item-photo">
-                <Link to="/product-detail"> <img className="product-image-photo"
+                <Link to="/admin-product-detail"> <img className="product-image-photo"
                                              src="images/products/product-13.jpg"
                                              alt=""/> </Link>
 
@@ -17,7 +17,7 @@ export class AdminProduct extends Component {
 
               <div className="product-item-details">
                 <div className="product-item-name"><Link title={this.props.name}
-                                                      to="/product-detail"
+                                                      to="/admin-product-detail"
                                                       className="product-item-link">{this.props.name}</Link></div>
                 <div className="price-box"> <span className="price-container"> <span className="price-wrapper"><span className="price">{this.props.price}</span> </span>
 														</span>
@@ -25,7 +25,7 @@ export class AdminProduct extends Component {
                 <div className="product-item-actions">
                   <div className="actions-primary">
                     <button className="btn btn-sm btn-invert">
-                      <span>Edit</span>
+                      <span>Delete</span>
                     </button>
                   </div>
                 </div>

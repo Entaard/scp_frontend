@@ -88,14 +88,14 @@ export class Home extends Component {
           <div className="block">
             <div className="container">
               <ul className="filters filters-product style2">
-                <li><a href="#"
+                <li><a 
                        className="filter-label">All<span className="count"></span></a></li>
-                <li><a href="#"
+                <li><a 
                        className="filter-label active"
                        data-filter=".category1">New<span
                     className="count"></span></a>
                 </li>
-                <li><a href="#"
+                <li><a 
                        className="filter-label"
                        data-filter=".category2">Sale<span
                     className="count"></span></a></li>

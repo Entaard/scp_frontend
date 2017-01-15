@@ -5,8 +5,7 @@ import AdminNavigation from '../../components/AdminNavigation';
 import AdminProduct from '../../components/AdminProduct';
 require('./admin.scss');
 
-let items = [
-]
+let items = []
 for (let i = 0; i < 16; i++) {
   items.push({id: i, image: '', name: `Some shirt ${i}`, price: 100 + i});
 }

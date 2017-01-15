@@ -193,7 +193,6 @@ export class ProductDetail extends Component {
                         <div className="col-md-6">
                           <div className="product-meta">
                             <span><a href="#"><i className="icon icon-heart"></i> Add to wishlist</a></span>
-                            <span><a href="#"><i className="icon icon-balance"></i> Add to Compare</a></span>
                           </div>
                           <div className="social">
                             <div className="share-button toLeft">

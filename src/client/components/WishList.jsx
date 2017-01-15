@@ -62,7 +62,7 @@ export class WishList extends Component {
                   </div>
                 </div>
                 <div className="table-footer">
-                  <button className="btn btn-alt">CONTINUE SHOPPING</button>
+                  <Link to="/" className="btn btn-alt">CONTINUE SHOPPING</Link>
                 </div>
               </div>
             </div>

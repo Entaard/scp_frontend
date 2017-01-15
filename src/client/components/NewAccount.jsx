@@ -7,14 +7,6 @@ export class NewAccount extends Component {
       <main className="page-main">
         <div className="block">
           <div className="container">
-            <ul className="breadcrumbs">
-              <li><Link to="/"><i className="icon icon-home"></i></Link></li>
-              <li>/<span>Faq</span></li>
-            </ul>
-          </div>
-        </div>
-        <div className="block">
-          <div className="container">
             <div className="form-card">
               <h3>Personal Information</h3>
               <form className="account-create" action="#">

@@ -1,12 +1,33 @@
-import React, {Component} from 'react';
-import Navbar from '../../components/admin/Navigation';
-import TrainedImage from '../../components/admin/TrainedImage';
+import React, {Component} from 'react'
+import Navbar from '../../components/admin/Navigation'
+import TrainedImage from '../../components/admin/TrainedImage'
+import Pagination from '../../components/Pagination'
 
 let items = []
 for (let i = 0; i < 15; i++) {
   items.push({id: i, image: '', name: `image ${i}`});
 }
 export class ProductDetail extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentPage: 0
+    }
+    this.onPageChange = this.onPageChange.bind(this)
+  }
+
+  componentDidMount() {
+    // alert(this.props.params.id)
+  }
+
+  onPageChange(page) {
+    this.setState(state => {
+      state.currentPage = page.selected
+    }, () => {
+      // this.callApi(this.state.currentPage)
+    })
+  }
+
   renderImages() {
     return (
       items.map((item, index) => (
@@ -75,10 +96,10 @@ export class ProductDetail extends Component {
                       <h2>Tags</h2>
                       <ul className="tags">
                         <li className="active"><a ><span className="value"><span>Dresses</span></span></a></li>
-                        <li><a ><span className="value"><span>Outerwear</span></span></a></li>
-                        <li><a ><span className="value"><span>Tops</span></span></a></li>
-                        <li><a ><span className="value"><span>Sleeveless tops</span></span></a></li>
-                        <li><a ><span className="value"><span>Sweaters</span></span></a></li>
+                        <li><a><span className="value"><span>Outerwear</span></span></a></li>
+                        <li><a><span className="value"><span>Tops</span></span></a></li>
+                        <li><a><span className="value"><span>Sleeveless tops</span></span></a></li>
+                        <li><a><span className="value"><span>Sweaters</span></span></a></li>
                       </ul>
                     </div>
                     <div className="sideblock half">
@@ -100,15 +121,20 @@ export class ProductDetail extends Component {
                 </div>
                 <div className="row">
                   <div className="col-md-6">
-                    <ul className="pagination pull-right">
-                      <li><a ><i className="icon icon-angle-left"></i></a></li>
-                      <li className="active"><a >1</a></li>
-                      <li><a >2</a></li>
-                      <li><a >3</a></li>
-                      <li><a >4</a></li>
-                      <li><a >5</a></li>
-                      <li><a ><i className="icon icon-angle-right"></i></a></li>
-                    </ul>
+                    {/*<ul className="pagination pull-right">*/}
+                      {/*<li><a ><i className="icon icon-angle-left"></i></a></li>*/}
+                      {/*<li className="active"><a >1</a></li>*/}
+                      {/*<li><a >2</a></li>*/}
+                      {/*<li><a >3</a></li>*/}
+                      {/*<li><a >4</a></li>*/}
+                      {/*<li><a >5</a></li>*/}
+                      {/*<li><a ><i className="icon icon-angle-right"></i></a></li>*/}
+                    {/*</ul>*/}
+                    <Pagination
+                      currentPage={this.state.currentPage}
+                      pageCount={10}
+                      onPageChange={this.onPageChange}
+                    />
                   </div>
                 </div>
               </div>

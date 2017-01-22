@@ -21,7 +21,7 @@ import Test from './components/Test';
 export default [
   <Route path="/admin" component={Admin}>
     <IndexRoute component={AdminHome}/>
-    <Route path="/admin/product-detail" components={AdminProductDetail}/>
+    <Route path="/admin/product-detail/:id" components={AdminProductDetail}/>
   </Route>,
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>

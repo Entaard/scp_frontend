@@ -72,7 +72,7 @@ export class ProductDetail extends Component {
                       </ul>
                     </div>
                     <div className="sideblock half">
-                      <h2>Tags</h2>
+                      <h2>Concepts</h2>
                       <ul className="tags">
                         <li className="active"><a ><span className="value"><span>Dresses</span></span></a></li>
                         <li><a ><span className="value"><span>Outerwear</span></span></a></li>

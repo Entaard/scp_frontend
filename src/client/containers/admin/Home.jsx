@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 
-import AdminNavigation from '../../components/AdminNavigation';
-import AdminProduct from '../../components/AdminProduct';
+import Navbar from '../../components/admin/Navigation';
+import Product from '../../components/admin/Product';
 require('./admin.scss');
 
 let items = []
 for (let i = 0; i < 16; i++) {
   items.push({id: i, image: '', name: `Some shirt ${i}`, price: 100 + i});
 }
-export class AdminHome extends Component {
+export class Home extends Component {
   renderProducts() {
     return (
         items.map((item, index) => (
-            <AdminProduct
+            <Product
                 name={item.name}
                 price={item.price}
                 key={item.id}
@@ -27,7 +27,7 @@ export class AdminHome extends Component {
         <div className="open-panel">
           <div id="wrapper">
             <div className="page-wrapper">
-              <AdminNavigation/>
+              <Navbar/>
               <div className="page-main">
                 <div className="row">
                   <div className="col-sm-8 col-md-11">
@@ -84,4 +84,4 @@ export class AdminHome extends Component {
     )
   }
 }
-export default AdminHome;
+export default Home;

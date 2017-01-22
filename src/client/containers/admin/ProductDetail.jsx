@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import AdminNavigation from '../../components/AdminNavigation';
-import TrainedImage from '../../components/TrainedImage';
+import Navbar from '../../components/admin/Navigation';
+import TrainedImage from '../../components/admin/TrainedImage';
 require('./admin.scss');
 
 let items = []
 for (let i = 0; i < 15; i++) {
   items.push({id: i, image: '', name: `image ${i}`});
 }
-export class AdminProductDetail extends Component {
+export class ProductDetail extends Component {
   renderImages() {
     return (
         items.map((item, index) => (
@@ -24,7 +24,7 @@ export class AdminProductDetail extends Component {
         <div className="open-panel">
           <div id="wrapper">
             <div className="page-wrapper">
-              <AdminNavigation/>
+              <Navbar/>
               <div className="page-main">
                 <div className="container">
                   <div className="page-title">
@@ -124,4 +124,4 @@ export class AdminProductDetail extends Component {
     )
   }
 }
-export default AdminProductDetail;
+export default ProductDetail;

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 
-require('../containers/admin/admin.scss');
+require('../../containers/admin/admin.scss');
 
-export class AdminNavigation extends Component {
+export class Navigation extends Component {
   render() {
     return (
         <div className="sidebar-wrapper">
@@ -17,4 +17,4 @@ export class AdminNavigation extends Component {
     )
   }
 }
-export default AdminNavigation;
+export default Navigation;

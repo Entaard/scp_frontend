@@ -13,11 +13,16 @@ import ProductDetail from './components/ProductDetail';
 import NotFound from './components/NotFound';
 import About from './components/About';
 import SearchResult from './components/SearchResult';
-import AdminHome from './containers/admin/AdminHome';
-import AdminProductDetail from './containers/admin/AdminProductDetail';
+import AdminHome from './containers/admin/Home';
+import AdminProductDetail from './containers/admin/ProductDetail';
+import Admin from './components/Admin';
 import Test from './components/Test';
 
-export default (
+export default [
+  <Route path="/admin" component={Admin}>
+      <IndexRoute component={AdminHome}/>
+      <Route path="product-detail" components={RequireAuth(AdminProductDetail)}/>
+  </Route>,
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/test" component={Test}/>
@@ -25,11 +30,9 @@ export default (
     <Route path="/account-create" component={NewAccount}/>
     <Route path="/cart" component={RequireAuth(Cart)}/>
     <Route path="/wish-list" component={RequireAuth(WishList)}/>
-    <Route path="/product-detail" components={ProductDetail}/>
-    <Route path="/about" components={About}/>
-    <Route path="/search-result" components={SearchResult}/>
-    <Route path="/admin" components={RequireAuth(AdminHome)}/>
-    <Route path="/admin-product-detail" components={RequireAuth(AdminProductDetail)}/>
+    <Route path="/product-detail" component={ProductDetail}/>
+    <Route path="/about" component={About}/>
+    <Route path="/search-result" component={SearchResult}/>
     <Route path="*" components={NotFound}/>
   </Route>
-);
+]

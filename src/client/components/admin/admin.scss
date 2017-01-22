@@ -1,5 +1,12 @@
 @media screen and (min-width: 992px) {
   html {
+    .admin-main {
+      .container {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+      }
+    }
+
     .open-panel {
       #wrapper {
         padding-left: 125px;

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 
-require('../../containers/admin/admin.scss');
-
 export class Navigation extends Component {
   render() {
     return (

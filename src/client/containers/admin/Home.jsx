@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 
 import Navbar from '../../components/admin/Navigation';
 import Product from '../../components/admin/Product';
-require('./admin.scss');
 
 let items = []
 for (let i = 0; i < 16; i++) {

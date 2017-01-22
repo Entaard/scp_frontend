@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from '../../components/admin/Navigation';
 import TrainedImage from '../../components/admin/TrainedImage';
-require('./admin.scss');
 
 let items = []
 for (let i = 0; i < 15; i++) {

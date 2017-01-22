@@ -7,7 +7,7 @@ export class TrainedImage extends Component {
           <a href="#"
              className="category-block">
             <div className="category-image">
-              <img src="images/category/category-img-01.jpg"
+              <img src="/images/category/category-img-01.jpg"
                    alt="#"/>
             </div>
             <div className="category-title">

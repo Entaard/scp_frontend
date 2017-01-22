@@ -15,6 +15,7 @@
     "start": "node ./src/app.js",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8081",
     "build": "webpack -p --config webpack.prod.config.js --progress --profile --colors",
+    "build:dev": "webpack -w --config webpack.config.js --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "heroku-postbuild": "webpack -p --config webpack.prod.config.js --progress --profile --colors"
@@ -64,10 +65,10 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-hot-middleware": "^2.10.0",
+    "axios-mock-adapter": "^1.7.1"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.7.1",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",

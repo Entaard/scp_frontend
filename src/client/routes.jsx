@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute, RouteNotFound } from 'react-router';
+import {Route, IndexRoute, RouteNotFound} from 'react-router';
 import RequireAuth from './containers/auth/RequireAuth';
 import SkipAuth from './containers/auth/SkipAuth';
 
@@ -20,8 +20,8 @@ import Test from './components/Test';
 
 export default [
   <Route path="/admin" component={Admin}>
-      <IndexRoute component={AdminHome}/>
-      <Route path="product-detail" components={RequireAuth(AdminProductDetail)}/>
+    <IndexRoute component={AdminHome}/>
+    <Route path="/admin/product-detail" components={AdminProductDetail}/>
   </Route>,
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>

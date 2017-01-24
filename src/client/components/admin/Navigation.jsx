@@ -6,9 +6,8 @@ export class Navigation extends Component {
     return (
         <div className="sidebar-wrapper">
           <ul className="sidebar-nav">
-            <li><Link activeClassName="active"
-                      to="/admin">Home</Link></li>
-            <li><a href="gallery.html">UPLOAD</a></li>
+            <li><Link to="/admin">PRODUCT</Link></li>
+            <li><Link to="/admin/upload">UPLOAD</Link></li>
             <li><a href="blog.html">CATEGORY</a></li>
           </ul>
         </div>

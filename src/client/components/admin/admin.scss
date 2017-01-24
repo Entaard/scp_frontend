@@ -1,37 +1,56 @@
 @media screen and (min-width: 992px) {
-  html {
-    .admin-main {
-      .container {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
-      }
-    }
-
-    .open-panel {
-      #wrapper {
-        padding-left: 125px;
+  body:not(.open-panel) {
+    #wrapper {
+      .admin-main {
+        header .navbar .container {
+          padding-left: 5%;
+          padding-right: 5%;
+        }
+        .open-left {
+          padding-left: 6%;
+          h2 {
+            border-bottom: none;
+          }
+          .newsletter {
+            margin: 0 auto;
+            float: none;
+          }
+          .tag {
+            float: none;
+            margin: 0 auto;
+          }
+        }
+        .container {
+          .pagination-row {
+            padding-right: 5%;
+            text-align: center;
+          }
+        }
         .sidebar-wrapper {
           width: 125px;
         }
       }
-      .sidebar-wrapper {
-        width: 125px;
-      }
     }
   }
 }
+
 .sidebar-wrapper {
   a.active {
     background-color: #494e62;
   }
 }
+
 .sidebar-wrapper li a.active:before {
-  left: 121px!important;
-  border-right: 4px solid #D2524E!important;
+  left: 121px !important;
+  border-right: 4px solid #D2524E !important;
 }
 
 body.boxed .page-header.fullboxed {
-  width: 100vw!important;
+  width: 100vw !important;
   margin-left: -50vw;
   left: 50%;
+}
+
+footer {
+  padding-left: 6%;
 }

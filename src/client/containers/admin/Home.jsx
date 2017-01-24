@@ -1,32 +1,47 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 
-import Navbar from '../../components/admin/Navigation';
 import Product from '../../components/admin/Product';
+import Pagination from '../../components/Pagination'
 
 let items = []
 for (let i = 0; i < 16; i++) {
   items.push({id: i, image: '', name: `Some shirt ${i}`, price: 100 + i});
 }
 export class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentPage: 0
+    }
+    this.onPageChange = this.onPageChange.bind(this)
+  }
+
+  onPageChange(page) {
+    this.setState(state => {
+      state.currentPage = page.selected
+    }, () => {
+      // this.callApi(this.state.currentPage)
+    })
+  }
+
   renderProducts() {
     return (
-      items.map(product => (
-        <Product
-          product={product}
-          key={product.id}
-        />
-      ))
+        items.map(product => (
+            <Product
+                product={product}
+                key={product.id}
+            />
+        ))
     )
   }
 
   render() {
     return (
-      <div className="open-panel">
-        <div id="wrapper">
+        <div className="open-left">
           <div className="page-wrapper">
-            <Navbar/>
             <div className="page-main">
+              <div className="container">
               <div className="row">
                 <div className="col-sm-8 col-md-11">
 
@@ -36,7 +51,7 @@ export class Home extends Component {
                         <div className="filter-button">
                           <a href="#"
                              className="btn filter-col-toggle"><i
-                            className="icon icon-filter"></i><span>FILTER</span></a>
+                              className="icon icon-filter"></i><span>FILTER</span></a>
                         </div>
                         <div className="form-label">Sort by:</div>
                         <div className="select-wrapper-sm">
@@ -63,23 +78,17 @@ export class Home extends Component {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-md-6">
-                  <ul className="pagination pull-right">
-                    <li><a href="#"><i className="icon icon-angle-left"></i></a></li>
-                    <li className="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#"><i className="icon icon-angle-right"></i></a></li>
-                  </ul>
-                </div>
+              <div className="row pagination-row">
+                <Pagination
+                    currentPage={this.state.currentPage}
+                    pageCount={10}
+                    onPageChange={this.onPageChange}
+                />
+              </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

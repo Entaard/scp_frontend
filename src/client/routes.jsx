@@ -1,26 +1,28 @@
-import React from 'react';
-import {Route, IndexRoute, RouteNotFound} from 'react-router';
-import RequireAuth from './containers/auth/RequireAuth';
-import SkipAuth from './containers/auth/SkipAuth';
+import React from 'react'
+import {Route, IndexRoute, RouteNotFound} from 'react-router'
+import RequireAuth from './containers/auth/RequireAuth'
+import SkipAuth from './containers/auth/SkipAuth'
 
-import App from './components/App';
-import Home from './containers/Home';
-import Login from './components/Login';
-import NewAccount from './components/NewAccount';
-import Cart from './containers/cart/Cart';
-import WishList from './components/WishList';
-import ProductDetail from './components/ProductDetail';
-import NotFound from './components/NotFound';
-import About from './components/About';
-import SearchResult from './components/SearchResult';
-import AdminHome from './containers/admin/Home';
-import AdminProductDetail from './containers/admin/ProductDetail';
-import Admin from './components/Admin';
-import Test from './components/Test';
+import App from './components/App'
+import Home from './containers/Home'
+import Login from './components/Login'
+import NewAccount from './components/NewAccount'
+import Cart from './containers/cart/Cart'
+import WishList from './components/WishList'
+import ProductDetail from './components/ProductDetail'
+import NotFound from './components/NotFound'
+import About from './components/About'
+import SearchResult from './components/SearchResult'
+import AdminHome from './containers/admin/Home'
+import Wizard from './containers/admin/wizard/Wizard'
+import AdminProductDetail from './containers/admin/ProductDetail'
+import Admin from './components/Admin'
+import Test from './components/Test'
 
 export default [
   <Route path="/admin" component={Admin}>
     <IndexRoute component={AdminHome}/>
+    <Route path="/admin/upload" components={Wizard}/>
     <Route path="/admin/product-detail/:id" components={AdminProductDetail}/>
   </Route>,
   <Route path="/" component={App}>

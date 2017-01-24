@@ -16,7 +16,7 @@ export class Pagination extends Component {
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={this.props.onPageChange}
-        containerClassName={"pagination pull-right"}
+        containerClassName={"pagination"}
         subContainerClassName={"pagination pull-right"}
         activeClassName={"active"}/>
     )

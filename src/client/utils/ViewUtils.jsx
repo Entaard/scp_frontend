@@ -4,3 +4,11 @@ export function updateSwiper() {
     mainSlider.swiperUpdate()
   }
 }
+
+// Truyền thêm callback vào nếu cần
+export function tagit(id, available) {
+  $(`#${id}`).tagit({
+    availableTags: available,
+    singleField: true
+  });
+}

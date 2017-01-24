@@ -9,6 +9,7 @@ export function updateSwiper() {
 export function tagit(id, available) {
   $(`#${id}`).tagit({
     availableTags: available,
-    singleField: true
+    singleField: true,
+    allowSpaces: true
   });
 }

@@ -8,16 +8,15 @@
         }
         .open-left {
           padding-left: 6%;
+          .container {
+            padding-left: 5%;
+          }
           h2 {
             border-bottom: none;
           }
           .newsletter {
             margin: 0 auto;
             float: none;
-          }
-          .tag {
-            float: none;
-            margin: 0 auto;
           }
         }
         .container {

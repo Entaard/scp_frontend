@@ -67,7 +67,7 @@ export class Basic extends Component {
             </div>
           </div>
         </div>
-        <div className="col-sm-11 col-md-11">
+        <div className="col-sm-12 col-md-12">
           <div>
             <button className="btn btn-alt pull-right"
                     onClick={this.props.nextStep}>Next

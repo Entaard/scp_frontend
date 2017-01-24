@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { tagit } from '../../../utils/ViewUtils'
+import React, {Component} from 'react'
+import {tagit} from '../../../utils/ViewUtils'
 
 export class Concept extends Component {
   constructor(props) {
@@ -7,7 +7,8 @@ export class Concept extends Component {
   }
 
   componentDidMount() {
-    tagit('singleFieldTags', ['a', 'b', 'c'])
+    tagit('concept', ['a', 'b', 'c'])
+    tagit('not-concept', ['a', 'b', 'c'])
   }
 
   render() {
@@ -22,8 +23,15 @@ export class Concept extends Component {
               <br/>to improve the system's accurracy</p>
           </div>
         </div>
-        <ul id="singleFieldTags"></ul>
-        <div className="col-sm-11 col-md-11">
+        <div className="sideblock col-md-6">
+          <h2>Concepts</h2>
+          <ul id="concept"></ul>
+        </div>
+        <div className="sideblock col-md-6">
+          <h2>Not concepts</h2>
+          <ul id="not-concept"></ul>
+        </div>
+        <div className="col-sm-12 col-md-12">
           <button
             className="btn btn-alt"
             onClick={this.props.previousStep}>

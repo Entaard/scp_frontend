@@ -44,12 +44,12 @@ export class Training extends Component {
             </form>
           </div>
         </div>
-        <div className="col-md-11 col-lg-11">
-          <h2 className="custom-color">Uploaded images </h2>
-          {this.renderImages()}
-        </div>
+        {/*<div className="col-md-11 col-lg-11">*/}
+          {/*<h2 className="custom-color">Uploaded images </h2>*/}
+          {/*{this.renderImages()}*/}
+        {/*</div>*/}
 
-        <div className="col-sm-11 col-md-11">
+        <div className="col-sm-12 col-md-12">
           <button className="btn btn-alt"
                   onClick={this.props.previousStep}>Previous
           </button>

@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, {Component} from 'react'
+import {Link} from 'react-router'
+import {GET_ADMIN_PRODUCTS} from '../../actions/ProductAction'
+import {connect} from 'react-redux'
+import {createAction} from '../../utils/SagaUtils'
 
 import Product from '../../components/admin/Product';
 import Pagination from '../../components/Pagination'
@@ -17,6 +20,15 @@ export class Home extends Component {
     this.onPageChange = this.onPageChange.bind(this)
   }
 
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.props.getAdminProducts()
+      .then(() => console.log(this.product))
+  }
+
   onPageChange(page) {
     this.setState(state => {
       state.currentPage = page.selected
@@ -27,21 +39,21 @@ export class Home extends Component {
 
   renderProducts() {
     return (
-        items.map(product => (
-            <Product
-                product={product}
-                key={product.id}
-            />
-        ))
+      items.map(product => (
+        <Product
+          product={product}
+          key={product.id}
+        />
+      ))
     )
   }
 
   render() {
     return (
-        <div className="open-left">
-          <div className="page-wrapper">
-            <div className="page-main">
-              <div className="container">
+      <div className="open-left">
+        <div className="page-wrapper">
+          <div className="page-main">
+            <div className="container">
               <div className="row">
                 <div className="col-sm-8 col-md-11">
 
@@ -51,7 +63,7 @@ export class Home extends Component {
                         <div className="filter-button">
                           <a href="#"
                              className="btn filter-col-toggle"><i
-                              className="icon icon-filter"></i><span>FILTER</span></a>
+                            className="icon icon-filter"></i><span>FILTER</span></a>
                         </div>
                         <div className="form-label">Sort by:</div>
                         <div className="select-wrapper-sm">
@@ -80,16 +92,24 @@ export class Home extends Component {
               </div>
               <div className="row pagination-row">
                 <Pagination
-                    currentPage={this.state.currentPage}
-                    pageCount={10}
-                    onPageChange={this.onPageChange}
+                  currentPage={this.state.currentPage}
+                  pageCount={10}
+                  onPageChange={this.onPageChange}
                 />
-              </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     )
   }
 }
-export default Home;
+
+const mapStateToProps = (state) => ({
+  product: state.product
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getAdminProducts: createAction(GET_ADMIN_PRODUCTS, dispatch)
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

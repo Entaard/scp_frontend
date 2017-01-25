@@ -20,12 +20,12 @@ import Admin from './components/Admin'
 import Test from './components/Test'
 
 export default [
-  <Route path="/admin" component={Admin}>
+  <Route key="admin" path="/admin" component={Admin}>
     <IndexRoute component={AdminHome}/>
     <Route path="/admin/upload" components={Wizard}/>
     <Route path="/admin/product-detail/:id" components={AdminProductDetail}/>
   </Route>,
-  <Route path="/" component={App}>
+  <Route key="app" path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/test" component={Test}/>
     <Route path="/login" component={SkipAuth(Login)}/>

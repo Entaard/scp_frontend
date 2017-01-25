@@ -1,8 +1,8 @@
-import { GET_ADMIN_PRODUCTS } from '../actions/ProductAction';
+import { GET_ADMIN_PRODUCT_DETAIL } from '../../actions/ProductAction';
 
 export default function (state = [], action) {
   switch (action.type) {
-    case `${GET_ADMIN_PRODUCTS}_DATA`:
+    case `${GET_ADMIN_PRODUCT_DETAIL}_DATA`:
       return action.payload
   }
   return state;

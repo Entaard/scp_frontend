@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import TrainedImage from '../../components/admin/TrainedImage'
 import Pagination from '../../components/Pagination'
+import {GET_ADMIN_PRODUCT_DETAIL} from '../../actions/ProductAction'
+import {createAction} from '../../utils/SagaUtils'
+import {connect} from 'react-redux'
 
 let items = []
 for (let i = 0; i < 15; i++) {
@@ -16,7 +19,15 @@ export class ProductDetail extends Component {
   }
 
   componentDidMount() {
-    // alert(this.props.params.id)
+    this.getProductDetail(this.props.params.id)
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.product, 'ssss')
+  }
+
+  getProductDetail(id) {
+    this.props.getAdminProductDetail(id)
   }
 
   onPageChange(page) {
@@ -28,14 +39,18 @@ export class ProductDetail extends Component {
   }
 
   renderImages() {
-    return (
-      items.map((item, index) => (
-        <TrainedImage
-          key={item.id}
-          name={item.name}
-        />
-      ))
+    return this.props.product.images.result.map(item => (
+      <TrainedImage
+        key={item.id}
+        name={item.url}
+      />)
     )
+  }
+
+  renderConcepts() {
+    return this.props.product.concepts.map(item => (
+      <li key={item.id} className={item.is_concept ? 'active': null}><a><span className="value"><span>{item.name}</span></span></a></li>
+    ))
   }
 
   render() {
@@ -46,21 +61,20 @@ export class ProductDetail extends Component {
             <div className="container">
               <div className="page-title">
                 <div className="title center">
-                  <h1>SOME PRODUCT NAME</h1>
+                  <h1>{this.props.product ? this.props.product.name : null}</h1>
                 </div>
                 <div className="text-wrapper">
-                  <p className="text-center">Something description here
-                    <br/>simple, its make our design look so awesome</p>
+                  <p className="text-center">{this.props.product ? this.props.product.description : null}</p>
                 </div>
               </div>
               <div className="row">
                 <div className="col-sm-6 col-md-6 col-lg-4">
                   <div className="blog-post">
                     <div className="main-image">
-                      <img src="/images/products/large/product-gallery-1.jpg"
+                      <img src={this.props.product ? this.props.product.url : null}
                            className="zoom"
                            alt=""
-                           data-zoom-image="images/products/large/product-gallery-1.jpg"/>
+                           data-zoom-image={this.props.product ? this.props.product.url : null}/>
                     </div>
 
                   </div>
@@ -69,14 +83,12 @@ export class ProductDetail extends Component {
                   <div className="sideblock half">
                     <h2>Meta</h2>
                     <ul className="simple-list">
-                      <li><a >Created: dd/mm/yy</a></li>
-                      <li><a >By: Minh Khoi</a></li>
-                      <li><a >Edited: dd/mm/yy</a></li>
-                      <li><a >By: Minh Khoi</a></li>
+                      <li><a >Created: {this.props.product ? this.props.product.created_at : null}</a></li>
+                      <li><a >By: {this.props.product.user ? this.props.product.user.first_name : null}</a></li>
                     </ul>
                   </div>
                   <div className="sideblock half">
-                    <h2>Status: Finished</h2>
+                    <h2>Status: {this.props.product ? this.props.product.status : null}</h2>
                     <ul className="simple-list">
                       <li>
                         <button className="btn">Edit</button>
@@ -86,17 +98,13 @@ export class ProductDetail extends Component {
                   <div className="sideblock half">
                     <h2>Concepts</h2>
                     <ul className="tags">
-                      <li className="active"><a ><span className="value"><span>Dresses</span></span></a></li>
-                      <li><a><span className="value"><span>Outerwear</span></span></a></li>
-                      <li><a><span className="value"><span>Tops</span></span></a></li>
-                      <li><a><span className="value"><span>Sleeveless tops</span></span></a></li>
-                      <li><a><span className="value"><span>Sweaters</span></span></a></li>
+                      {this.props.product.images ? this.renderConcepts() : null}
                     </ul>
                   </div>
                   <div className="sideblock half">
                     <h2>Category</h2>
                     <ul className="simple-list">
-                      <li><a >Fedora</a></li>
+                      <li><a >{this.props.product.category ? this.props.product.category.name : null}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -105,7 +113,7 @@ export class ProductDetail extends Component {
                   <h2 className="custom-color">Uploaded images
                     <a className="btn pull-right">Edit</a>
                   </h2>
-                  {this.renderImages()}
+                  {this.props.product.images ? this.renderImages() : null}
                 </div>
               </div>
               <div className="row pagination-row">
@@ -122,4 +130,13 @@ export class ProductDetail extends Component {
     )
   }
 }
-export default ProductDetail;
+
+const mapStateToProps = (state) => ({
+  product: state.productDetail
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getAdminProductDetail: createAction(GET_ADMIN_PRODUCT_DETAIL, dispatch)
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+

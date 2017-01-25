@@ -3,14 +3,16 @@ import { reducer as formReducer } from 'redux-form';
 import { routerReducer } from 'react-router-redux'
 import authReducer from './AuthReducer'
 import homeReducer from './HomeReducer'
-import productReducer from './ProductReducer'
+import AdminProductReducer from './admin/ProductReducer'
+import AdminProductDetailReducer from './admin/ProductDetailReducer'
 
 const RootReducer = combineReducers({
   routing: routerReducer,
   form: formReducer,
   auth: authReducer,
   home: homeReducer,
-  product: productReducer,
+  products: AdminProductReducer,
+  productDetail: AdminProductDetailReducer,
 });
 
 export default RootReducer;

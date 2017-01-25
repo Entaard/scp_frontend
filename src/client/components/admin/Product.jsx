@@ -12,7 +12,7 @@ export class AdminProduct extends Component {
               <Link to={`/admin/product-detail/${product.id}`}>
                 <img
                   className="product-image-photo"
-                  src="/images/products/product-13.jpg"
+                  src={product.url}
                   alt=""/>
               </Link>
             </div>

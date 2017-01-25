@@ -18,13 +18,12 @@ export class Home extends Component {
     this.getProducts();
   }
 
+  // componentDidUpdate() {
+  //   console.log(this.props.product)
+  // }
+
   getProducts() {
     this.props.getAdminProducts()
-
-    // .then(() => console.log(this.product))
-    // in cái này là vớ vẩn:
-    // 1. check lại context this ở đây là cái gì?
-    // 2. reducer chưa dc update nên nó sẽ in ra không đúng
   }
 
   onPageChange(page) {
@@ -36,7 +35,7 @@ export class Home extends Component {
   }
 
   renderProducts() {
-    return this.props.product.map(product => (
+    return this.props.products.map(product => (
       <Product
         product={product}
         key={product.id}
@@ -51,7 +50,7 @@ export class Home extends Component {
           <div className="page-main">
             <div className="container">
               <div className="row">
-                <div className="col-sm-8 col-md-11">
+                <div className="col-sm-12 col-md-12">
                   <div className="filter-row">
                     <div className="row">
                       <div className="col-xs-12 col-sm-12 col-lg-12 col-left">
@@ -101,7 +100,7 @@ export class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  product: state.product
+  products: state.products
 })
 
 const mapDispatchToProps = (dispatch) => ({

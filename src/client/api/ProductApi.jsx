@@ -6,7 +6,11 @@ import ProductApiMock from './mock/ProductApiMock'
 const ProductApi = {
   getAdminProducts() {
     ProductApiMock.mockProduct()
-    return axios.get('/admin/product')
+    return axios.get('/admins/product')
+  },
+  getAdminProductDetail(id) {
+    ProductApiMock.mockDetail(id)
+    return axios.get(`/admins/product/${id}`)
   }
 }
 

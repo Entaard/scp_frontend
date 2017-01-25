@@ -13,7 +13,7 @@ export class Navigation extends Component {
   renderMenu() {
     return this.linkData().map(data => {
       return (
-        <li>
+        <li key={data.name}>
           <Link
             className={this.isCurrentPath(data.path) && 'active'}
             to={data.path}>

@@ -1,16 +1,10 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
 import {GET_ADMIN_PRODUCTS} from '../../actions/ProductAction'
 import {connect} from 'react-redux'
 import {createAction} from '../../utils/SagaUtils'
-
 import Product from '../../components/admin/Product';
 import Pagination from '../../components/Pagination'
 
-let items = []
-for (let i = 0; i < 16; i++) {
-  items.push({id: i, image: '', name: `Some shirt ${i}`, price: 100 + i});
-}
 export class Home extends Component {
   constructor(props) {
     super(props)
@@ -26,7 +20,11 @@ export class Home extends Component {
 
   getProducts() {
     this.props.getAdminProducts()
-      .then(() => console.log(this.product))
+
+    // .then(() => console.log(this.product))
+    // in cái này là vớ vẩn:
+    // 1. check lại context this ở đây là cái gì?
+    // 2. reducer chưa dc update nên nó sẽ in ra không đúng
   }
 
   onPageChange(page) {
@@ -38,13 +36,11 @@ export class Home extends Component {
   }
 
   renderProducts() {
-    return (
-      items.map(product => (
-        <Product
-          product={product}
-          key={product.id}
-        />
-      ))
+    return this.props.product.map(product => (
+      <Product
+        product={product}
+        key={product.id}
+      />)
     )
   }
 
@@ -56,7 +52,6 @@ export class Home extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-sm-8 col-md-11">
-
                   <div className="filter-row">
                     <div className="row">
                       <div className="col-xs-12 col-sm-12 col-lg-12 col-left">
@@ -112,4 +107,5 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAdminProducts: createAction(GET_ADMIN_PRODUCTS, dispatch)
 })
+
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

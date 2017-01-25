@@ -9,7 +9,7 @@ const ProductApi = {
     mock.onGet('/admin/product').reply(200,
       [
         {
-          "id": "product-id",
+          "id": "1",
           "friendly_url": "name-price-id",
           "name": "product-name",
           "status": "basic",
@@ -17,7 +17,7 @@ const ProductApi = {
           "url": "url",
         },
         {
-          "id": "product-id",
+          "id": "2",
           "friendly_url": "name-price-id",
           "name": "product-name",
           "status": "image",
@@ -25,7 +25,7 @@ const ProductApi = {
           "url": "url",
         },
         {
-          "id": "product-id",
+          "id": "3",
           "friendly_url": "name-price-id",
           "name": "product-name",
           "status": "concept",

@@ -126,7 +126,7 @@ export class ProductDetail extends Component {
               <div className="row pagination-row">
                 <Pagination
                   currentPage={this.state.currentPage}
-                  pageCount={product.images.total}
+                  pageCount={product.images.page_count}
                   onPageChange={this.onPageChange}
                 />
               </div>

@@ -49,7 +49,9 @@ export class ProductDetail extends Component {
 
   renderConcepts() {
     return this.props.product.concepts.map(item => (
-      <li key={item.id} className={item.is_concept ? 'active': null}><a><span className="value"><span>{item.name}</span></span></a></li>
+      <li key={item.id}
+          className={item.is_concept ? 'active' : null}><a><span className="value"><span>{item.name}</span></span></a>
+      </li>
     ))
   }
 

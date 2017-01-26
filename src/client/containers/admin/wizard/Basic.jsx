@@ -1,6 +1,18 @@
 import React, {Component} from 'react'
+import Uploader from '../../../components/uploader/Single'
 
 export class Basic extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      url: ''
+    }
+    this.handleUpload = this.handleUpload.bind(this)
+  }
+
+  handleUpload(data) {
+    this.setState({url: data[0].url})
+  }
 
   render() {
     return (
@@ -15,15 +27,10 @@ export class Basic extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-sm-6 col-md-6 col-lg-4">
-            <div className="main-image">
-              <img src="/images/products/large/product-gallery-1.jpg"
-                   className="zoom"
-                   alt=""
-                   data-zoom-image="images/products/large/product-gallery-1.jpg"/>
-            </div>
+          <div className="col-sm-6 col-md-6 col-md-offset-1 col-lg-4">
+            <Uploader onChange={this.handleUpload}/>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-5 col-lg-6">
             <div className="sideblock half">
               <h2>Product Name</h2>
               <form className="white">

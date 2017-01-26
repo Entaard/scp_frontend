@@ -4,8 +4,7 @@ const mock = new MockAdapter(axios)
 
 export default {
   mockProduct() {
-    mock.onGet('/admins/product').reply(200,
-      [
+    mock.onGet('/admins/products').reply(200, [
         {
           "id": "1",
           "friendly_url": "name-price-id",
@@ -81,8 +80,9 @@ export default {
       ]
     )
   },
+
   mockDetail(id) {
-    mock.onGet(`/admins/product/${id}`).reply(200, {
+    mock.onGet(`/admins/products/${id}`).reply(200, {
       "id": "1",
       "friendly_url": "name-price-id",
       "name": "Khoi's awsome",
@@ -111,24 +111,69 @@ export default {
           "is_concept": false
         }
       ],
-      images: {
+      "images": {
         "result": [
           {
             "id": "1",
-            "url": "image-url"
+            "url": "/images/category/category-img-01.jpg"
           },
           {
             "id": "2",
-            "url": "image-url"
+            "url": "/images/category/category-img-01.jpg"
           },
           {
             "id": "3",
-            "url": "image-url"
-          }
+            "url": "/images/category/category-img-01.jpg"
+          },
+          {
+            "id": "4",
+            "url": "/images/category/category-img-01.jpg"
+          },
+          {
+            "id": "5",
+            "url": "/images/category/category-img-01.jpg"
+          },
+          {
+            "id": "6",
+            "url": "/images/category/category-img-01.jpg"
+          },
         ],
         "total": 100,
         "page_count": 2,
       }
+    })
+  },
+
+  mockImages({id}) {
+    mock.onGet(`/admins/products/${id}/images`).reply(200, {
+      "result": [
+        {
+          "id": "1",
+          "url": "/images/category/category-img-02.jpg"
+        },
+        {
+          "id": "2",
+          "url": "/images/category/category-img-02.jpg"
+        },
+        {
+          "id": "3",
+          "url": "/images/category/category-img-02.jpg"
+        },
+        {
+          "id": "4",
+          "url": "/images/category/category-img-02.jpg"
+        },
+        {
+          "id": "5",
+          "url": "/images/category/category-img-02.jpg"
+        },
+        {
+          "id": "6",
+          "url": "/images/category/category-img-02.jpg"
+        },
+      ],
+      "total": 100,
+      "page_count": 2,
     })
   }
 }

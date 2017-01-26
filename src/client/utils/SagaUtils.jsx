@@ -1,6 +1,7 @@
 import Promise from 'promise'
-import { call, put } from 'redux-saga/effects'
+import { call } from 'redux-saga/effects'
 import { processError } from '../utils/ErrorHandler'
+import { isDevelopment } from '../configs/EnvConfig'
 
 export function createAction(actionType, dispatch) {
   return (request) => {
@@ -15,18 +16,23 @@ export function createAction(actionType, dispatch) {
 export function bindAction(api) {
   return function* _bindAction(action) {
     try {
-      const response = yield call(executeApi, action, api)
-      yield put({ type: `${action.type}_DATA`, payload: response.data })
-    } catch (_) {
+      yield call(executeApi, action, api, true)
+    } catch (error) {
+      if (isDevelopment()) {
+        console.log(error)
+      }
     }
   }
 }
 
-export function executeApi(action, api) {
+export function executeApi(action, api, updateData = false) {
   const { type, payload, handler } = action
   handler.dispatch({ type: `${type}_LOADING`, payload: true })
   return api(payload)
     .then(response => {
+      if (updateData) {
+        handler.dispatch({ type: `${type}_DATA`, payload: response.data })
+      }
       handler.dispatch({ type: `${type}_LOADING`, payload: false })
       handler.resolve(response)
       return response

@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
+    "axios-mock-adapter": "^1.7.1",
     "babel": "^6.5.2",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
@@ -48,6 +49,7 @@
     "react": "^0.14.8 || ^15.0.0",
     "react-addons-create-fragment": "^15.4.1",
     "react-dom": "^0.14.8 || ^15.0.0",
+    "react-dropzone": "^3.9.2",
     "react-facebook-login": "^3.4.1",
     "react-paginate": "^4.0.0",
     "react-redux": "^4.4.6",
@@ -65,8 +67,7 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.10.0",
-    "axios-mock-adapter": "^1.7.1"
+    "webpack-hot-middleware": "^2.10.0"
   },
   "devDependencies": {
     "babel-register": "^6.18.0",

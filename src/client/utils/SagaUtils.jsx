@@ -16,7 +16,7 @@ export function createAction(actionType, dispatch) {
 export function bindAction(api) {
   return function* _bindAction(action) {
     try {
-      yield call(executeApi, action, api)
+      yield call(executeApi, action, api, true)
     } catch (error) {
       if (isDevelopment()) {
         console.log(error)
@@ -25,12 +25,14 @@ export function bindAction(api) {
   }
 }
 
-export function executeApi(action, api) {
+export function executeApi(action, api, updateData = false) {
   const { type, payload, handler } = action
   handler.dispatch({ type: `${type}_LOADING`, payload: true })
   return api(payload)
     .then(response => {
-      handler.dispatch({ type: `${type}_DATA`, payload: response.data })
+      if (updateData) {
+        handler.dispatch({ type: `${type}_DATA`, payload: response.data })
+      }
       handler.dispatch({ type: `${type}_LOADING`, payload: false })
       handler.resolve(response)
       return response

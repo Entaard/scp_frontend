@@ -14,10 +14,13 @@ export function createAction(actionType, dispatch) {
 
 export function bindAction(api) {
   return function* _bindAction(action) {
+    const { type, handler } = action
     try {
       const response = yield call(executeApi, action, api)
-      yield put({ type: `${action.type}_DATA`, payload: response.data })
-    } catch (_) {
+      yield put({ type: `${type}_DATA`, payload: response.data })
+      handler.dispatch({ type: `${type}_LOADING`, payload: false })
+    } catch (error) {
+      handler.dispatch({ type: `${type}_LOADING`, payload: false })
     }
   }
 }
@@ -27,11 +30,9 @@ export function executeApi(action, api) {
   handler.dispatch({ type: `${type}_LOADING`, payload: true })
   return api(payload)
     .then(response => {
-      handler.dispatch({ type: `${type}_LOADING`, payload: false })
       handler.resolve(response)
       return response
     }, error => {
-      handler.dispatch({ type: `${type}_LOADING`, payload: false })
       handler.reject(error)
       processError(error)
       return Promise.reject(error.response)

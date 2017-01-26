@@ -23,7 +23,7 @@ export class Home extends Component {
   // }
 
   getProducts() {
-    this.props.getAdminProducts()
+    this.props.getProducts()
   }
 
   onPageChange(page) {
@@ -104,7 +104,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminProducts: createAction(GET_ADMIN_PRODUCTS, dispatch)
+  getProducts: createAction(GET_ADMIN_PRODUCTS, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

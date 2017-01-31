@@ -51,7 +51,7 @@ export class ProductDetail extends Component {
   renderConcepts() {
     return this.product().concepts.map(item => (
       <li key={item.id}
-          className={item.is_concept && 'active'}><a><span className="value"><span>{item.name}</span></span></a>
+          className={item.is_concept ? 'active' : 'inactive'}><a><span className="value"><span>{item.name}</span></span></a>
       </li>
     ))
   }
@@ -104,7 +104,7 @@ export class ProductDetail extends Component {
                   </div>
                   <div className="sideblock half">
                     <h2>Concepts</h2>
-                    <ul className="tags">
+                    <ul className="tags concept">
                       {this.renderConcepts()}
                     </ul>
                   </div>

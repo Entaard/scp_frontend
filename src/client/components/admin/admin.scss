@@ -14,6 +14,18 @@
       .pagination-row {
         text-align: center;
       }
+      .concept {
+        li span.value span:before,
+        li span.value a:before {
+          display: none;
+        }
+        li.active span.value span {
+          background: #3c7fa5;
+        }
+        li.inactive span.value span {
+          background: #D2524E;
+        }
+      }
     }
     .sidebar-wrapper {
       width: 125px;

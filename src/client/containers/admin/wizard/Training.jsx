@@ -49,7 +49,7 @@ export class Training extends Component {
           {/*{this.renderImages()}*/}
         {/*</div>*/}
 
-        <div className="col-sm-12 col-md-12">
+        <div className="col-sm-11 col-md-11">
           <button className="btn btn-alt"
                   onClick={this.props.previousStep}>Previous
           </button>

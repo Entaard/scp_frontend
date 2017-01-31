@@ -3,8 +3,10 @@ const MockAdapter = require('axios-mock-adapter')
 const mock = new MockAdapter(axios)
 
 export default {
-  mockProduct() {
-    mock.onGet('/admins/products').reply(200, [
+  mockProduct(page) {
+    console.log('change page:', page)
+    mock.onGet('/admins/products').reply(200, {
+      "result": [
         {
           "id": "1",
           "friendly_url": "name-price-id",
@@ -77,8 +79,10 @@ export default {
           "price": "200",
           "url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0BRigYIA4jG7EVEQdmvk9wOQF6woFry4_Gd86t-UH0Xerd9M9jw",
         }
-      ]
-    )
+      ],
+      "total": 100,
+      "page_count": 2,
+    })
   },
 
   mockDetail(id) {

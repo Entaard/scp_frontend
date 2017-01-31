@@ -2,9 +2,10 @@ import axios from 'axios'
 import ProductApiMock from '../mock/ProductApiMock'
 
 const ProductApi = {
-  getProducts() {
-    ProductApiMock.mockProduct()
-    return axios.get('/admins/products')
+  getProducts(page) {
+    const params = page
+    ProductApiMock.mockProduct(page)
+    return axios.get('/admins/products', { params })
   },
 
   getProductDetail(id) {

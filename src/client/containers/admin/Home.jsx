@@ -15,32 +15,32 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-    this.getProducts();
+    this.props.getProducts(this.state.currentPage)
   }
 
   // componentDidUpdate() {
   //   console.log(this.props.product)
   // }
 
-  getProducts() {
-    this.props.getProducts()
-  }
-
   onPageChange(page) {
     this.setState(state => {
       state.currentPage = page.selected
     }, () => {
-      // this.callApi(this.state.currentPage)
+      this.props.getProducts(this.state.currentPage)
     })
   }
 
   renderProducts() {
-    return this.props.products.map(product => (
+    return this.products().result.map(product => (
       <Product
         product={product}
         key={product.id}
       />)
     )
+  }
+
+  products() {
+    return this.props.products.data
   }
 
   render() {
@@ -87,7 +87,7 @@ export class Home extends Component {
               <div className="row pagination-row">
                 <Pagination
                   currentPage={this.state.currentPage}
-                  pageCount={10}
+                  pageCount={this.products().page_count}
                   onPageChange={this.onPageChange}
                 />
               </div>

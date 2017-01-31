@@ -17,8 +17,8 @@ class Uploader extends Component {
     const MockAdapter = require('axios-mock-adapter')
     const mock = new MockAdapter(axios)
     mock.onPost('/images/').reply(200, {
-      "id" : 1,
-      "url" : "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQuN4HUbp-D3Go0ggqRKk4QGITERQtZ-tgXA7gmquB-jXCUehMm"
+      "id": 1,
+      "url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQuN4HUbp-D3Go0ggqRKk4QGITERQtZ-tgXA7gmquB-jXCUehMm"
     })
   }
 
@@ -61,23 +61,23 @@ class Uploader extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="btn btn-default multi-uploader">
         <Dropzone onDrop={this.onDrop.bind(this)}>
-          <div>Try dropping some files here, or click to select files to upload.</div>
+          <div>Browse</div>
         </Dropzone>
-        {this.state.files.length > 0 ? <div>
-          <h5>{this.renderTitle()}</h5>
-          <div>
-            {this.state.files.map((data) => {
-              return (
-                <img
-                  style={{opacity: data.upload ? '1' : '0.5'}}
-                  src={data.file.preview}
-                />
-              )
-            })}
-          </div>
-        </div> : null}
+        {/*{this.state.files.length > 0 ? <div>*/}
+          {/*<h5>{this.renderTitle()}</h5>*/}
+          {/*<div>*/}
+            {/*{this.state.files.map((data) => {*/}
+              {/*return (*/}
+                {/*<img*/}
+                  {/*style={{opacity: data.upload ? '1' : '0.5'}}*/}
+                  {/*src={data.file.preview}*/}
+                {/*/>*/}
+              {/*)*/}
+            {/*})}*/}
+          {/*</div>*/}
+        {/*</div> : null}*/}
       </div>
     )
   }

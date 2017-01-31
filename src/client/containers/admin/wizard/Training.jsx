@@ -1,21 +1,36 @@
 import React, {Component} from 'react'
 import TrainedImage from '../../../components/admin/TrainedImage'
+import Uploader from '../../../components/uploader/Multiple'
 
-let items = []
-for (let i = 0; i < 15; i++) {
-  items.push({id: i, image: '', name: `image ${i}`});
-}
 export class Training extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      url: []
+    }
+    this.handleUpload = this.handleUpload.bind(this)
+  }
 
   renderImages() {
-    return (
-      items.map((item, index) => (
+    return this.uploader.state.files.map((data) => (
         <TrainedImage
-          key={item.id}
-          name={item.name}
+          key={data.id}
+          url={data.file.preview}
         />
-      ))
+      )
     )
+  }
+
+  renderTitle() {
+    if (this.uploader.state.upload) {
+      return `Uploading ${this.uploader.state.files.length} files...`
+    } else {
+      return `Upload complete`
+    }
+  }
+
+  handleUpload(data) {
+    this.setState({url: data})
   }
 
   render() {
@@ -37,17 +52,21 @@ export class Training extends Component {
                 <input type="text"
                        className="form-control"/>
                 <span className="input-group-btn">
-													<button className="btn btn-default"
-                                  type="submit">Browse</button>
-													</span>
+                  <Uploader
+                    onChange={this.handleUpload}
+                    ref={(ref) => {
+                      this.uploader = ref;
+                    } }
+                  />
+                </span>
               </div>
             </form>
           </div>
         </div>
-        {/*<div className="col-md-11 col-lg-11">*/}
-          {/*<h2 className="custom-color">Uploaded images </h2>*/}
-          {/*{this.renderImages()}*/}
-        {/*</div>*/}
+        <div className="col-md-11 col-lg-11">
+          <h2 className="custom-color">{this.uploader && this.renderTitle()}</h2>
+          {this.uploader && this.renderImages()}
+        </div>
 
         <div className="col-sm-11 col-md-11">
           <button className="btn btn-alt"

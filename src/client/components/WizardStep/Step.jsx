@@ -36,6 +36,12 @@ export class Step extends Component {
         }}
             className={this.state.currentStep == 3 ? 'active' : null}
             data-title="Concept"></li>
+        <li onClick={() => {
+          this.setState({currentStep: 4});
+          this.props.onStepChange(4)
+        }}
+            className={this.state.currentStep == 4 ? 'active' : null}
+            data-title="Size"></li>
       </ul>
     )
   }

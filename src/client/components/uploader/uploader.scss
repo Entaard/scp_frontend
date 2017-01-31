@@ -19,3 +19,9 @@
   border: 2px dashed rgb(102, 102, 102);
   border-radius: 5px;
 }
+
+div.multi-uploader > div:first-child[style] {
+  width: 100px!important;
+  height: 0!important;
+  border: none!important;
+}

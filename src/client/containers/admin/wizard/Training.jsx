@@ -6,31 +6,32 @@ export class Training extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      url: []
+      files: []
     }
     this.handleUpload = this.handleUpload.bind(this)
   }
 
+  handleDelete(index) {
+    var files = this.uploader.state.files
+    files.splice(index, 1)
+    this.uploader.props.onChange(files)
+    this.uploader.setState({ files })
+  }
+
   renderImages() {
-    return this.uploader.state.files.map((data) => (
+    return this.state.files.map((data, index) => (
         <TrainedImage
-          key={data.id}
+          onClick={() => this.handleDelete(index)}
+          upload={data.upload}
+          key={index}
           url={data.file.preview}
         />
       )
     )
   }
 
-  renderTitle() {
-    if (this.uploader.state.upload) {
-      return `Uploading ${this.uploader.state.files.length} files...`
-    } else {
-      return `Upload complete`
-    }
-  }
-
-  handleUpload(data) {
-    this.setState({url: data})
+  handleUpload(files) {
+    this.setState({files: files})
   }
 
   render() {
@@ -53,10 +54,8 @@ export class Training extends Component {
                        className="form-control"/>
                 <span className="input-group-btn">
                   <Uploader
+                    ref={uploader => this.uploader = uploader}
                     onChange={this.handleUpload}
-                    ref={(ref) => {
-                      this.uploader = ref;
-                    } }
                   />
                 </span>
               </div>
@@ -64,8 +63,8 @@ export class Training extends Component {
           </div>
         </div>
         <div className="col-md-11 col-lg-11">
-          <h2 className="custom-color">{this.uploader && this.renderTitle()}</h2>
-          {this.uploader && this.renderImages()}
+          <h2 className="custom-color">images</h2>
+          {this.renderImages()}
         </div>
 
         <div className="col-sm-11 col-md-11">

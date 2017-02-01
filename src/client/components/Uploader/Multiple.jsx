@@ -7,8 +7,7 @@ class Uploader extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      files: [],
-      data: []
+      files: []
     }
     this.mockApi()
   }
@@ -23,40 +22,34 @@ class Uploader extends Component {
   }
 
   onDrop(acceptedFiles) {
-    this.setState({
-      files: acceptedFiles.map(file => {
-        return {
-          file: file,
-          upload: false
-        }
+    const currentLength = this.state.files.length
+    this.setState(state => {
+      let files = state.files
+      acceptedFiles.forEach(file => {
+        files = files.concat({file: file, upload: false})
       })
+      state.files = files
+    }, () => {
+      this.props.onChange(this.state.files)
     })
+
     const self = this
     acceptedFiles.forEach((file, index) => {
       var data = new FormData();
-      data.append('file', file);
       axios.post('/images/', data)
-        .then(response => self.handleComplete(response, index))
+        .then(response => self.handleComplete(response, index + currentLength))
     })
   }
 
   handleComplete(response, index) {
     var files = this.state.files
     files[index].upload = true
+    files[index].data = response.data
     this.setState(state => {
       state.files = files
-      state.data = state.data.concat(response.data)
     }, () => {
-      this.props.onChange(this.state.data)
+      this.props.onChange(this.state.files)
     })
-  }
-
-  renderTitle() {
-    if (this.state.upload) {
-      return `Uploading ${this.state.files.length} files...`
-    } else {
-      return `Upload complete`
-    }
   }
 
   render() {
@@ -65,19 +58,6 @@ class Uploader extends Component {
         <Dropzone onDrop={this.onDrop.bind(this)}>
           <div>Browse</div>
         </Dropzone>
-        {/*{this.state.files.length > 0 ? <div>*/}
-          {/*<h5>{this.renderTitle()}</h5>*/}
-          {/*<div>*/}
-            {/*{this.state.files.map((data) => {*/}
-              {/*return (*/}
-                {/*<img*/}
-                  {/*style={{opacity: data.upload ? '1' : '0.5'}}*/}
-                  {/*src={data.file.preview}*/}
-                {/*/>*/}
-              {/*)*/}
-            {/*})}*/}
-          {/*</div>*/}
-        {/*</div> : null}*/}
       </div>
     )
   }

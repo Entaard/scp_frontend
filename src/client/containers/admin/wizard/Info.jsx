@@ -11,8 +11,8 @@ export class Info extends Component {
     this.handleUpload = this.handleUpload.bind(this)
   }
 
-  handleUpload(data) {
-    this.setState({url: data[0].url})
+  handleUpload(files) {
+    this.setState({url: files[0].data.url})
   }
 
   handleSubmit = (values) => {

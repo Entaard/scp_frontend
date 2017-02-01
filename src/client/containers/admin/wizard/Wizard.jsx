@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Basic from './Basic'
+import Info from './Info'
 import Training from './Training'
 import Step from '../../../components/WizardStep/Step'
 import Concept from './Concept'
@@ -21,7 +21,7 @@ export class Wizard extends Component {
     }
     switch (this.state.step) {
       case 1:
-        return <Basic nextStep={this.nextStep}/>
+        return <Info nextStep={this.nextStep}/>
       case 2:
         return <Training nextStep={this.nextStep}
                          previousStep={this.previousStep}/>
@@ -41,7 +41,6 @@ export class Wizard extends Component {
       step: this.state.step - 1
     })
   }
-
 
   render() {
     return (

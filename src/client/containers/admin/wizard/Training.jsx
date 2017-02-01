@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import TrainedImage from '../../../components/admin/TrainedImage'
-import Uploader from '../../../components/uploader/Multiple'
+import Uploader from '../../../components/Uploader/Multiple'
 
 export class Training extends Component {
   constructor(props) {

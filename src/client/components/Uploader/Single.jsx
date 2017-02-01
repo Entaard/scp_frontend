@@ -5,11 +5,10 @@ require('./uploader.scss')
 
 class Uploader extends Multiple {
   renderImage() {
-    return this.state.files.map(data => (
-        <div className="main-image">
+    return this.state.files.map((data, index) => (
+        <div key={index} className="main-image">
           <img
             className="upload-main-image"
-            key={data.id}
             style={{opacity: data.upload ? '1' : '0.5'}}
             src={data.file.preview}
           />

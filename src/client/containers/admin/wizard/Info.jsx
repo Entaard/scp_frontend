@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Uploader from '../../../components/Uploader/Single'
 import InfoForm from '../../../components/admin/wizard/InfoForm'
+
 export class Info extends Component {
   constructor(props) {
     super(props)
@@ -43,4 +44,5 @@ export class Info extends Component {
     )
   }
 }
+
 export default Info;

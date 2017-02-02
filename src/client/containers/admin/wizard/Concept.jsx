@@ -1,14 +1,30 @@
 import React, {Component} from 'react'
-import {tagit} from '../../../utils/ViewUtils'
+import {tagit, reversetagit, assignTags} from '../../../utils/ViewUtils'
 
 export class Concept extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      concept: [],
+      notConcept: [],
+    }
   }
 
   componentDidMount() {
-    tagit('concept', ['a', 'b', 'c'])
-    tagit('not-concept', ['a', 'b', 'c'])
+    tagit('concept', ['c++', 'cccc', 'c1', 'c2', 'ruby', 'python'], this.onConceptChange.bind(this))
+    reversetagit('not-concept', ['a', 'b', 'c'], this.onNotConceptChange.bind(this))
+  }
+
+  onConceptChange() {
+    this.setState({concept: assignTags('concept')}, () => {
+      console.log('concept after added', this.state.concept)
+    })
+  }
+
+  onNotConceptChange() {
+    this.setState({notConcept: assignTags('not-concept')}, () => {
+      console.log('not-concept after added', this.state.notConcept)
+    })
   }
 
   render() {
@@ -37,8 +53,9 @@ export class Concept extends Component {
             onClick={this.props.previousStep}>
             Previous
           </button>
-          <button className="btn btn-alt pull-right">
-            Finish
+          <button className="btn btn-alt pull-right"
+                  onClick={this.props.nextStep}>
+            Next
           </button>
         </div>
       </div>

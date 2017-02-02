@@ -12,7 +12,9 @@ export class Info extends Component {
   }
 
   handleUpload(files) {
-    this.setState({url: files[0].data.url})
+    if (files && files[0].data) {
+      this.setState({url: files[0].data.url})
+    }
   }
 
   handleSubmit = (values) => {

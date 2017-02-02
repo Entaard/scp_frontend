@@ -9,6 +9,7 @@ export class Training extends Component {
       files: []
     }
     this.handleUpload = this.handleUpload.bind(this)
+    this.validate = this.validate.bind(this)
   }
 
   handleDelete(index) {
@@ -31,7 +32,15 @@ export class Training extends Component {
   }
 
   handleUpload(files) {
-    this.setState({files: files})
+    this.setState({files, error: null})
+  }
+
+  validate() {
+    if (this.state.files.length) {
+      this.props.nextStep();
+    } else {
+      this.setState({ error: 'Training image is required' })
+    }
   }
 
   render() {
@@ -60,6 +69,7 @@ export class Training extends Component {
                 </span>
               </div>
             </form>
+            <span className="has-error">{this.state.error}</span>
           </div>
         </div>
         <div className="col-md-11 col-lg-11">
@@ -72,7 +82,7 @@ export class Training extends Component {
                   onClick={this.props.previousStep}>Previous
           </button>
           <button className="btn btn-alt pull-right"
-                  onClick={this.props.nextStep}>Next
+                  onClick={this.validate}>Next
           </button>
         </div>
       </div>

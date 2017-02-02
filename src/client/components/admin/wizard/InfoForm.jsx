@@ -54,7 +54,7 @@ export class InfoForm extends Component {
         { label && <h2>{label}</h2> }
         <textarea  {...input} className="form-control"
                    placeholder={label}/>
-        {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        {touched && ((error && <span className="has-error">{error}</span>) || (warning && <span>{warning}</span>))}
       </div>
     )
   }
@@ -112,6 +112,9 @@ const validate = (values) => {
   }
   if (!values.image) {
     errors.image = 'Image is required'
+  }
+  if (!values.description) {
+    errors.description = 'Description is required'
   }
   return errors
 }

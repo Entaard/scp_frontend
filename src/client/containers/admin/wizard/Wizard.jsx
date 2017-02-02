@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 import Info from './Info'
 import Training from './Training'
@@ -26,7 +26,10 @@ export class Wizard extends Component {
         return <Training nextStep={this.nextStep}
                          previousStep={this.previousStep}/>
       case 3:
-        return <Concept previousStep={this.previousStep}/>
+        return <Concept nextStep={this.nextStep}
+                        previousStep={this.previousStep}/>
+      case 4:
+        return <span>In construction</span>
     }
   }
 
@@ -47,8 +50,9 @@ export class Wizard extends Component {
       <div className="open-left">
         <div className="page-wrapper">
           <div className="page-main">
-            <Step currentStep={this.state.step}
-                  onStepChange={(step) => this.renderStep(step)}/>
+            {/*<Step currentStep={this.state.step}*/}
+            {/*onStepChange={(step) => this.renderStep(step)}/>*/}
+            <Step currentStep={this.state.step}/>
             {this.renderStep()}
           </div>
         </div>

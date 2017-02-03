@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import Uploader from '../../../components/Uploader/Single'
 import InfoForm from '../../../components/admin/wizard/InfoForm'
+import {CREATE_PRODUCT} from '../../../actions/ProductAction'
+import {createAction} from '../../../utils/SagaUtils'
+import {connect} from 'react-redux'
 
 export class Info extends Component {
   constructor(props) {
@@ -18,8 +21,8 @@ export class Info extends Component {
   }
 
   handleSubmit = (values) => {
-    console.log(values);
-    this.props.nextStep();
+    this.props.createProduct(values)
+      .then(() => this.props.nextStep())
   }
 
   render() {
@@ -39,7 +42,8 @@ export class Info extends Component {
             <Uploader onChange={this.handleUpload}/>
           </div>
           <div className="col-md-5 col-lg-6">
-            <InfoForm imgUrl={this.state.url} onSubmit={this.handleSubmit}/>
+            <InfoForm imgUrl={this.state.url}
+                      onSubmit={this.handleSubmit}/>
           </div>
         </div>
       </div>
@@ -47,4 +51,12 @@ export class Info extends Component {
   }
 }
 
-export default Info;
+const mapStateToProps = (state) => ({
+  productId: state.wizard
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  createProduct: createAction(CREATE_PRODUCT, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Info);

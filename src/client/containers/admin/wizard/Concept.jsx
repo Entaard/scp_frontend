@@ -16,15 +16,25 @@ export class Concept extends Component {
   }
 
   onConceptChange() {
-    this.setState({concept: assignTags('concept')}, () => {
+    const concept = assignTags('concept')
+    this.setState({concept}, () => {
       console.log('concept after added', this.state.concept)
     })
   }
 
   onNotConceptChange() {
-    this.setState({notConcept: assignTags('not-concept')}, () => {
+    const notConcept = assignTags('not-concept')
+    this.setState({notConcept}, () => {
       console.log('not-concept after added', this.state.notConcept)
     })
+  }
+
+  validate() {
+    if (!this.state.concept.length || !this.state.notConcept.length) {
+      this.setState({ error: true })
+    } else {
+      this.props.nextStep()
+    }
   }
 
   render() {
@@ -46,6 +56,7 @@ export class Concept extends Component {
         <div className="sideblock col-md-5">
           <h2>Not concepts</h2>
           <ul id="not-concept"></ul>
+          {this.state.error && <span className="has-error">All fields are required</span>}
         </div>
         <div className="col-sm-11 col-md-11">
           <button
@@ -54,7 +65,7 @@ export class Concept extends Component {
             Previous
           </button>
           <button className="btn btn-alt pull-right"
-                  onClick={this.props.nextStep}>
+                  onClick={this.validate.bind(this)}>
             Next
           </button>
         </div>

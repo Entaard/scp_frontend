@@ -4,20 +4,20 @@ import {Field, reduxForm} from 'redux-form'
 export class InfoForm extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.imgUrl != nextProps.imgUrl) {
-      this.props.change('image', nextProps.imgUrl)
+      this.props.change('url', nextProps.imgUrl)
     }
   }
 
   renderSelector({input, label, meta: {touched, error}}) {
-    const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
+    const colors = [{id: 1, name: 'Red'}, {id: 2, name: 'Orange'}, {id: 3, name: 'Yellow'}, {id: 4, name: 'Green'}]
     return (
       <div className="sideblock half">
         { label && <h2>{label}</h2> }
         <div className="select-wrapper">
           <select className="form-control" {...input}>
             <option value="">Select a category...</option>
-            {colors.map(val => <option value={val}
-                                       key={val}>{val}</option>)}
+            {colors.map(val => <option value={val.id}
+                                       key={val.id}>{val.name}</option>)}
           </select>
           {touched && error && <span className="has-error">{error}</span>}
         </div>
@@ -64,11 +64,11 @@ export class InfoForm extends Component {
     return (
       <form className="white"
             onSubmit={handleSubmit}>
-        <Field name="prodName"
+        <Field name="name"
                label="Product Name"
                type="text"
                component={this.renderField}/>
-        <Field name="category"
+        <Field name="category_id"
                label="Category"
                component={this.renderSelector}/>
         <Field name="price"
@@ -78,7 +78,7 @@ export class InfoForm extends Component {
         <Field name="description"
                label="Description"
                component={this.renderTextArea}/>
-        <Field name="image"
+        <Field name="url"
                type="hidden"
                component={this.renderHiddenField}/>
         <button type="submit"
@@ -97,21 +97,21 @@ export class InfoForm extends Component {
 
 const validate = (values) => {
   const errors = {}
-  if (!values.prodName) {
-    errors.prodName = 'Required'
-  } else if (values.prodName.length > 80) {
-    errors.prodName = 'Must be 80 characters or less'
+  if (!values.name) {
+    errors.name = 'Required'
+  } else if (values.name.length > 80) {
+    errors.name = 'Must be 80 characters or less'
   }
   if (!values.price) {
     errors.price = 'Required'
   } else if (isNaN(Number(values.price))) {
     errors.price = 'Must be a number'
   }
-  if (!values.category) {
-    errors.category = 'Required'
+  if (!values.category_id) {
+    errors.category_id = 'Required'
   }
-  if (!values.image) {
-    errors.image = 'Image is required'
+  if (!values.url) {
+    errors.url = 'Image is required'
   }
   if (!values.description) {
     errors.description = 'Description is required'

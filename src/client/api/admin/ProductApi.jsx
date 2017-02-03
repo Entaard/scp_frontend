@@ -8,6 +8,11 @@ const ProductApi = {
     return axios.get('/admins/products', { params })
   },
 
+  createProduct(data) {
+    ProductApiMock.mockCreate(data)
+    return axios.post('/admins/products', { data })
+  },
+
   getProductDetail(id) {
     ProductApiMock.mockDetail(id)
     return axios.get(`/admins/products/${id}`)

@@ -16,7 +16,7 @@ export class Training extends Component {
     var files = this.uploader.state.files
     files.splice(index, 1)
     this.uploader.props.onChange(files)
-    this.uploader.setState({ files })
+    this.uploader.setState({files})
   }
 
   renderImages() {
@@ -39,7 +39,7 @@ export class Training extends Component {
     if (this.state.files.length) {
       this.props.nextStep();
     } else {
-      this.setState({ error: 'Training image is required' })
+      this.setState({error: 'Training image is required'})
     }
   }
 
@@ -73,7 +73,7 @@ export class Training extends Component {
           </div>
         </div>
         <div className="col-md-11 col-lg-11">
-          <h2 className="custom-color">images</h2>
+          <h2 className="custom-color">images ({this.state.files.length})</h2>
           {this.renderImages()}
         </div>
 
@@ -82,7 +82,7 @@ export class Training extends Component {
                   onClick={this.props.previousStep}>Previous
           </button>
           <button className="btn btn-alt pull-right"
-                  onClick={this.validate}>Next
+                  onClick={this.validate.bind(this)}>Next
           </button>
         </div>
       </div>

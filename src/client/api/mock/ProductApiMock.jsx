@@ -3,6 +3,23 @@ const MockAdapter = require('axios-mock-adapter')
 const mock = new MockAdapter(axios)
 
 export default {
+  mockCreate(data) {
+    console.log('mock', data)
+    mock.onPost('/admins/products').reply(200, {
+      "id": "21",
+      "friendly_url": "name-price-id",
+      "name": "product-name",
+      "description": "des",
+      "created_at": "20/12/2000",
+      "status": "info",
+      "price": "200",
+      "url": "http://www.jamesbondlifestyle.com/sites/default/files/styles/fancybox_popup/public/images/product/cl014-sunspel-grey-shirt.jpg?itok=9JsNP14R",
+      "category": {
+        "id": "1",
+        "name": "Fedora"
+      },
+    })
+  },
   mockProduct(page) {
     console.log('change page:', page)
     mock.onGet('/admins/products').reply(200, {
@@ -11,7 +28,7 @@ export default {
           "id": "1",
           "friendly_url": "name-price-id",
           "name": "product-name",
-          "status": "basic",
+          "status": "info",
           "price": "200",
           "url": "http://www.jamesbondlifestyle.com/sites/default/files/styles/fancybox_popup/public/images/product/cl014-sunspel-grey-shirt.jpg?itok=9JsNP14R",
         },
@@ -92,7 +109,7 @@ export default {
       "name": "Khoi's awsome",
       "description": "Best guy in the world wearing the best shirt",
       "created_at": "20/12/2000",
-      "status": "basic",
+      "status": "info",
       "price": "2000",
       "url": "https://images.sunfrogshirts.com/2015/02/09/Im-Not-Short-T-Shirt-Im-Not-Short-Im-A-People-Mcnugget-T-Shirt-Birthday-T-Shirt-Birthday-Gift.jpg",
       "category": {

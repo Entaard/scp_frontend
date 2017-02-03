@@ -37,10 +37,15 @@ export class ProductDetail extends Component {
 
   renderImages() {
     return this.product().images.result.map(item => (
-      <TrainedImage
-        key={item.id}
-        item={item}
-      />)
+        <div key={item.id}
+             className="col-xs-6 col-sm-2">
+          <div className="category-block">
+            <div className="category-image">
+              <img src={item.url}/>
+            </div>
+          </div>
+        </div>
+      )
     )
   }
 

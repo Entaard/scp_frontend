@@ -4,6 +4,7 @@ import Info from './Info'
 import Training from './Training'
 import Step from '../../../components/WizardStep/Step'
 import Concept from './Concept'
+import Option from './Option'
 
 export class Wizard extends Component {
   constructor(props) {
@@ -29,7 +30,8 @@ export class Wizard extends Component {
         return <Concept nextStep={this.nextStep}
                         previousStep={this.previousStep}/>
       case 4:
-        return <span>In construction</span>
+        return <Option finish={this.nextStep}
+                       previousStep={this.previousStep}/>
     }
   }
 

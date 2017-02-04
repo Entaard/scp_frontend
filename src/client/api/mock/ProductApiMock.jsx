@@ -4,7 +4,6 @@ const mock = new MockAdapter(axios)
 
 export default {
   mockCreate(data) {
-    console.log('mock', data)
     mock.onPost('/admins/products').reply(200, {
       "id": "21",
       "friendly_url": "name-price-id",

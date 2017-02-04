@@ -28,7 +28,7 @@ export class Step extends Component {
         <li className={this.state.currentStep == 3 ? 'active' : null}
             data-title="Concept"></li>
         <li className={this.state.currentStep == 4 ? 'active' : null}
-            data-title="Size"></li>
+            data-title="Option"></li>
       </ul>
     )
   }

@@ -30,6 +30,7 @@ export function executeApi(action, api, updateData = false) {
   handler.dispatch({ type: `${type}_LOADING`, payload: true })
   return api(payload)
     .then(response => {
+      console.log(response, 'res')
       if (updateData) {
         handler.dispatch({ type: `${type}_DATA`, payload: response.data })
       }

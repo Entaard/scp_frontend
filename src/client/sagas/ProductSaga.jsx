@@ -8,15 +8,9 @@ import {bindAction} from '../utils/SagaUtils'
 import ProductApi from '../api/admin/ProductApi'
 
 function* createProduct(action) {
-  try {
-    const response = yield call(executeApi, action, ProductApi.createProduct)
-    yield handleCreateSuccess(response)
-  } catch (response) {
-    const error = response.data.error
-    if (error.code == 'INVALID') {
-      yield put({type: CREATE_ERROR, payload: 'Invalid'})
-    }
-  }
+  console.log('action', action)
+  const response = yield call(executeApi, action, ProductApi.createProduct)
+  yield handleCreateSuccess(response)
 }
 
 function* handleCreateSuccess(response) {

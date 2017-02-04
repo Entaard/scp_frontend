@@ -5,12 +5,12 @@ const ProductApi = {
   getProducts(page) {
     const params = page
     ProductApiMock.mockProduct(page)
-    return axios.get('/admins/products', { params })
+    return axios.get('/admins/products', {params})
   },
 
   createProduct(data) {
     ProductApiMock.mockCreate(data)
-    return axios.post('/admins/products', { data })
+    return axios.post('/admins/products', data)
   },
 
   getProductDetail(id) {
@@ -18,10 +18,10 @@ const ProductApi = {
     return axios.get(`/admins/products/${id}`)
   },
 
-  getImages({ id, page }) {
-    ProductApiMock.mockImages({ id })
-    const params = { page }
-    return axios.get(`/admins/products/${id}/images`, { params })
+  getImages({id, page}) {
+    ProductApiMock.mockImages({id})
+    const params = {page}
+    return axios.get(`/admins/products/${id}/images`, {params})
   }
 }
 

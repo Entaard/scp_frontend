@@ -315,38 +315,38 @@ $(function () {
 
     // product page form
 
-    function productOptions(option) {
-      var $option = $(option),
-        $optionlist = $('ul', $option),
-        $optionbtn = $('a', $optionlist),
-        $optionselect = $('select', $option);
-      $optionlist.find("a[data-value='" + $optionselect.val() + "']").parent().addClass('active');
-      $optionbtn.on('click', function (e) {
-        $this = $(this);
-        if ($this.data('image')) {
-          var $image = $('.main-image img');
-          var imgSrc = $this.data('image');
-          var newImg = document.createElement("img");
-          newImg.src = imgSrc;
-          newImg.onload = function () {
-            $image.attr('src', imgSrc);
-            $image.attr('data-zoom-image', imgSrc);
-            if ($('.main-image > .zoom').length) {
-              $('.main-image > .zoom').data('ezPlus').destroy();
-              $('.main-image > .zoom').initProductZoom();
-              $('.zoom-link').addClass('disable-gallery');
-            }
-          }
-        }
-
-        if (!$this.parent('li').is('.active')) {
-          $optionselect.val($this.attr('data-value'));
-          $this.closest('ul').find('li').removeClass('active');
-          $this.parent('li').addClass('active');
-        }
-        e.preventDefault();
-      });
-    }
+    // function productOptions(option) {
+    //   var $option = $(option),
+    //     $optionlist = $('ul', $option),
+    //     $optionbtn = $('a', $optionlist),
+    //     $optionselect = $('select', $option);
+    //   $optionlist.find("a[data-value='" + $optionselect.val() + "']").parent().addClass('active');
+    //   $optionbtn.on('click', function (e) {
+    //     $this = $(this);
+    //     if ($this.data('image')) {
+    //       var $image = $('.main-image img');
+    //       var imgSrc = $this.data('image');
+    //       var newImg = document.createElement("img");
+    //       newImg.src = imgSrc;
+    //       newImg.onload = function () {
+    //         $image.attr('src', imgSrc);
+    //         $image.attr('data-zoom-image', imgSrc);
+    //         if ($('.main-image > .zoom').length) {
+    //           $('.main-image > .zoom').data('ezPlus').destroy();
+    //           $('.main-image > .zoom').initProductZoom();
+    //           $('.zoom-link').addClass('disable-gallery');
+    //         }
+    //       }
+    //     }
+    //
+    //     if (!$this.parent('li').is('.active')) {
+    //       $optionselect.val($this.attr('data-value'));
+    //       $this.closest('ul').find('li').removeClass('active');
+    //       $this.parent('li').addClass('active');
+    //     }
+    //     e.preventDefault();
+    //   });
+    // }
 
 
     // department button
@@ -2946,8 +2946,8 @@ $(function () {
     viewMode('.view-mode');
     changeInput();
     productSharing();
-    productOptions('.product-size');
-    productOptions('.product-color');
+    // productOptions('.product-size');
+    // productOptions('.product-color');
     quickView('.quick-view-link', '#quickView');
     $('.carousel-inside').insideCarousel();
     $('.productStack').ProductStack();

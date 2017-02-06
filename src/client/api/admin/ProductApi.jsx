@@ -9,7 +9,6 @@ const ProductApi = {
   },
 
   createProduct(data) {
-    ProductApiMock.mockCreate(data)
     return axios.post('/admins/products', data)
   },
 

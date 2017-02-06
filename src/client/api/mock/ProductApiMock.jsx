@@ -1,18 +1,7 @@
-import axios from 'axios'
-const MockAdapter = require('axios-mock-adapter')
-const mock = new MockAdapter(axios)
+import mock from './MockAdapter'
 
 export default {
   mockCreate(data) {
-    // mock.onGet('/users').reply(200, {
-    //   users: [
-    //     {id: 1, name: 'khoi'}
-    //   ]
-    // })
-    // axios.get('/users')
-    //   .then(res => {
-    //     console.log(res.data);
-    //   })
     mock.onPost('/admins/products', data).reply(200, {
       "id": "21",
       "friendly_url": "name-price-id",

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import mock from '../api/mock/MockAdapter'
 
 const AuthApi = {
   authFacebook(auth) {
@@ -6,6 +7,7 @@ const AuthApi = {
   },
 
   authEmail({ email, password }) {
+    mock.restore()
     return axios.post('/sessions', { email, password })
   },
 

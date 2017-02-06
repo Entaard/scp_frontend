@@ -14,6 +14,7 @@ function* createProduct(action) {
 }
 
 function* handleCreateSuccess(response) {
+  console.log('aaaa',response);
   yield put({type: PRODUCT_CREATED, payload: response.data})
   yield put({type: CREATE_ERROR, payload: null})
 }

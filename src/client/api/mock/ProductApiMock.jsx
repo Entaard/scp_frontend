@@ -4,7 +4,16 @@ const mock = new MockAdapter(axios)
 
 export default {
   mockCreate(data) {
-    mock.onPost('/admins/products').reply(200, {
+    // mock.onGet('/users').reply(200, {
+    //   users: [
+    //     {id: 1, name: 'khoi'}
+    //   ]
+    // })
+    // axios.get('/users')
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
+    mock.onPost('/admins/products', data).reply(200, {
       "id": "21",
       "friendly_url": "name-price-id",
       "name": "product-name",

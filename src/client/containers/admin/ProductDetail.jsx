@@ -36,7 +36,7 @@ export class ProductDetail extends Component {
   }
 
   renderImages() {
-    return this.product().images.result.map(item => (
+    return this.product().images.map(item => (
         <div key={item.id}
              className="col-xs-6 col-sm-2">
           <div className="category-block">
@@ -96,7 +96,7 @@ export class ProductDetail extends Component {
                     <h2>Meta</h2>
                     <ul className="simple-list">
                       <li><a>Created: {product.created_at}</a></li>
-                      <li><a>By: {product.user.first_name}</a></li>
+                      {/*<li><a>By: {product.user.first_name}</a></li>*/}
                     </ul>
                   </div>
                   <div className="sideblock half">

@@ -34,7 +34,6 @@ export function configApi() {
     }
     return response;
   }, function (error) {
-    debugger
     console.log(error.config);
     console.log(error.response.data);
     console.log(error.response.status);

@@ -25,12 +25,11 @@ export function bindAction(api) {
   }
 }
 
-export function executeApi(action, api, updateData = false) {
+export function executeApi(action, api, updateData) {
   const { type, payload, handler } = action
   handler.dispatch({ type: `${type}_LOADING`, payload: true })
   return api(payload)
     .then(response => {
-      console.log(response, 'res')
       if (updateData) {
         handler.dispatch({ type: `${type}_DATA`, payload: response.data })
       }
@@ -41,6 +40,6 @@ export function executeApi(action, api, updateData = false) {
       handler.dispatch({ type: `${type}_LOADING`, payload: false })
       handler.reject(error)
       processError(error)
-      return Promise.reject(error.response)
+      return Promise.reject(error)
     })
 }

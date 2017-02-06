@@ -5,18 +5,14 @@ import { isDevelopment } from '../configs/EnvConfig'
 
 export function rootUrl() {
   if (isDevelopment()) {
-    return "http://scp-backend.herokuapp.com/"
+    return "https://scp-backend.herokuapp.com/"
   } else {
     return "https://scp-backend.herokuapp.com/"
   }
 }
 
-export function rootApiUrl() {
-  return rootUrl() + "api";
-}
-
 export function configApi() {
-  axios.defaults.baseURL = rootApiUrl();
+  axios.defaults.baseURL = rootUrl();
   axios.defaults.headers.common['Content-Type'] = 'application/json';
   axios.defaults.headers.common['Accept'] = 'application/json; version=v1';
   axios.interceptors.request.use(function (config) {

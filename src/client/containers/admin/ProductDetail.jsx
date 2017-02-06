@@ -36,7 +36,7 @@ export class ProductDetail extends Component {
   }
 
   renderImages() {
-    return this.product().images.map(item => (
+    return this.product().images.result.map(item => (
         <div key={item.id}
              className="col-xs-6 col-sm-2">
           <div className="category-block">

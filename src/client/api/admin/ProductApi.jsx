@@ -16,7 +16,7 @@ const ProductApi = {
 
   getImages({id, page}) {
     const params = {page}
-    return axios.get(`/admins/products/${id}/images`, {params})
+    return axios.get(`/admins/products/${id}/get_images`, {params})
   }
 }
 

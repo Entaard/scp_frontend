@@ -3,22 +3,11 @@ import axios from 'axios'
 import Dropzone from 'react-dropzone'
 
 class Uploader extends Component {
-  // TODO: remove mocking
   constructor(props) {
     super(props)
     this.state = {
       files: []
     }
-    this.mockApi()
-  }
-
-  mockApi() {
-    const MockAdapter = require('axios-mock-adapter')
-    const mock = new MockAdapter(axios)
-    mock.onPost('/images/').reply(200, {
-      "id": 1,
-      "url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQuN4HUbp-D3Go0ggqRKk4QGITERQtZ-tgXA7gmquB-jXCUehMm"
-    })
   }
 
   onDrop(acceptedFiles) {
@@ -36,7 +25,8 @@ class Uploader extends Component {
     const self = this
     acceptedFiles.forEach((file, index) => {
       var data = new FormData();
-      axios.post('/images/', data)
+      data.append('file', file);
+      axios.post('/images', data)
         .then(response => self.handleComplete(response, index + currentLength))
     })
   }

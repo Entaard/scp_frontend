@@ -14,6 +14,7 @@ import NotFound from './components/NotFound'
 import About from './components/About'
 import SearchResult from './components/SearchResult'
 import AdminHome from './containers/admin/Home'
+import AdminLogin from './containers/admin/Login'
 import Wizard from './containers/admin/wizard/Wizard'
 import AdminProductDetail from './containers/admin/ProductDetail'
 import Admin from './components/Admin'
@@ -23,6 +24,7 @@ export default [
   <Route key="admin" path="/admin" component={Admin}>
     <IndexRoute component={AdminHome}/>
     <Route path="/admin/upload" components={Wizard}/>
+    <Route path="/admin/login" components={AdminLogin}/>
     <Route path="/admin/product-detail/:id" components={AdminProductDetail}/>
   </Route>,
   <Route key="app" path="/" component={App}>

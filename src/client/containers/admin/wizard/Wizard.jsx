@@ -23,7 +23,7 @@ export class Wizard extends Component {
     switch (this.state.step) {
       case 1:
         return <Info nextStep={this.nextStep}/>
-      
+
       case 2:
         return <Training nextStep={this.nextStep}
                          previousStep={this.previousStep}/>

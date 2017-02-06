@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './admin/Header';
+import Header from '../containers/admin/Header';
 import Footer from './Footer'
 import Navbar from './admin/Navigation';
 require('./admin/admin.scss')

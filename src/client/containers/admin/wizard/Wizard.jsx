@@ -25,9 +25,7 @@ export class Wizard extends Component {
     //truyen them Id cua product cho cac step 2 3 4
     switch (this.state.step) {
       case 1:
-        // return <Info nextStep={this.nextStep}/>
-        return <Option
-          previousStep={this.previousStep}/>
+        return <Info nextStep={this.nextStep}/>
       case 2:
         return <Training
           nextStep={this.nextStep}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {GET_ADMIN_PRODUCTS} from '../../actions/ProductAction'
+import {GET_ADMIN_PRODUCTS, DELETE_PRODUCT} from '../../actions/ProductAction'
 import {connect} from 'react-redux'
 import {createAction} from '../../utils/SagaUtils'
 import Product from '../../components/admin/Product';
@@ -30,9 +30,15 @@ export class Home extends Component {
     })
   }
 
+  handleDelete(id) {
+    // console.log(id)
+    this.props.deleteProduct(id)
+  }
+
   renderProducts() {
     return this.products().result.map(product => (
       <Product
+        deleteProduct={() => this.handleDelete(product.id)}
         product={product}
         key={product.id}
       />)
@@ -100,7 +106,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getProducts: createAction(GET_ADMIN_PRODUCTS, dispatch)
+  getProducts: createAction(GET_ADMIN_PRODUCTS, dispatch),
+  deleteProduct: createAction(DELETE_PRODUCT, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

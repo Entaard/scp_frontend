@@ -1,5 +1,6 @@
 // Saga Action
 export const CREATE_PRODUCT = 'CREATE_PRODUCT'
+export const DELETE_PRODUCT = 'DELETE_PRODUCT'
 export const ADD_IMAGES = 'ADD_IMAGES'
 export const TRAIN_PRODUCT = 'TRAIN_PRODUCT'
 export const GET_ADMIN_PRODUCTS = 'GET_ADMIN_PRODUCTS'

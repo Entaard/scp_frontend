@@ -31,7 +31,7 @@ export class AdminProduct extends Component {
               </div>
               <div className="product-item-actions">
                 <div className="actions-primary">
-                  <button className="btn btn-sm btn-invert">
+                  <button onClick={this.props.deleteProduct} className="btn btn-sm btn-invert">
                     <span>Delete</span>
                   </button>
                 </div>

@@ -10,6 +10,11 @@ const ProductApi = {
     return axios.post('/admins/products', data)
   },
 
+  deleteProduct(id) {
+    const params = {id}
+    return axios.delete('/admins/products', {params})
+  },
+
   getProductDetail(id) {
     return axios.get(`/admins/products/${id}`)
   },

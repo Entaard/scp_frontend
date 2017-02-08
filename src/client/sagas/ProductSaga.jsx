@@ -2,6 +2,7 @@ import {put, call, takeLatest} from 'redux-saga/effects'
 import {executeApi} from '../utils/SagaUtils'
 import {
   CREATE_PRODUCT, PRODUCT_CREATED, CREATE_ERROR,
+  DELETE_PRODUCT,
   ADD_IMAGES, IMAGES_ADDED, ADD_IMAGES_ERROR,
   TRAIN_PRODUCT, PRODUCT_TRAINED, TRAIN_ERROR,
   GET_ADMIN_PRODUCTS, GET_ADMIN_PRODUCT_DETAIL, GET_ADMIN_PRODUCTS_IMAGES
@@ -45,6 +46,7 @@ export default function* watchProduct() {
     takeLatest(ADD_IMAGES, addImages),
     takeLatest(TRAIN_PRODUCT, trainProduct),
     takeLatest(GET_ADMIN_PRODUCTS, bindAction(ProductApi.getProducts)),
+    takeLatest(DELETE_PRODUCT, bindAction(ProductApi.deleteProduct)),
     takeLatest(GET_ADMIN_PRODUCTS_IMAGES, bindAction(ProductApi.getImages)),
     takeLatest(GET_ADMIN_PRODUCT_DETAIL, bindAction(ProductApi.getProductDetail)),
   ]

@@ -5,20 +5,38 @@ export class OptionForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      color: ''
+      color: {id: 1, hex: '#FF850A'},
+      size: {id: 1, name: 'S'},
+      colors: [
+        {id: 1, hex: '#FF850A'},
+        {id: 2, hex: '#D2524E'},
+        {id: 3, hex: '#333745'},
+        {id: 4, hex: '#1C90F3'}
+      ],
+      sizes: [
+        {id: 1, name: 'S'},
+        {id: 2, name: 'M'},
+        {id: 3, name: 'L'},
+        {id: 4, name: 'XL'}
+      ]
     }
   }
 
-  renderSelector({input, label, meta: {touched, error}}) {
-    const sizes = [{id: 1, name: 'S'}, {id: 2, name: 'M'}, {id: 3, name: 'L'}, {id: 4, name: 'XL'}]
+  renderSizeSelector({input, label, meta: {touched, error}}) {
     return (
       <div className="sideblock third">
         { label && <h2>{label}</h2> }
         <div className="select-wrapper">
-          <select className="form-control" {...input}>
-            <option value="">Select a size...</option>
-            {sizes.map(val => <option value={val.id}
-                                      key={val.id}>{val.name}</option>)}
+          <select
+            className="form-control"
+            {...input}>
+            {this.state.sizes.map(val => (
+              <option
+                value={val.id}
+                key={val.id}>
+                {val.name}
+              </option>
+            ))}
           </select>
           {touched && error && <span className="has-error">{error}</span>}
         </div>
@@ -26,29 +44,33 @@ export class OptionForm extends Component {
     )
   }
 
-  onSelect(event) {
-    alert('aaa')
-    this.setState({color: event.target.value});
+  onSelectColor(colorId) {
+    const color = this.state.colors.find((color) => color.id == colorId)
+    this.setState({color: color});
   }
 
   renderColorSelector({input, label, meta: {touched, error}}) {
-    const colors = [{id: 1, hex: 'FF850A'}, {id: 2, hex: 'D2524E'}, {id: 3, hex: '333745'}, {id: 4, hex: '1C90F3'}]
     return (
       <div className="sideblock third">
         { label && <h2 style={{display: 'inline-block'}}>{label}</h2> }
-        <div className="color-box"
-             style={{backgroundColor: `#${'FF850A'}`}}></div>
+        <div
+          className="color-box"
+          style={{backgroundColor: this.state.color.hex}}>
+        </div>
         <div className="select-wrapper">
-          <select onChange={(e) => {
-            input.onChange(e.target.value);
-          }}
-                  className="form-control" {...input}>
-            <option value="">Select a color...</option>
-            {colors.map(val =>
-              <option style={{color: `#${val.hex}`}}
-                      value={val.id}
-                      key={val.id}>
-                #{val.hex}
+          <select
+            className="form-control"
+            {...input}
+            onChange={event => {
+              this.onSelectColor(event.target.value)
+              input.onChange(event)
+            }}>
+            {this.state.colors.map(val =>
+              <option
+                style={{color: `${val.hex}`}}
+                value={val.id}
+                key={val.id}>
+                {val.hex}
               </option>)
             }
           </select>
@@ -78,20 +100,21 @@ export class OptionForm extends Component {
             onSubmit={handleSubmit}>
         <Field name="size"
                label="Size"
-               component={this.renderSelector}/>
+               component={this.renderSizeSelector.bind(this)}/>
         <Field name="color"
                label="Color"
-               onChangeAction={this.onSelect}
-               component={this.renderColorSelector}/>
+               component={this.renderColorSelector.bind(this)}/>
         <Field name="quantity"
                label="Quantity"
                type="number"
                component={this.renderField}/>
         <div className="product-actions">
           <div className="actions">
-            <button type="submit"
-                    disabled={submitting}
-                    className="btn">Add
+            <button
+              type="submit"
+              disabled={submitting}
+              className="btn">
+              Add
             </button>
           </div>
         </div>

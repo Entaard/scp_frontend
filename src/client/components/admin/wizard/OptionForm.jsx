@@ -30,6 +30,7 @@ export class OptionForm extends Component {
           <select
             className="form-control"
             {...input}>
+            <option value="">Select a size...</option>
             {this.state.sizes.map(val => (
               <option
                 value={val.id}
@@ -65,6 +66,7 @@ export class OptionForm extends Component {
               this.onSelectColor(event.target.value)
               input.onChange(event)
             }}>
+            <option value="">Select a color...</option>
             {this.state.colors.map(val =>
               <option
                 style={{color: `${val.hex}`}}

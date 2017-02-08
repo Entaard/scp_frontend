@@ -12,7 +12,7 @@ class Admin extends Component {
       <div id="wrapper">
         <div className="page-wrapper admin-main">
           {this.props.authenticated && <Header/>}
-          {this.props.authenticated && <Navbar location={this.props.location}/>}
+          {this.props.authenticated && <Navbar pathname={this.props.location.pathname}/>}
           {this.props.children}
           <Footer/>
         </div>

@@ -9,15 +9,14 @@ export class InfoForm extends Component {
   }
 
   renderSelector({input, label, meta: {touched, error}}) {
-    const colors = [{id: 1, name: 'Red'}, {id: 2, name: 'Orange'}, {id: 3, name: 'Yellow'}, {id: 4, name: 'Green'}]
     return (
       <div className="sideblock half">
         { label && <h2>{label}</h2> }
         <div className="select-wrapper">
           <select className="form-control" {...input}>
             <option value="">Select a category...</option>
-            {colors.map(val => <option value={val.id}
-                                       key={val.id}>{val.name}</option>)}
+            {this.props.categories.map(val => <option value={val.id}
+                                                      key={val.id}>{val.name}</option>)}
           </select>
           {touched && error && <span className="has-error">{error}</span>}
         </div>
@@ -70,7 +69,7 @@ export class InfoForm extends Component {
                component={this.renderField}/>
         <Field name="category_id"
                label="Category"
-               component={this.renderSelector}/>
+               component={this.renderSelector.bind(this)}/>
         <Field name="price"
                label="Price"
                type="number"
@@ -91,11 +90,16 @@ export class InfoForm extends Component {
   }
 }
 
-{/*<button type="button"*/}
-        {/*className="btn btn-alt"*/}
-        {/*disabled={pristine || submitting}*/}
-        {/*onClick={reset}>Reset*/}
-{/*</button>*/}
+{/*<button type="button"*/
+}
+{/*className="btn btn-alt"*/
+}
+{/*disabled={pristine || submitting}*/
+}
+{/*onClick={reset}>Reset*/
+}
+{/*</button>*/
+}
 
 const validate = (values) => {
   const errors = {}

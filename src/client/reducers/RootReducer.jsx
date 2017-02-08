@@ -6,6 +6,7 @@ import homeReducer from './HomeReducer'
 import adminProductReducer from './admin/ProductReducer'
 import adminProductDetailReducer from './admin/ProductDetailReducer'
 import wizardReducer from './admin/WizardReducer'
+import categoryReducer from './admin/CategoryReducer'
 
 const RootReducer = combineReducers({
   routing: routerReducer,
@@ -15,6 +16,7 @@ const RootReducer = combineReducers({
   products: adminProductReducer,
   productDetail: adminProductDetailReducer,
   wizard: wizardReducer,
+  categories: categoryReducer,
 });
 
 export default RootReducer;

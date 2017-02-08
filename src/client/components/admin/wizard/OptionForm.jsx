@@ -5,21 +5,16 @@ export class OptionForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      color: {id: 1, hex: '#FF850A'},
-      size: {id: 1, name: 'S'},
-      colors: [
-        {id: 1, hex: '#FF850A'},
-        {id: 2, hex: '#D2524E'},
-        {id: 3, hex: '#333745'},
-        {id: 4, hex: '#1C90F3'}
-      ],
-      sizes: [
-        {id: 1, name: 'S'},
-        {id: 2, name: 'M'},
-        {id: 3, name: 'L'},
-        {id: 4, name: 'XL'}
-      ]
+      color: {},
+      size: {},
+      colors: [],
+      sizes: []
     }
+  }
+
+  onSelectSize(sizeId) {
+    const size = this.props.sizes.find((size) => size.id == sizeId)
+    this.setState({size: size});
   }
 
   renderSizeSelector({input, label, meta: {touched, error}}) {
@@ -29,9 +24,13 @@ export class OptionForm extends Component {
         <div className="select-wrapper">
           <select
             className="form-control"
-            {...input}>
+            {...input}
+            onChange={event => {
+              this.onSelectSize(event.target.value)
+              input.onChange(event)
+            }}>
             <option value="">Select a size...</option>
-            {this.state.sizes.map(val => (
+            {this.props.sizes.map(val => (
               <option
                 value={val.id}
                 key={val.id}>
@@ -46,7 +45,7 @@ export class OptionForm extends Component {
   }
 
   onSelectColor(colorId) {
-    const color = this.state.colors.find((color) => color.id == colorId)
+    const color = this.props.colors.find((color) => color.id == colorId)
     this.setState({color: color});
   }
 
@@ -67,7 +66,7 @@ export class OptionForm extends Component {
               input.onChange(event)
             }}>
             <option value="">Select a color...</option>
-            {this.state.colors.map(val =>
+            {this.props.colors.map(val =>
               <option
                 style={{color: `${val.hex}`}}
                 value={val.id}

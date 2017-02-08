@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 import Info from './Info'
 import Training from './Training'
@@ -10,7 +11,8 @@ export class Wizard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: 1
+      step: 1,
+      product: null
     }
     this.nextStep = this.nextStep.bind(this);
     this.previousStep = this.previousStep.bind(this);
@@ -20,19 +22,26 @@ export class Wizard extends Component {
     if (step) {
       this.setState({step})
     }
+    //truyen them Id cua product cho cac step 2 3 4
     switch (this.state.step) {
       case 1:
-        return <Info nextStep={this.nextStep}/>
+        return <Option
+          finish={this.nextStep}
+          previousStep={this.previousStep}/>
+          // <Info nextStep={this.nextStep}/>
 
       case 2:
-        return <Training nextStep={this.nextStep}
-                         previousStep={this.previousStep}/>
+        return <Training
+          nextStep={this.nextStep}
+          previousStep={this.previousStep}/>
       case 3:
-        return <Concept nextStep={this.nextStep}
-                        previousStep={this.previousStep}/>
+        return <Concept
+          nextStep={this.nextStep}
+          previousStep={this.previousStep}/>
       case 4:
-        return <Option finish={this.nextStep}
-                       previousStep={this.previousStep}/>
+        return <Option
+          finish={this.nextStep}
+          previousStep={this.previousStep}/>
     }
   }
 
@@ -63,4 +72,7 @@ export class Wizard extends Component {
     )
   }
 }
-export default Wizard;
+const mapStateToProps = (state) => ({
+  product: state.wizard.info
+})
+export default connect(mapStateToProps, null)(Wizard);

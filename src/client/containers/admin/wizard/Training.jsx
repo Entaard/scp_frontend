@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import TrainedImage from '../../../components/admin/TrainedImage'
 import Uploader from '../../../components/Uploader/Multiple'
 
+import {ADD_IMAGES} from '../../../actions/ProductAction'
+import {connect} from 'react-redux'
+import {createAction} from '../../../utils/SagaUtils'
+
 export class Training extends Component {
   constructor(props) {
     super(props)
@@ -37,7 +41,9 @@ export class Training extends Component {
 
   validate() {
     if (this.state.files.length) {
-      this.props.nextStep();
+      this.props.addImages(this.props.id, {image_ids: this.state.files.map(i => i.data.id)})
+        .then(() => this.props.nextStep()
+        )
     } else {
       this.setState({error: 'Training image is required'})
     }
@@ -89,4 +95,17 @@ export class Training extends Component {
     )
   }
 }
-export default Training;
+function mapStateToProps(state) {
+  return {
+    error: state.auth.error,
+    images: state.wizard.images
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addImages: createAction(ADD_IMAGES, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Training);

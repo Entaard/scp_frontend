@@ -6,6 +6,7 @@
     margin: 0;
   }
   .admin-main {
+    //min-height: 100vh;
     h2 {
       border-bottom: none;
     }
@@ -33,6 +34,12 @@
         }
       }
       .sideblock.third {
+        h2 + .color-box {
+          margin-left: 10px;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+        }
         select + .has-error {
           margin-top: 10px;
           display: inline-block;

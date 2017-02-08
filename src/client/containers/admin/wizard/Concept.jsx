@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import {tagit, reversetagit, assignTags} from '../../../utils/ViewUtils'
 
+import {TRAIN_PRODUCT} from '../../../actions/ProductAction'
+import {connect} from 'react-redux'
+import {createAction} from '../../../utils/SagaUtils'
+
 export class Concept extends Component {
   constructor(props) {
     super(props)
@@ -11,8 +15,8 @@ export class Concept extends Component {
   }
 
   componentDidMount() {
-    tagit('concept', ['c++', 'cccc', 'c1', 'c2', 'ruby', 'python'], this.onConceptChange.bind(this))
-    reversetagit('not-concept', ['a', 'b', 'c'], this.onNotConceptChange.bind(this))
+    tagit('concept', ['Shirt', 'T-shirt', 'Shoes', 'Trainers', 'Trousers', 'Skirt'], this.onConceptChange.bind(this))
+    reversetagit('not-concept', ['Shirt', 'T-shirt', 'Shoes', 'Trainers', 'Trousers', 'Skirt'], this.onNotConceptChange.bind(this))
   }
 
   onConceptChange() {
@@ -31,9 +35,11 @@ export class Concept extends Component {
 
   validate() {
     if (!this.state.concept.length || !this.state.notConcept.length) {
-      this.setState({ error: true })
+      this.setState({error: true})
     } else {
-      this.props.nextStep()
+      this.props.trainProduct(this.props.id, {concepts: this.state.concept, not_concepts: this.state.notConcept})
+        .then(() => this.props.nextStep()
+        )
     }
   }
 
@@ -73,7 +79,21 @@ export class Concept extends Component {
     )
   }
 }
-export default Concept;
+function mapStateToProps(state) {
+  return {
+    error: state.auth.error,
+    train: state.wizard.train
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    trainProduct: createAction(TRAIN_PRODUCT, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Concept);
+
 
 
 

@@ -2,6 +2,13 @@ import React, {Component} from 'react'
 import {Field, reduxForm} from 'redux-form'
 
 export class OptionForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      color: ''
+    }
+  }
+
   renderSelector({input, label, meta: {touched, error}}) {
     const sizes = [{id: 1, name: 'S'}, {id: 2, name: 'M'}, {id: 3, name: 'L'}, {id: 4, name: 'XL'}]
     return (
@@ -19,13 +26,23 @@ export class OptionForm extends Component {
     )
   }
 
+  onSelect(event) {
+    alert('aaa')
+    this.setState({color: event.target.value});
+  }
+
   renderColorSelector({input, label, meta: {touched, error}}) {
     const colors = [{id: 1, hex: 'FF850A'}, {id: 2, hex: 'D2524E'}, {id: 3, hex: '333745'}, {id: 4, hex: '1C90F3'}]
     return (
       <div className="sideblock third">
-        { label && <h2>{label}</h2> }
+        { label && <h2 style={{display: 'inline-block'}}>{label}</h2> }
+        <div className="color-box"
+             style={{backgroundColor: `#${'FF850A'}`}}></div>
         <div className="select-wrapper">
-          <select className="form-control" {...input}>
+          <select onChange={(e) => {
+            input.onChange(e.target.value);
+          }}
+                  className="form-control" {...input}>
             <option value="">Select a color...</option>
             {colors.map(val =>
               <option style={{color: `#${val.hex}`}}
@@ -64,6 +81,7 @@ export class OptionForm extends Component {
                component={this.renderSelector}/>
         <Field name="color"
                label="Color"
+               onChangeAction={this.onSelect}
                component={this.renderColorSelector}/>
         <Field name="quantity"
                label="Quantity"

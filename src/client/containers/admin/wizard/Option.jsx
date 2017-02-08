@@ -33,7 +33,6 @@ export class Option extends Component {
               <br/>Add all options for the product here</p>
           </div>
         </div>
-        <div className="row">
           <div className="col-lg-8 col-lg-push-2">
             <div className="product-info-block creative">
               <div className="product-options more-options">
@@ -70,7 +69,6 @@ export class Option extends Component {
                     className="btn btn-alt pull-right">Finish
             </button>
           </div>
-        </div>
       </div>
     )
   }

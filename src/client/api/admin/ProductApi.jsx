@@ -17,6 +17,14 @@ const ProductApi = {
   getImages({id, page}) {
     const params = {page}
     return axios.get(`/admins/products/${id}/get_images`, {params})
+  },
+
+  addImages(id, image_ids) {
+    return axios.post(`/admin/products/${id}/images/`, image_ids)
+  },
+
+  trainProduct(id, data) {
+    return axios.post(`/admin/products/${id}/train/`, data)
   }
 }
 

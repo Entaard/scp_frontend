@@ -25,7 +25,7 @@ export class AdminProduct extends Component {
               </div>
               <div className="price-box"> <span className="price-container">
                 <span className="price-wrapper">
-                  <span className="price">{product.price}</span>
+                  <span className="price">{product.status}</span>
                 </span>
               </span>
               </div>

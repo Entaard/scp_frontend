@@ -29,3 +29,10 @@ export function reversetagit(id, available, onChange) {
 export function assignTags(id) {
   return $(`#${id}`).tagit("assignedTags");
 }
+
+export function addSideBar() {
+  var sideBar = document.querySelector(".sidebar-wrapper");
+  if (sideBar) {
+    document.body.classList.add("open-panel");
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Route, IndexRoute, RouteNotFound} from 'react-router'
 import RequireAuth from './containers/auth/RequireAuth'
+import RequireAuthAdmin from './containers/auth/RequireAuthAdmin'
 import SkipAuth from './containers/auth/SkipAuth'
 
 import App from './components/App'
@@ -21,7 +22,7 @@ import Admin from './components/Admin'
 import Test from './components/Test'
 
 export default [
-  <Route key="admin" path="/admin" component={Admin}>
+  <Route key="admin" path="/admin" component={RequireAuthAdmin(Admin)}>
     <IndexRoute component={AdminHome}/>
     <Route path="/admin/upload" components={Wizard}/>
     <Route path="/admin/login" components={AdminLogin}/>

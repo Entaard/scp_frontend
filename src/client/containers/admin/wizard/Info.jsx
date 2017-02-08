@@ -52,7 +52,7 @@ export class Info extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  productId: state.wizard
+  product: state.wizard
 })
 
 const mapDispatchToProps = (dispatch) => ({

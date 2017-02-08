@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from '../containers/admin/Header';
 import Footer from './Footer'
 import Navbar from './admin/Navigation';
+
+import {connect} from 'react-redux'
 require('./admin/admin.scss')
 
 class Admin extends Component {
@@ -9,8 +11,8 @@ class Admin extends Component {
     return (
       <div id="wrapper">
         <div className="page-wrapper admin-main">
-          <Header/>
-          <Navbar pathname={this.props.location.pathname}/>
+          {this.props.authenticated && <Header/>}
+          {this.props.authenticated && <Navbar location={this.props.location}/>}
           {this.props.children}
           <Footer/>
         </div>
@@ -19,6 +21,13 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated,
+    user: state.auth.user,
+  }
+}
+
+export default connect(mapStateToProps)(Admin);
 
 

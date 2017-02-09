@@ -41,9 +41,12 @@ export class Training extends Component {
 
   validate() {
     if (this.state.files.length) {
-      this.props.addImages(this.props.id, {image_ids: this.state.files.map(i => i.data.id)})
-        .then(() => this.props.nextStep()
-        )
+      const params = {
+        id: this.props.id,
+        image_ids: this.state.files.map(i => i.data.id)
+      }
+      this.props.addImages(params)
+        .then(() => this.props.nextStep())
     } else {
       this.setState({error: 'Training image is required'})
     }

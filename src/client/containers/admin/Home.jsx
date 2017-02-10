@@ -18,10 +18,6 @@ export class Home extends Component {
     this.props.getProducts(this.state.currentPage)
   }
 
-  // componentDidUpdate() {
-  //   console.log(this.props.product)
-  // }
-
   onPageChange(page) {
     this.setState(state => {
       state.currentPage = page.selected

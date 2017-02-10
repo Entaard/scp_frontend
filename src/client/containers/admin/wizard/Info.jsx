@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Uploader from '../../../components/Uploader/Single'
 import InfoForm from '../../../components/admin/wizard/InfoForm'
 import {CREATE_PRODUCT} from '../../../actions/ProductAction'
-import {GET_CATEGORIES} from '../../../actions/CategoryAction'
 import {createAction} from '../../../utils/SagaUtils'
 import {connect} from 'react-redux'
 
@@ -13,10 +12,6 @@ export class Info extends Component {
       url: '',
     }
     this.handleUpload = this.handleUpload.bind(this)
-  }
-
-  componentDidMount() {
-    this.props.getCategories();
   }
 
   handleUpload(files) {
@@ -38,8 +33,7 @@ export class Info extends Component {
             <h1>Create product</h1>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">
-              <br/>Add basic information for the product here</p>
+            <p className="text-center">Add basic information for the product here</p>
           </div>
         </div>
         <div className="row">
@@ -64,7 +58,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createProduct: createAction(CREATE_PRODUCT, dispatch),
-  getCategories: createAction(GET_CATEGORIES, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Info);

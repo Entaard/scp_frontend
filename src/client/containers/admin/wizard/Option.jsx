@@ -79,8 +79,7 @@ export class Option extends Component {
             <h1>Product Option</h1>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">
-              <br/>Add all options for the product here</p>
+            <p className="text-center">Add all options for the product here</p>
           </div>
         </div>
         <div className="col-lg-8 col-lg-push-2">

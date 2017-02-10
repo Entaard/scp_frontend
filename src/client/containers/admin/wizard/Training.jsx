@@ -60,8 +60,7 @@ export class Training extends Component {
             <h1>Train product</h1>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">
-              <br/>Upload images to train your product</p>
+            <p className="text-center">Upload images to train your product</p>
           </div>
         </div>
         <div className="newsletter variant1 col-md-5">

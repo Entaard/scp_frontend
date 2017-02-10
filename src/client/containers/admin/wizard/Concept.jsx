@@ -51,8 +51,7 @@ export class Concept extends Component {
             <h1>Add concept</h1>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">Add concepts
-              <br/>to improve the system's accurracy</p>
+            <p className="text-center">Add concepts to improve the system's accurracy</p>
           </div>
         </div>
         <div className="sideblock col-md-offset-1 col-md-5">

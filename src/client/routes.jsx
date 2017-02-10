@@ -16,15 +16,17 @@ import About from './components/About'
 import SearchResult from './components/SearchResult'
 import AdminHome from './containers/admin/Home'
 import AdminLogin from './containers/admin/Login'
+import Category from './containers/admin/Category'
 import Wizard from './containers/admin/wizard/Wizard'
 import AdminProductDetail from './containers/admin/ProductDetail'
-import Admin from './components/Admin'
+import Admin from './containers/admin/Admin'
 import Test from './components/Test'
 
 export default [
   <Route key="admin" path="/admin" component={RequireAuthAdmin(Admin)}>
     <IndexRoute component={AdminHome}/>
     <Route path="/admin/upload" components={Wizard}/>
+    <Route path="/admin/category" components={Category}/>
     <Route path="/admin/login" components={AdminLogin}/>
     <Route path="/admin/product-detail/:id" components={AdminProductDetail}/>
   </Route>,

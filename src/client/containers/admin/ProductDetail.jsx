@@ -124,7 +124,7 @@ export class ProductDetail extends Component {
                 <div className="col-md-11 col-lg-11">
                   <h2 className="custom-color">
                     Uploaded images ({product.images.total})
-                    <a className="btn pull-right">Edit</a>
+                    {this.product().images.result.length ? <a className="btn pull-right">Edit</a> : null}
                   </h2>
                   {this.renderImages()}
                 </div>

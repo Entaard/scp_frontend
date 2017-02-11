@@ -17,7 +17,7 @@ export class Product extends Component {
                   <div className="product-item-gallery-main">
                     <Link to="/product-detail">
                       <img className="product-image-photo"
-                           src="images/products/product-10.jpg"
+                           src="/images/products/product-10.jpg"
                            alt=""/>
                     </Link>
                   </div>

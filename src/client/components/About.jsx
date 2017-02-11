@@ -11,13 +11,11 @@ export class About extends Component {
               </div>
             </div>
           </div>
-          <div className="block fullboxed parallax"
-               data-parallax="scroll"
-               data-image-src="images/block-bg-1.jpg">
+          <div className="block fullboxed">
             <div className="container">
               <div className="row">
                 <div className="col-sm-6">
-                  <img src="images/logo-big.png"
+                  <img src="/images/logo-big.png"
                        alt
                        className="img-responsive"/>
                 </div>
@@ -48,7 +46,7 @@ export class About extends Component {
                 <div className="col-sm-4">
                   <div className="person">
                     <div className="person-photo">
-                      <img src="images/person/person-01.jpg"
+                      <img src="/images/person/person-01.jpg"
                            alt=""/>
                     </div>
                     <div className="person-info">
@@ -68,7 +66,7 @@ export class About extends Component {
                 <div className="col-sm-4">
                   <div className="person">
                     <div className="person-photo">
-                      <img src="images/person/person-02.jpg"
+                      <img src="/images/person/person-02.jpg"
                            alt=""/>
                     </div>
                     <div className="person-info">
@@ -88,7 +86,7 @@ export class About extends Component {
                 <div className="col-sm-4">
                   <div className="person">
                     <div className="person-photo">
-                      <img src="images/person/person-03.jpg"
+                      <img src="/images/person/person-03.jpg"
                            alt=""/>
                     </div>
                     <div className="person-info">
@@ -115,40 +113,40 @@ export class About extends Component {
               </div>
               <div className="brand-grid">
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-01.png"
+                   className="brand-item"><img src="/images/brands/brand-square-01.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-02.png"
+                   className="brand-item"><img src="/images/brands/brand-square-02.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-03.png"
+                   className="brand-item"><img src="/images/brands/brand-square-03.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-04.png"
+                   className="brand-item"><img src="/images/brands/brand-square-04.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-05.png"
+                   className="brand-item"><img src="/images/brands/brand-square-05.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-06.png"
+                   className="brand-item"><img src="/images/brands/brand-square-06.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-07.png"
+                   className="brand-item"><img src="/images/brands/brand-square-07.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-08.png"
+                   className="brand-item"><img src="/images/brands/brand-square-08.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-09.png"
+                   className="brand-item"><img src="/images/brands/brand-square-09.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-10.png"
+                   className="brand-item"><img src="/images/brands/brand-square-10.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-11.png"
+                   className="brand-item"><img src="/images/brands/brand-square-11.png"
                                                alt="Brand Logo"/></a>
                 <a href="#"
-                   className="brand-item"><img src="images/brands/brand-square-12.png"
+                   className="brand-item"><img src="/images/brands/brand-square-12.png"
                                                alt="Brand Logo"/></a>
               </div>
             </div>

@@ -130,7 +130,7 @@ export class MegaMenu extends Component {
                 <div className="container">
                   <div className="megamenu-categories column-4">
                     <div className="col">
-                      <a className="category-image" href="#"><img src="images/category/megamenu-category-03.jpg"
+                      <a className="category-image" href="#"><img src="/images/category/megamenu-category-03.jpg"
                       /></a>
                       <div className="category-title"><a href="#">Only New</a></div>
                       <ul className="category-links">
@@ -140,7 +140,7 @@ export class MegaMenu extends Component {
                       </ul>
                     </div>
                     <div className="col">
-                      <a className="category-image" href="#"><img src="images/category/megamenu-category-04.jpg"
+                      <a className="category-image" href="#"><img src="/images/category/megamenu-category-04.jpg"
                       /></a>
                       <div className="category-title"><a href="#">Only Sale</a></div>
                       <ul className="category-links">
@@ -151,7 +151,7 @@ export class MegaMenu extends Component {
                       </ul>
                     </div>
                     <div className="col">
-                      <a className="category-image" href="#"><img src="images/category/megamenu-category-05.jpg"
+                      <a className="category-image" href="#"><img src="/images/category/megamenu-category-05.jpg"
                       /></a>
                       <div className="category-title"><a href="#">Top</a><span
                           className="menu-label-alt">NEW</span></div>
@@ -163,7 +163,7 @@ export class MegaMenu extends Component {
                     </div>
                     <div className="col">
                       <a className="category-image" href="#">
-                        <img src="images/category/megamenu-category-06.jpg"/></a>
+                        <img src="/images/category/megamenu-category-06.jpg"/></a>
                       <div className="category-title"><a href="#">Bottom</a></div>
                       <ul className="category-links">
                         <li><a href="#">Shorts</a></li>
@@ -181,7 +181,7 @@ export class MegaMenu extends Component {
                 <div className="container">
                   <div className="megamenu-right width-25">
                     <div className="banner style-1 autosize-text" data-fontratio="4.2">
-                      <img src="images/banners/banner-1.jpg" alt="Banner"/>
+                      <img src="/images/banners/banner-1.jpg" alt="Banner"/>
                       <div className="banner-caption vertb">
                         <div className="vert-wrapper">
                           <div className="vert">
@@ -201,7 +201,7 @@ export class MegaMenu extends Component {
                   <div className="megamenu-categories column-2">
                     <div className="col">
                       <a className="category-image" href="#"><img
-                          src="images/category/megamenu-category-01.jpg"/></a>
+                          src="/images/category/megamenu-category-01.jpg"/></a>
                       <div className="category-title title-border"><a href="#">ACCESSORIES<span
                           className="menu-label">HOT</span></a></div>
                       <ul className="category-links column-count-2">
@@ -223,7 +223,7 @@ export class MegaMenu extends Component {
                       </ul>
                     </div>
                     <div className="col">
-                      <a className="category-image" href="#"><img src="images/category/megamenu-category-02.jpg"
+                      <a className="category-image" href="#"><img src="/images/category/megamenu-category-02.jpg"
                       /></a>
                       <div className="category-title title-border"><a href="#">CLOTHING<span
                           className="menu-label-alt">NEW</span></a></div>
@@ -245,7 +245,7 @@ export class MegaMenu extends Component {
                       </ul>
                     </div>
                     <div className="megamenu-bottom">
-                      <a href="#"><img className="img-responsive" src="images/banners/banner-megamenu.jpg"
+                      <a href="#"><img className="img-responsive" src="/images/banners/banner-megamenu.jpg"
                                        alt="megamenu banner"/></a>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export class MegaMenu extends Component {
                   <div className="megamenu-left width-33">
                     <a href="#bannerLink" className="banner-wrap">
                       <div className="banner style-13 autosize-text image-hover-scale" data-fontratio="4">
-                        <img src="images/banners/banner-21.jpg" alt="Banner"/>
+                        <img src="/images/banners/banner-21.jpg" alt="Banner"/>
                         <div className="banner-caption horc vertb" style={{bottom: '3%'}}>
                           <div className="vert-wrapper">
                             <div className="vert">
@@ -279,7 +279,7 @@ export class MegaMenu extends Component {
                   <div className="megamenu-categories column-3">
                     <div className="col">
                       <a className="category-image light" href="#"><img
-                          src="images/category/megamenu-category-07.jpg"/></a>
+                          src="/images/category/megamenu-category-07.jpg"/></a>
                       <div className="category-title title-border"><a href="#">Cameras & Camcorders<span
                           className="menu-label">HOT</span></a></div>
                       <ul className="category-links">
@@ -294,7 +294,7 @@ export class MegaMenu extends Component {
                     </div>
                     <div className="col">
                       <a className="category-image light" href="#"><img
-                          src="images/category/megamenu-category-09.jpg"/></a>
+                          src="/images/category/megamenu-category-09.jpg"/></a>
                       <div className="category-title title-border"><a href="#">Cell Phones<span
                           className="menu-label-alt">NEW</span></a>
                       </div>
@@ -310,7 +310,7 @@ export class MegaMenu extends Component {
                     </div>
                     <div className="col">
                       <a className="category-image light" href="#"><img
-                          src="images/category/megamenu-category-08.jpg"/></a>
+                          src="/images/category/megamenu-category-08.jpg"/></a>
                       <div className="category-title title-border"><a href="#">Video Games<span
                           className="menu-label">HOT</span></a></div>
                       <ul className="category-links">

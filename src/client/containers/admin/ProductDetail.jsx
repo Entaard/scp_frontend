@@ -93,12 +93,18 @@ export class ProductDetail extends Component {
                 </div>
                 <div className="col-md-5">
                   <div className="sideblock half">
-                    <h2>Meta</h2>
+                    <h2>Category</h2>
                     <ul className="simple-list">
-                      <li><a>Created: {product.created_at}</a></li>
-                      {/*<li><a>By: {product.user.first_name}</a></li>*/}
+                      <li><a>{product.category.name}</a></li>
                     </ul>
                   </div>
+                  {/*<div className="sideblock half">*/}
+                    {/*<h2>Meta</h2>*/}
+                    {/*<ul className="simple-list">*/}
+                      {/*<li><a>Created: {product.created_at}</a></li>*/}
+                      {/*<li><a>By: {product.user.first_name}</a></li>*/}
+                    {/*</ul>*/}
+                  {/*</div>*/}
                   <div className="sideblock half">
                     <h2>Status: {product.status}</h2>
                     <ul className="simple-list">
@@ -111,12 +117,6 @@ export class ProductDetail extends Component {
                     <h2>Concepts</h2>
                     <ul className="tags concept">
                       {this.renderConcepts()}
-                    </ul>
-                  </div>
-                  <div className="sideblock half">
-                    <h2>Category</h2>
-                    <ul className="simple-list">
-                      <li><a>{product.category.name}</a></li>
                     </ul>
                   </div>
                 </div>

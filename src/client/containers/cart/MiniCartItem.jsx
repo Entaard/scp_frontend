@@ -12,7 +12,7 @@ export class MiniCartItem extends Component {
 																			<span className="product-image-container">
 																<span className="product-image-wrapper">
 																<img className="product-image-photo"
-                                     src="images/products/product-16-c1.jpg"
+                                     src="/images/products/product-16-c1.jpg"
                                      alt={this.props.name}/>
 																</span>
 																			</span>

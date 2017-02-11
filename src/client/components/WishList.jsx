@@ -27,7 +27,7 @@ export class WishList extends Component {
                 </div>
                 <div className="table-row">
                   <div className="photo">
-                    <a href="product.html"><img src="images/products/product-1.jpg"
+                    <a href="product.html"><img src="/images/products/product-1.jpg"
                                                 alt=""/></a>
                   </div>
                   <div className="name">
@@ -45,7 +45,7 @@ export class WishList extends Component {
                 </div>
                 <div className="table-row">
                   <div className="photo">
-                    <a href="product.html"><img src="images/products/product-2.jpg"
+                    <a href="product.html"><img src="/images/products/product-2.jpg"
                                                 alt=""/></a>
                   </div>
                   <div className="name">

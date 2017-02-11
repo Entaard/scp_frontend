@@ -6,7 +6,7 @@ export class BlogItem extends Component {
       <div>
         <a href="blog.html" className="blog-item-photo">
           <img className="product-image-photo"
-               src="images/blog/blog-1.jpg" alt="From Blog"/>
+               src="/images/blog/blog-1.jpg" alt="From Blog"/>
         </a>
         <div className="blog-item-info">
           <a href="blog.html" className="blog-item-title">Inventore consectetur ullam</a>

@@ -17,8 +17,8 @@ export class AdminHeader extends Component {
               <div className="header-link dropdown-link header-account">
                 <a href="#"><i className="icon icon-user"></i></a>
                 <ul className="dropdown-container right">
-                  <li>
-                    <a onClick={this.props.deAuth}>
+                  <li onClick={this.props.deAuth}>
+                    <a>
                       <span>LOGOUT</span>
                     </a>
                   </li>

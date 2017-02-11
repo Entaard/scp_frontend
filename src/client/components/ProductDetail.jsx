@@ -31,7 +31,7 @@ export class ProductDetail extends Component {
                 <div className="col-sm-6 col-md-4 col-lg-4">
 
                   <div className="main-image">
-                    <img src="images/products/large/product-gallery-1.jpg"
+                    <img src="/images/products/large/product-gallery-1.jpg"
                          className="zoom"
                          alt=""
                          data-zoom-image="images/products/large/product-gallery-1.jpg"/>
@@ -46,15 +46,15 @@ export class ProductDetail extends Component {
                          id="previewsGallery">
                       <a href="#"
                          data-image="images/products/large/product-gallery-1.jpg"
-                         data-zoom-image="images/products/large/product-gallery-1.jpg"><img src="images/products/product-gallery-1.jpg"
+                         data-zoom-image="images/products/large/product-gallery-1.jpg"><img src="/images/products/product-gallery-1.jpg"
                                                                                             alt=""/></a>
                       <a href="#"
                          data-image="images/products/large/product-gallery-2.jpg"
-                         data-zoom-image="images/products/large/product-gallery-2.jpg"><img src="images/products/product-gallery-2.jpg"
+                         data-zoom-image="images/products/large/product-gallery-2.jpg"><img src="/images/products/product-gallery-2.jpg"
                                                                                             alt=""/></a>
                       <a href="#"
                          data-image="images/products/large/product-gallery-3.jpg"
-                         data-zoom-image="images/products/large/product-gallery-3.jpg"><img src="images/products/product-gallery-3.jpg"
+                         data-zoom-image="images/products/large/product-gallery-3.jpg"><img src="/images/products/product-gallery-3.jpg"
                                                                                             alt=""/></a>
 
                     </div>
@@ -125,7 +125,7 @@ export class ProductDetail extends Component {
                                                            data-placement="top"
                                                            title="Red"
                                                            data-value="Red"
-                                                           data-image="images/products/product-color-red.jpg"><span className="value"><img src="images/colorswatch/color-red.png"
+                                                           data-image="images/products/product-color-red.jpg"><span className="value"><img src="/images/colorswatch/color-red.png"
                                                                                                                                            alt=""/></span></a>
                           </li>
                           <li><a href="#"
@@ -133,7 +133,7 @@ export class ProductDetail extends Component {
                                  data-placement="top"
                                  title="Pink"
                                  data-value="Green"
-                                 data-image="images/products/product-color-green.jpg"><span className="value"><img src="images/colorswatch/color-green.png"
+                                 data-image="images/products/product-color-green.jpg"><span className="value"><img src="/images/colorswatch/color-green.png"
                                                                                                                    alt=""/></span></a>
                           </li>
                           <li><a href="#"
@@ -141,7 +141,7 @@ export class ProductDetail extends Component {
                                  data-placement="top"
                                  title="Marine"
                                  data-value="Blue"
-                                 data-image="images/products/product-color-blue.jpg"><span className="value"><img src="images/colorswatch/color-blue.png"
+                                 data-image="images/products/product-color-blue.jpg"><span className="value"><img src="/images/colorswatch/color-blue.png"
                                                                                                                   alt=""/></span></a>
                           </li>
                           <li><a href="#"
@@ -149,7 +149,7 @@ export class ProductDetail extends Component {
                                  data-placement="top"
                                  title="Orange"
                                  data-value="yellow"
-                                 data-image="images/products/product-color-yellow.jpg"><span className="value"><img src="images/colorswatch/color-yellow.png"
+                                 data-image="images/products/product-color-yellow.jpg"><span className="value"><img src="/images/colorswatch/color-yellow.png"
                                                                                                                     alt=""/></span></a>
                           </li>
                           <li><a href="#"
@@ -157,7 +157,7 @@ export class ProductDetail extends Component {
                                  data-placement="top"
                                  title="Orange"
                                  data-value="grey"
-                                 data-image="images/products/product-color-grey.jpg"><span className="value"><img src="images/colorswatch/color-grey.png"
+                                 data-image="images/products/product-color-grey.jpg"><span className="value"><img src="/images/colorswatch/color-grey.png"
                                                                                                                   alt=""/></span></a>
                           </li>
                           <li><a href="#"
@@ -165,7 +165,7 @@ export class ProductDetail extends Component {
                                  data-placement="top"
                                  title="Orange"
                                  data-value="grey"
-                                 data-image="images/products/product-color-violet.jpg"><span className="value"><img src="images/colorswatch/color-violet.png"
+                                 data-image="images/products/product-color-violet.jpg"><span className="value"><img src="/images/colorswatch/color-violet.png"
                                                                                                                     alt=""/></span></a>
                           </li>
                         </ul>

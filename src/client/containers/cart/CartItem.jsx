@@ -7,7 +7,7 @@ export class CartItem extends Component {
     return (
       <div className="table-row">
         <div className="photo">
-          <Link to="/product-detail"><img src="images/products/product-1.jpg"
+          <Link to="/product-detail"><img src="/images/products/product-1.jpg"
                                           alt=""/></Link>
         </div>
         <div className="name">

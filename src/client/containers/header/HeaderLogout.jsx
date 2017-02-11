@@ -1,23 +1,28 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
+import {browserHistory} from 'react-router'
 import {connect} from 'react-redux'
 import {createAction} from '../../utils/SagaUtils'
 import {DE_AUTH} from '../../actions/AuthAction'
 require('./Header.scss')
 
 export class HeaderLogout extends Component {
+
+  wishList() {
+    browserHistory.push("/wish-list")
+  }
+
   render() {
     return (
       <div className="header-link dropdown-link header-account">
         <a href="#"><i className="icon icon-user"></i></a>
         <ul className="dropdown-container right">
-          <li>
-            <Link to="/wish-list">
+          <li onClick={this.wishList}>
+            <a>
               <span>WISHLIST</span>
-            </Link>
+            </a>
           </li>
-          <li>
-            <a onClick={this.props.deAuth}>
+          <li onClick={this.props.deAuth}>
+            <a>
               <span>LOGOUT</span>
             </a>
           </li>

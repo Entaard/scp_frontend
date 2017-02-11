@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
-// import {createAction} from '../../utils/SagaUtils'
+import {createAction} from '../../utils/SagaUtils'
+import {CREATE_CATEGORY, DELETE_CATEGORY, UPDATE_CATEGORY} from '../../actions/CategoryAction'
+import CategoryForm from '../../components/admin/CategoryForm'
 import {connect} from 'react-redux'
 export class Category extends Component {
   constructor(props) {
     super(props)
     this.state = {
       editing: null,
+      category: '',
     }
   }
 
@@ -13,16 +16,29 @@ export class Category extends Component {
     this.setState({editing: itemId});
   }
 
+  handleUpdate(id) {
+    this.toggleEditing(null)
+    console.log(id, this.state.category)
+  }
+
+  handleInputChange(event) {
+    this.setState({[event.target.id]: event.target.value})
+  }
+
   renderNameOrEditField(item) {
     if (this.state.editing === item.id) {
       return (
         <td>
-          <input className="form-control table-input"
+          <input id="category"
+                 className="form-control table-input"
                  placeholder="Category name"
                  defaultValue={item.name}
+                 onChange={this.handleInputChange.bind(this)}
                  type="text"/>
-          <a><i className="icon-check"></i></a>
-          <a><i className="icon-close-1" onClick={() => this.toggleEditing(null) }></i></a>
+          <a><i className="icon-check"
+                onClick={() => this.handleUpdate(item.id)}></i></a>
+          <a><i className="icon-close-1"
+                onClick={() => this.toggleEditing(null) }></i></a>
         </td>
       )
     } else {
@@ -41,10 +57,15 @@ export class Category extends Component {
           <a className="btn btn-alt"
              onClick={() => this.toggleEditing(item.id) }>Edit</a>
           <a style={{marginLeft: '20px'}}
-             className="btn">Delete</a>
+             className="btn"
+             onClick={() => this.props.deleteCategory(item.id) }>Delete</a>
         </td>
       </tr>
     ))
+  }
+
+  handleSubmit = (values) => {
+    this.props.createCategory(values)
   }
 
   render() {
@@ -56,23 +77,21 @@ export class Category extends Component {
           </div>
         </div>
         <div className="col-lg-8 no-padding">
-          <form className="white">
-            <div className="sideblock two-third">
-              <h2>New category</h2>
-              <input className="form-control input-inline"
-                     placeholder="Category name"
-                     type="text"/>
-              <a className="btn btn-alt pull-right">Add</a>
-            </div>
-          </form>
+          <CategoryForm onSubmit={this.handleSubmit}/>
         </div>
 
         <table className="table table-bordered">
           <tbody>
           <tr>
-            <th className="col-md-2" scope="col">No.</th>
-            <th className="col-md-6" scope="col">Name</th>
-            <th className="col-md-4" scope="col">Acion</th>
+            <th className="col-md-2"
+                scope="col">No.
+            </th>
+            <th className="col-md-6"
+                scope="col">Name
+            </th>
+            <th className="col-md-4"
+                scope="col">Acion
+            </th>
           </tr>
           {this.renderRow()}
           </tbody>
@@ -86,4 +105,10 @@ const mapStateToProps = (state) => ({
   categories: state.categories.data,
 })
 
-export default connect(mapStateToProps)(Category);
+const mapDispatchToProps = (dispatch) => ({
+  createCategory: createAction(CREATE_CATEGORY, dispatch),
+  deleteCategory: createAction(DELETE_CATEGORY, dispatch),
+  updateCategory: createAction(UPDATE_CATEGORY, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Category);

@@ -2,18 +2,27 @@ import React, {Component} from 'react'
 require('./Step.scss')
 
 export class Step extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      currentStep: 1
-    }
-  }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       currentStep: nextProps.currentStep
     })
   }
+
+  renderSteps() {
+    const currentIndex = this.indexOfCurrentStep()
+    return this.props.steps.map((step, index) => {
+      return <li key={index}
+                 className={index == currentIndex && 'active'}
+                 data-title={this.props.titles[index]}></li>
+    })
+  }
+
+  indexOfCurrentStep() {
+    const {steps, currentStep} = this.props;
+    return steps.indexOf(currentStep)
+  }
+
 //   onClick={() => {
 //   this.setState({currentStep: 1});
 //   this.props.onStepChange(1)
@@ -21,14 +30,7 @@ export class Step extends Component {
   render() {
     return (
       <ul className="steps">
-        <li className={this.state.currentStep == 1 ? 'active' : null}
-            data-title="Create"></li>
-        <li data-title="Train"
-            className={this.state.currentStep == 2 ? 'active' : null}></li>
-        <li className={this.state.currentStep == 3 ? 'active' : null}
-            data-title="Concept"></li>
-        <li className={this.state.currentStep == 4 ? 'active' : null}
-            data-title="Option"></li>
+        {this.renderSteps()}
       </ul>
     )
   }

@@ -84,21 +84,9 @@ export class InfoForm extends Component {
                 className="btn btn-alt pull-right"
                 disabled={submitting}>Next
         </button>
-
       </form>
     )
   }
-}
-
-{/*<button type="button"*/
-}
-{/*className="btn btn-alt"*/
-}
-{/*disabled={pristine || submitting}*/
-}
-{/*onClick={reset}>Reset*/
-}
-{/*</button>*/
 }
 
 const validate = (values) => {

@@ -42,6 +42,7 @@ $current-track-top: 6px;
     background-color: $app-bg-color;
     cursor: pointer;
     &:before {
+      text-transform: uppercase;
       content: attr(data-title);
       position: absolute;
       top: -25px;

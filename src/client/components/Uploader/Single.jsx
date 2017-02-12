@@ -34,7 +34,7 @@ class Uploader extends Multiple {
       <div className="main-image">
         <img
           className="upload-main-image"
-          src="/images/products/large/product-gallery-1.jpg"
+          src={this.props.defaultUrl || "/images/products/large/product-gallery-1.jpg"}
         />
       </div>
     )

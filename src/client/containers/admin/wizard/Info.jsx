@@ -21,7 +21,7 @@ export class Info extends Component {
   }
 
   handleSubmit = (values) => {
-    this.props.createProduct(values)
+    this.props.createProduct({ ...values, product_id: this.props.product.id })
       .then(() => this.props.nextStep())
   }
 
@@ -38,12 +38,14 @@ export class Info extends Component {
         </div>
         <div className="row">
           <div className="col-sm-6 col-md-6 col-md-offset-1 col-lg-4">
-            <Uploader onChange={this.handleUpload}/>
+            <Uploader onChange={this.handleUpload} defaultUrl={this.props.product && this.props.product.url}/>
           </div>
           <div className="col-md-5 col-lg-6">
-            <InfoForm categories={this.props.categories}
-                      imgUrl={this.state.url}
-                      onSubmit={this.handleSubmit}/>
+            <InfoForm
+              initializeForm={this.props.initializeForm}
+              categories={this.props.categories}
+              imgUrl={this.state.url}
+              onSubmit={this.handleSubmit}/>
           </div>
         </div>
       </div>
@@ -51,10 +53,11 @@ export class Info extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  product: state.wizard,
-  categories: state.categories.data,
-})
+const mapStateToProps = (state) => {
+  return {
+    categories: state.categories.data,
+  }
+}
 
 const mapDispatchToProps = (dispatch) => ({
   createProduct: createAction(CREATE_PRODUCT, dispatch),

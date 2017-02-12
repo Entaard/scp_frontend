@@ -20,16 +20,6 @@ function* handleCreateSuccess(response) {
   yield put({type: CREATE_ERROR, payload: null})
 }
 
-function* addImages(action) {
-  const response = yield call(executeApi, action, ProductApi.addImages)
-  yield handleAddImagesSuccess(response)
-}
-
-function* handleAddImagesSuccess(response) {
-  yield put({type: IMAGES_ADDED, payload: response.data})
-  yield put({type: ADD_IMAGES_ERROR, payload: null})
-}
-
 function* trainProduct(action) {
   const response = yield call(executeApi, action, ProductApi.addImages)
   yield handleTrainSuccess(response)
@@ -43,7 +33,6 @@ function* handleTrainSuccess(response) {
 export default function* watchProduct() {
   yield [
     takeLatest(CREATE_PRODUCT, createProduct),
-    takeLatest(ADD_IMAGES, addImages),
     takeLatest(TRAIN_PRODUCT, trainProduct),
     takeLatest(GET_ADMIN_PRODUCTS, bindAction(ProductApi.getProducts)),
     takeLatest(DELETE_PRODUCT, bindAction(ProductApi.deleteProduct)),

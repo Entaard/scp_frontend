@@ -11,8 +11,7 @@ const ProductApi = {
   },
 
   deleteProduct(id) {
-    const params = {id}
-    return axios.delete('/admins/products', {params})
+    return axios.delete(`/admins/products/${id}`)
   },
 
   getProductDetail(id) {
@@ -22,10 +21,6 @@ const ProductApi = {
   getImages({id, page}) {
     const params = {page}
     return axios.get(`/admins/products/${id}/get_images`, {params})
-  },
-
-  addImages({id, image_ids}) {
-    return axios.post(`/admin/products/${id}/create_images/`, image_ids)
   },
 
   trainProduct(id, data) {

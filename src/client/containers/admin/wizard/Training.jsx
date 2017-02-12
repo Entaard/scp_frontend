@@ -2,10 +2,6 @@ import React, {Component} from 'react'
 import TrainedImage from '../../../components/admin/TrainedImage'
 import Uploader from '../../../components/Uploader/Multiple'
 
-import {ADD_IMAGES} from '../../../actions/ProductAction'
-import {connect} from 'react-redux'
-import {createAction} from '../../../utils/SagaUtils'
-
 export class Training extends Component {
   constructor(props) {
     super(props)
@@ -17,10 +13,7 @@ export class Training extends Component {
   }
 
   handleDelete(index) {
-    var files = this.uploader.state.files
-    files.splice(index, 1)
-    this.uploader.props.onChange(files)
-    this.uploader.setState({files})
+    this.uploader.handleDelete(index)
   }
 
   renderImages() {
@@ -41,12 +34,7 @@ export class Training extends Component {
 
   validate() {
     if (this.state.files.length) {
-      const params = {
-        id: this.props.id,
-        image_ids: this.state.files.map(i => i.data.id)
-      }
-      this.props.addImages(params)
-        .then(() => this.props.nextStep())
+      this.props.nextStep()
     } else {
       this.setState({error: 'Training image is required'})
     }
@@ -71,6 +59,8 @@ export class Training extends Component {
                        className="form-control"/>
                 <span className="input-group-btn">
                   <Uploader
+                    deleteResource={`/admins/products/${this.props.product.id}`}
+                    uploadLink={`/admins/products/${this.props.product.id}/images`}
                     ref={uploader => this.uploader = uploader}
                     onChange={this.handleUpload}
                   />
@@ -97,17 +87,6 @@ export class Training extends Component {
     )
   }
 }
-function mapStateToProps(state) {
-  return {
-    error: state.auth.error,
-    images: state.wizard.images
-  }
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addImages: createAction(ADD_IMAGES, dispatch)
-  }
-}
+export default Training;
 
-export default connect(mapStateToProps, mapDispatchToProps)(Training);

@@ -10,6 +10,20 @@ class Uploader extends Component {
     }
   }
 
+  handleDelete(index) {
+    const files = this.state.files
+    files[index].upload = false
+    const self = this
+    self.setState({files})
+    self.props.onChange(files)
+    axios.delete(`${this.props.deleteResource}/images/${files[index].data.id}`)
+      .then(() => {
+        files.splice(index, 1)
+        self.setState({files})
+        self.props.onChange(files)
+      })
+  }
+
   onDrop(acceptedFiles) {
     const currentLength = this.state.files.length
     this.setState(state => {
@@ -26,7 +40,7 @@ class Uploader extends Component {
     acceptedFiles.forEach((file, index) => {
       var data = new FormData();
       data.append('file', file);
-      axios.post('/images', data)
+      axios.post(self.props.uploadLink || '/images', data)
         .then(response => self.handleComplete(response, index + currentLength))
     })
   }

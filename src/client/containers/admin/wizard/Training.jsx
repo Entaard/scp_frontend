@@ -4,7 +4,7 @@ import Uploader from '../../../components/Uploader/Multiple'
 import {connect} from 'react-redux'
 import {createAction} from '../../../utils/SagaUtils'
 import {
-  GET_ADMIN_PRODUCT_DETAIL,
+  ADD_IMAGES,
 } from '../../../actions/ProductAction'
 
 export class Training extends Component {
@@ -58,7 +58,7 @@ export class Training extends Component {
   validate() {
     const self = this
     if (this.state.files.length) {
-      this.props.getProductDetail(this.props.product.id)
+      this.props.addImages(this.props.product.id)
         .then(() => self.props.nextStep())
     } else {
       this.setState({error: 'Training image is required'})
@@ -114,7 +114,7 @@ export class Training extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  getProductDetail: createAction(GET_ADMIN_PRODUCT_DETAIL, dispatch),
+  addImages: createAction(ADD_IMAGES, dispatch),
 })
 
 export default connect(null, mapDispatchToProps)(Training);

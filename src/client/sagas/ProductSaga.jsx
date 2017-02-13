@@ -3,27 +3,19 @@ import {executeApi} from '../utils/SagaUtils'
 import {
   CREATE_PRODUCT,
   DELETE_PRODUCT,
-  ADD_IMAGES, IMAGES_ADDED, ADD_IMAGES_ERROR,
-  TRAIN_PRODUCT, PRODUCT_TRAINED, TRAIN_ERROR,
+  ADD_IMAGES, GET_CONCEPTS,
+  TRAIN_PRODUCT,
   GET_ADMIN_PRODUCTS, GET_ADMIN_PRODUCT_DETAIL, GET_ADMIN_PRODUCTS_IMAGES
 } from '../actions/ProductAction'
 import {bindAction} from '../utils/SagaUtils'
 import ProductApi from '../api/admin/ProductApi'
 
-function* trainProduct(action) {
-  const response = yield call(executeApi, action, ProductApi.addImages)
-  yield handleTrainSuccess(response)
-}
-
-function* handleTrainSuccess(response) {
-  yield put({type: PRODUCT_TRAINED, payload: response.data})
-  yield put({type: TRAIN_ERROR, payload: null})
-}
-
 export default function* watchProduct() {
   yield [
     takeLatest(CREATE_PRODUCT, bindAction(ProductApi.createProduct)),
-    takeLatest(TRAIN_PRODUCT, trainProduct),
+    takeLatest(ADD_IMAGES, bindAction(ProductApi.addImages)),
+    takeLatest(TRAIN_PRODUCT, bindAction(ProductApi.trainProduct)),
+    takeLatest(GET_CONCEPTS, bindAction(ProductApi.getConcepts)),
     takeLatest(GET_ADMIN_PRODUCTS, bindAction(ProductApi.getProducts)),
     takeLatest(DELETE_PRODUCT, bindAction(ProductApi.deleteProduct)),
     takeLatest(GET_ADMIN_PRODUCTS_IMAGES, bindAction(ProductApi.getImages)),

@@ -23,8 +23,16 @@ const ProductApi = {
     return axios.get(`/admins/products/${id}/get_images`, {params})
   },
 
-  trainProduct(id, data) {
-    return axios.post(`/admin/products/${id}/train/`, data)
+  getConcepts() {
+    return axios.get('/api/concepts')
+  },
+
+  addImages(id) {
+    return axios.post(`/admins/products/${id}/create_images/`)
+  },
+
+  trainProduct({id, data}) {
+    return axios.post(`/admins/products/${id}/train/`, data)
   }
 }
 

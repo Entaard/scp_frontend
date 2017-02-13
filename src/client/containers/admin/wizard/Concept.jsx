@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {tagit, reversetagit, assignTags} from '../../../utils/ViewUtils'
+import _ from 'lodash'
 
 import {TRAIN_PRODUCT} from '../../../actions/ProductAction'
 import {connect} from 'react-redux'
@@ -15,32 +16,48 @@ export class Concept extends Component {
   }
 
   componentDidMount() {
-    tagit('concept', ['Shirt', 'T-shirt', 'Shoes', 'Trainers', 'Trousers', 'Skirt'], this.onConceptChange.bind(this))
-    reversetagit('not-concept', ['Shirt', 'T-shirt', 'Shoes', 'Trainers', 'Trousers', 'Skirt'], this.onNotConceptChange.bind(this))
+    console.log(this.props.product)
+
+    const autocomplete = this.props.concepts.map(c => c.name)
+    tagit('concept', autocomplete, this.onConceptChange.bind(this))
+    reversetagit('not-concept', autocomplete, this.onNotConceptChange.bind(this))
   }
 
   onConceptChange() {
     const concept = assignTags('concept')
-    this.setState({concept}, () => {
-      console.log('concept after added', this.state.concept)
-    })
+    this.setState({concept})
   }
 
   onNotConceptChange() {
     const notConcept = assignTags('not-concept')
-    this.setState({notConcept}, () => {
-      console.log('not-concept after added', this.state.notConcept)
-    })
+    this.setState({notConcept})
   }
 
   validate() {
-    if (!this.state.concept.length || !this.state.notConcept.length) {
-      this.setState({error: true})
+    if (!this.state.concept.length) {
+      this.setState({error: 'Concept is required'})
+    } else if (_.intersection(this.state.concept, this.state.notConcept).length > 0) {
+      this.setState({error: 'Concept can not be the same as not-concept'})
     } else {
-      this.props.trainProduct(this.props.id, {concepts: this.state.concept, not_concepts: this.state.notConcept})
+      this.props.trainProduct(this.conceptParams())
         .then(() => this.props.nextStep()
         )
     }
+  }
+
+  conceptParams() {
+    console.log(this.props.product)
+    return {
+      data: {
+        concepts: this.state.concept,
+        not_concepts: this.state.notConcept,
+      },
+      id: this.props.product.id
+    }
+  }
+
+  renderTags(concepts) {
+    return concepts.map(concept => (<li key={concept.id}>{concept.name}</li>))
   }
 
   render() {
@@ -56,12 +73,16 @@ export class Concept extends Component {
         </div>
         <div className="sideblock col-md-offset-1 col-md-5">
           <h2 className="col-md-offset-1">Concepts</h2>
-          <ul id="concept"></ul>
+          <ul id="concept">
+            {this.renderTags(this.props.product.concepts)}
+          </ul>
+          {this.state.error && <span className="has-error col-md-offset-1">{this.state.error}</span>}
         </div>
         <div className="sideblock col-md-5">
           <h2>Not concepts</h2>
-          <ul id="not-concept"></ul>
-          {this.state.error && <span className="has-error">All fields are required</span>}
+          <ul id="not-concept">
+            {this.renderTags(this.props.product.not_concepts)}
+          </ul>
         </div>
         <div className="col-sm-11 col-md-11">
           <button
@@ -78,10 +99,11 @@ export class Concept extends Component {
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
-    error: state.auth.error,
-    train: state.wizard.train
+    categories: state.categories.data,
+    concepts: state.concepts,
   }
 }
 
@@ -92,7 +114,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Concept);
-
-
-
-

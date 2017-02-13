@@ -56,7 +56,15 @@ export class ProductDetail extends Component {
   renderConcepts() {
     return this.product().concepts.map(item => (
       <li key={item.id}
-          className={item.is_concept ? 'active' : 'inactive'}><a><span className="value"><span>{item.name}</span></span></a>
+          className='active'><a><span className="value"><span>{item.name}</span></span></a>
+      </li>
+    ))
+  }
+
+  renderNotConcepts() {
+    return this.product().not_concepts.map(item => (
+      <li key={item.id}
+          className='inactive'><a><span className="value"><span>{item.name}</span></span></a>
       </li>
     ))
   }
@@ -99,11 +107,11 @@ export class ProductDetail extends Component {
                     </ul>
                   </div>
                   {/*<div className="sideblock half">*/}
-                    {/*<h2>Meta</h2>*/}
-                    {/*<ul className="simple-list">*/}
-                      {/*<li><a>Created: {product.created_at}</a></li>*/}
-                      {/*<li><a>By: {product.user.first_name}</a></li>*/}
-                    {/*</ul>*/}
+                  {/*<h2>Meta</h2>*/}
+                  {/*<ul className="simple-list">*/}
+                  {/*<li><a>Created: {product.created_at}</a></li>*/}
+                  {/*<li><a>By: {product.user.first_name}</a></li>*/}
+                  {/*</ul>*/}
                   {/*</div>*/}
                   <div className="sideblock half">
                     <h2>Status: {product.status}</h2>
@@ -117,6 +125,7 @@ export class ProductDetail extends Component {
                     <h2>Concepts</h2>
                     <ul className="tags concept">
                       {this.renderConcepts()}
+                      {this.renderNotConcepts()}
                     </ul>
                   </div>
                 </div>

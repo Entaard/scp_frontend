@@ -65,10 +65,11 @@ export class Concept extends Component {
       <div className="container">
         <div className="page-title">
           <div className="title center">
-            <h1>Add concept</h1>
+            <h1>Product concepts</h1>
+            <h3 className="text-center" style={{color: '#d2524e'}}>{this.props.product.name}</h3>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">Add concepts to improve the system's accurracy</p>
+            <p className="text-center">Add concepts and not-concepts to improve the system's accurracy</p>
           </div>
         </div>
         <div className="sideblock col-md-offset-1 col-md-5">

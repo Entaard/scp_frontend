@@ -33,7 +33,7 @@ export class Info extends Component {
             <h1>Create product</h1>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">Add basic information for the product here</p>
+            <p className="text-center">Add basic information for the product</p>
           </div>
         </div>
         <div className="row">

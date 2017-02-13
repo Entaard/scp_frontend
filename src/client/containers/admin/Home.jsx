@@ -51,30 +51,30 @@ export class Home extends Component {
         <div className="page-main">
           <div className="container">
             <div className="col-sm-12 col-md-12">
-              <div className="filter-row">
-                <div className="row">
-                  <div className="col-xs-12 col-sm-12 col-lg-12 col-left">
-                    <div className="filter-button">
-                      <a href="#"
-                         className="btn filter-col-toggle"><i
-                        className="icon icon-filter"></i><span>FILTER</span></a>
-                    </div>
-                    <div className="form-label">Sort by:</div>
-                    <div className="select-wrapper-sm">
-                      <select className="form-control input-sm">
-                        <option value="latest">Latest</option>
-                        <option value="oldest">Oldest</option>
-                        <option value="Unfinished">Unfinished</option>
-                      </select>
-                    </div>
-                    <div className="directions">
-                      <a href="#"><i className="icon icon-arrow-down"></i></a>
-                      <a href="#"><i className="icon icon-arrow-up"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-striped"></div>
-              </div>
+              {/*<div className="filter-row">*/}
+                {/*<div className="row">*/}
+                  {/*<div className="col-xs-12 col-sm-12 col-lg-12 col-left">*/}
+                    {/*<div className="filter-button">*/}
+                      {/*<a href="#"*/}
+                         {/*className="btn filter-col-toggle"><i*/}
+                        {/*className="icon icon-filter"></i><span>FILTER</span></a>*/}
+                    {/*</div>*/}
+                    {/*<div className="form-label">Sort by:</div>*/}
+                    {/*<div className="select-wrapper-sm">*/}
+                      {/*<select className="form-control input-sm">*/}
+                        {/*<option value="latest">Latest</option>*/}
+                        {/*<option value="oldest">Oldest</option>*/}
+                        {/*<option value="Unfinished">Unfinished</option>*/}
+                      {/*</select>*/}
+                    {/*</div>*/}
+                    {/*<div className="directions">*/}
+                      {/*<a href="#"><i className="icon icon-arrow-down"></i></a>*/}
+                      {/*<a href="#"><i className="icon icon-arrow-up"></i></a>*/}
+                    {/*</div>*/}
+                  {/*</div>*/}
+                {/*</div>*/}
+                {/*<div className="bg-striped"></div>*/}
+              {/*</div>*/}
 
               <div className="title">
                 <h2>Latest</h2>

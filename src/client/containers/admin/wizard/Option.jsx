@@ -71,10 +71,11 @@ export class Option extends Component {
       <div className="container">
         <div className="page-title">
           <div className="title center">
-            <h1>Product Option</h1>
+            <h1>Product Options</h1>
+            <h3 className="text-center" style={{color: '#d2524e'}}>{this.props.product.name}</h3>
           </div>
           <div className="text-wrapper">
-            <p className="text-center">Add all options for the product here</p>
+            <p className="text-center">Add all available options for the product</p>
           </div>
         </div>
         <div className="col-lg-8 col-lg-push-2">
@@ -102,7 +103,7 @@ export class Option extends Component {
             </tbody>
           </table>}
 
-          <div className="col-sm-11 col-md-11">
+          <div className="col-sm-12 col-md-12">
             <button
               onClick={this.props.previousStep}
               className="btn btn-alt">

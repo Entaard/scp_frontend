@@ -40,7 +40,8 @@ $current-track-top: 6px;
     border-radius: 10px;
     border: 2px solid $dark-red;
     background-color: $app-bg-color;
-    cursor: pointer;
+    //cursor: pointer;
+    color: $dark-red;
     &:before {
       text-transform: uppercase;
       content: attr(data-title);
@@ -65,6 +66,10 @@ $current-track-top: 6px;
         top: $current-track-top;
         background-color: $steps-track-bg;
         z-index: 1;
+      }
+      & ~ li {
+        color: $steps-text-color;
+        font-weight: normal;
       }
     }
     &:last-child {

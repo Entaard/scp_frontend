@@ -31,8 +31,9 @@ export class AdminProduct extends Component {
               </div>
               <div className="product-item-actions">
                 <div className="actions-primary">
-                  {product.status !== 'publish' && <Link to={{pathname: "/admin/upload", query: {id: product.id}}}
-                                                        className="btn btn-sm btn-invert">
+                  {product.status !== 'publish' &&
+                  <Link to={{pathname: "/admin/upload", query: {id: product.id}}}
+                        className="btn btn-sm btn-ctn">
                     <span>Continue</span>
                   </Link>}
                   <button onClick={this.props.deleteProduct}

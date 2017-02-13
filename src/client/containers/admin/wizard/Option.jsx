@@ -9,9 +9,23 @@ export class Option extends Component {
     super(props)
     this.state = {
       row: [],
-      data: [],
     }
     this.addRow = this.addRow.bind(this)
+  }
+
+  componentDidMount() {
+    if (this.props.product.attr_products) {
+      const self = this
+      const rows = this.props.product.attr_products.map(attr => {
+          return {
+            code: self.getColor(attr.color_id).code,
+            sizeName: self.getSize(attr.size_id).name,
+            quantity: attr.quantity
+          }
+        }
+      )
+      this.setState({row: rows})
+    }
   }
 
   renderColorBoxes(color) {
@@ -43,7 +57,6 @@ export class Option extends Component {
     row.sizeName = this.getSize(row.size).name
     this.setState({
       row: this.state.row.concat([row]),
-      data: this.state.data.concat([values])
     })
   }
 
@@ -79,7 +92,7 @@ export class Option extends Component {
 
   finish() {
     if (!this.state.data.length) {
-      alert('error plz')
+      alert('Product must have at least one option')
     } else {
       this.props.publish(this.props.product.id)
     }

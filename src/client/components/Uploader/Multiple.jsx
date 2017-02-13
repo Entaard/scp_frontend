@@ -10,13 +10,19 @@ class Uploader extends Component {
     }
   }
 
+  componentWillMount() {
+    if (this.props.initData) {
+      this.setState({files: this.props.initData})
+    }
+  }
+
   handleDelete(index) {
     const files = this.state.files
     files[index].upload = false
     const self = this
     self.setState({files})
     self.props.onChange(files)
-    axios.delete(`${this.props.deleteResource}/images/${files[index].data.id}`)
+    axios.delete(`${this.props.prefix || ''}/images/${files[index].data.id}`)
       .then(() => {
         files.splice(index, 1)
         self.setState({files})
@@ -40,7 +46,7 @@ class Uploader extends Component {
     acceptedFiles.forEach((file, index) => {
       var data = new FormData();
       data.append('file', file);
-      axios.post(self.props.uploadLink || '/images', data)
+      axios.post(`${this.props.prefix || ''}/images`, data)
         .then(response => self.handleComplete(response, index + currentLength))
     })
   }

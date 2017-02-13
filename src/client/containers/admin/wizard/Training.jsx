@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import TrainedImage from '../../../components/admin/TrainedImage'
 import Uploader from '../../../components/Uploader/Multiple'
+import {connect} from 'react-redux'
+import {createAction} from '../../../utils/SagaUtils'
+import {
+  GET_ADMIN_PRODUCT_DETAIL,
+} from '../../../actions/ProductAction'
 
 export class Training extends Component {
   constructor(props) {
@@ -14,6 +19,24 @@ export class Training extends Component {
 
   handleDelete(index) {
     this.uploader.handleDelete(index)
+  }
+
+  retrieveData() {
+    let data = []
+    if (this.props.product.images.result.length) {
+      for (var i = 0; i < this.props.product.images.result.length; i++) {
+        data[i] = {
+          upload: true,
+          data: {id: this.props.product.images.result[i].id},
+          file: {preview: this.props.product.images.result[i].url}
+        }
+      }
+    }
+    return data
+  }
+
+  componentDidMount() {
+    this.setState({files: this.retrieveData()})
   }
 
   renderImages() {
@@ -33,8 +56,10 @@ export class Training extends Component {
   }
 
   validate() {
+    const self = this
     if (this.state.files.length) {
-      this.props.nextStep()
+      this.props.getProductDetail(this.props.product.id)
+        .then(() => self.props.nextStep())
     } else {
       this.setState({error: 'Training image is required'})
     }
@@ -59,8 +84,8 @@ export class Training extends Component {
                        className="form-control"/>
                 <span className="input-group-btn">
                   <Uploader
-                    deleteResource={`/admins/products/${this.props.product.id}`}
-                    uploadLink={`/admins/products/${this.props.product.id}/images`}
+                    prefix={`/admins/products/${this.props.product.id}`}
+                    initData={this.retrieveData()}
                     ref={uploader => this.uploader = uploader}
                     onChange={this.handleUpload}
                   />
@@ -88,5 +113,9 @@ export class Training extends Component {
   }
 }
 
-export default Training;
+const mapDispatchToProps = (dispatch) => ({
+  getProductDetail: createAction(GET_ADMIN_PRODUCT_DETAIL, dispatch),
+})
+
+export default connect(null, mapDispatchToProps)(Training);
 

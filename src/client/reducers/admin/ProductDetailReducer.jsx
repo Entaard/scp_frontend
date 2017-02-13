@@ -1,9 +1,17 @@
 import {
   GET_ADMIN_PRODUCT_DETAIL, GET_ADMIN_PRODUCTS_IMAGES, CREATE_PRODUCT,
-  ADD_IMAGES, TRAIN_PRODUCT, ADD_OPTIONS, REMOVE_OPTION
+  ADD_IMAGES, TRAIN_PRODUCT, ADD_OPTIONS, REMOVE_OPTION, RESET
 } from '../../actions/ProductAction';
 
-export default function (state = {data: {concepts: [], images: {result: []}}, loading: true}, action) {
+const initState = {
+  data: {
+    concepts: [],
+    images: {result: []}
+  },
+  loading: true
+}
+
+export default function (state = initState, action) {
   switch (action.type) {
     case `${TRAIN_PRODUCT}_DATA`:
     case `${CREATE_PRODUCT}_DATA`:
@@ -28,6 +36,8 @@ export default function (state = {data: {concepts: [], images: {result: []}}, lo
           images: action.payload
         }
       }
+    case RESET:
+      return initState
   }
   return state;
 }

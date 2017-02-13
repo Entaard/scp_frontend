@@ -24,7 +24,7 @@ export class Training extends Component {
   retrieveData() {
     let data = []
     if (this.props.product.images.result.length) {
-      for (var i = 0; i < this.props.product.images.result.length; i++) {
+      for (let i = 0; i < this.props.product.images.result.length; i++) {
         data[i] = {
           upload: true,
           data: {id: this.props.product.images.result[i].id},

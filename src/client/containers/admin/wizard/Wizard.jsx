@@ -4,7 +4,7 @@ import {createAction} from '../../../utils/SagaUtils'
 import {initialize} from 'redux-form'
 
 import {
-  GET_ADMIN_PRODUCT_DETAIL,
+  GET_ADMIN_PRODUCT_DETAIL, RESET
 } from '../../../actions/ProductAction'
 
 import Info from './Info'
@@ -31,6 +31,8 @@ export class Wizard extends Component {
     if (id) {
       this.props.getProductDetail(id)
         .then(this.reloadForm.bind(this))
+    } else {
+      this.props.resetWizard()
     }
   }
 
@@ -51,24 +53,36 @@ export class Wizard extends Component {
     const product = this.props.product.data
     switch (this.state.currentStatus) {
       case 'info':
-        return <Training
-          product={product}
-          nextStep={this.nextStep}
-          previousStep={this.previousStep}/>
+        return (
+          <Training
+            product={product}
+            nextStep={this.nextStep}
+            previousStep={this.previousStep}
+          />
+        )
       case 'image':
-        return <Concept
-          product={product}
-          nextStep={this.nextStep}
-          previousStep={this.previousStep}/>
+        return (
+          <Concept
+            product={product}
+            nextStep={this.nextStep}
+            previousStep={this.previousStep}
+          />
+        )
       case 'concept':
-        return <Option
-          product={product}
-          finish={this.nextStep}
-          previousStep={this.previousStep}/>
+        return (
+          <Option
+            product={product}
+            finish={this.nextStep}
+            previousStep={this.previousStep}
+          />
+        )
       default:
-        return <Info
-          product={product}
-          nextStep={this.nextStep}/>
+        return (
+          <Info
+            product={product}
+            nextStep={this.nextStep}
+          />
+        )
     }
   }
 
@@ -110,6 +124,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getProductDetail: createAction(GET_ADMIN_PRODUCT_DETAIL, dispatch),
+  resetWizard: () => dispatch({type: 'RESET'}),
   initializeForm: (stateValues) => {
     dispatch(initialize('info', stateValues))
   }

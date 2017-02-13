@@ -72,10 +72,11 @@ export class Option extends Component {
         <div className="page-title">
           <div className="title center">
             <h1>Product Options</h1>
-            <h3 className="text-center" style={{color: '#d2524e'}}>{this.props.product.name}</h3>
           </div>
           <div className="text-wrapper">
             <p className="text-center">Add all available options for the product</p>
+            <img className="img-thumb" src={this.props.product.url}/>
+            <h3 className="text-center">{this.props.product.name}</h3>
           </div>
         </div>
         <div className="col-lg-8 col-lg-push-2">

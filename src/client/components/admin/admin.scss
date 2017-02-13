@@ -15,6 +15,18 @@
       float: none;
     }
     .container {
+      .page-title {
+        .img-thumb {
+          padding-top: 2%;
+          display: block;
+          margin: 0 auto;
+          width: 5%;
+          height: auto;
+        }
+        h3.text-center {
+          color: #d2524e;
+        }
+      }
       .btn-ctn {
         background-color: #D2524E;
         color: #ffffff;

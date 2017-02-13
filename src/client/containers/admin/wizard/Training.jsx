@@ -71,10 +71,11 @@ export class Training extends Component {
         <div className="page-title">
           <div className="title center">
             <h1>Product images</h1>
-            <h3 className="text-center" style={{color: '#d2524e'}}>{this.props.product.name}</h3>
           </div>
           <div className="text-wrapper">
             <p className="text-center">Upload similar images to train your product</p>
+            <img className="img-thumb" src={this.props.product.url}/>
+            <h3 className="text-center">{this.props.product.name}</h3>
           </div>
         </div>
         <div className="newsletter variant1 col-md-5">

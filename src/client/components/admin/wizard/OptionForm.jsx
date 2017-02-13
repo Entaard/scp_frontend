@@ -55,7 +55,7 @@ export class OptionForm extends Component {
         { label && <h2 style={{display: 'inline-block'}}>{label}</h2> }
         <div
           className="color-box"
-          style={{backgroundColor: this.state.color.hex}}>
+          style={{backgroundColor: this.state.color.code}}>
         </div>
         <div className="select-wrapper">
           <select
@@ -68,10 +68,10 @@ export class OptionForm extends Component {
             <option value="">Select a color...</option>
             {this.props.colors.map(val =>
               <option
-                style={{color: `${val.hex}`}}
+                style={{color: `${val.code}`}}
                 value={val.id}
                 key={val.id}>
-                {val.hex}
+                {val.name}
               </option>)
             }
           </select>
@@ -136,6 +136,8 @@ const validate = (values) => {
     errors.quantity = 'Required'
   } else if (isNaN(Number(values.quantity))) {
     errors.quantity = 'Must be a number'
+  } else if (values.quantity <= 0) {
+    errors.quantity = 'Must be a greater than 0'
   }
   return errors
 }

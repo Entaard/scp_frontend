@@ -1,17 +1,9 @@
 import React, {Component} from 'react'
 import OptionForm from '../../../components/admin/wizard/OptionForm'
-const colors = [
-    {id: 1, hex: '#FF850A'},
-    {id: 2, hex: '#D2524E'},
-    {id: 3, hex: '#333745'},
-    {id: 4, hex: '#1C90F3'}
-  ],
-  sizes = [
-    {id: 1, name: 'S'},
-    {id: 2, name: 'M'},
-    {id: 3, name: 'L'},
-    {id: 4, name: 'XL'}
-  ]
+import {connect} from 'react-redux'
+import {ADD_OPTIONS, PUBLISH} from '../../../actions/ProductAction'
+import {createAction} from '../../../utils/SagaUtils'
+
 export class Option extends Component {
   constructor(props) {
     super(props)
@@ -19,6 +11,7 @@ export class Option extends Component {
       row: [],
       data: [],
     }
+    this.addRow = this.addRow.bind(this)
   }
 
   renderColorBoxes(color) {
@@ -28,21 +21,38 @@ export class Option extends Component {
   }
 
   getColor(id) {
-    return colors.find((color) => color.id == id)
+    return this.props.colors.find((color) => color.id == id)
   }
 
   getSize(id) {
-    return sizes.find((size) => size.id == id)
+    return this.props.sizes.find((size) => size.id == id)
   }
 
-  handleSubmit = (values) => {
+  optionParams(values) {
+    return {
+      product_id: this.props.product.id,
+      color_id: values.color,
+      size_id: values.size,
+      quantity: values.quantity
+    }
+  }
+
+  addRow(values) {
     const row = Object.assign({}, values);
-    row.hex = this.getColor(row.color).hex
+    row.code = this.getColor(row.color).code
     row.sizeName = this.getSize(row.size).name
     this.setState({
       row: this.state.row.concat([row]),
       data: this.state.data.concat([values])
     })
+  }
+
+  handleSubmit = (values) => {
+    const self = this
+    this.props.addOptions(this.optionParams(values))
+      .then(() => {
+        self.addRow(values)
+      })
   }
 
   removeRow(e) {
@@ -60,7 +70,7 @@ export class Option extends Component {
         <td><strong>{index + 1}</strong></td>
         <td><strong>{item.sizeName}</strong></td>
         <td><strong>{item.quantity}</strong></td>
-        <td>{this.renderColorBoxes(item.hex)}</td>
+        <td>{this.renderColorBoxes(item.code)}</td>
         <td><a className="btn"
                onClick={this.removeRow.bind(this)}>Delete</a></td>
       </tr>
@@ -68,7 +78,11 @@ export class Option extends Component {
   }
 
   finish() {
-    console.log(this.state);
+    if (!this.state.data.length) {
+      alert('error plz')
+    } else {
+      this.props.publish(this.props.product.id)
+    }
   }
 
   render() {
@@ -85,8 +99,8 @@ export class Option extends Component {
         <div className="col-lg-8 col-lg-push-2">
           <div className="product-info-block creative">
             <div className="product-options more-options">
-              <OptionForm colors={colors}
-                          sizes={sizes}
+              <OptionForm colors={this.props.colors}
+                          sizes={this.props.sizes}
                           onSubmit={this.handleSubmit}/>
             </div>
           </div>
@@ -120,5 +134,15 @@ export class Option extends Component {
   }
 }
 
-export default Option;
+const mapStateToProps = (state) => ({
+  colors: state.configs.colors,
+  sizes: state.configs.sizes,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  addOptions: createAction(ADD_OPTIONS, dispatch),
+  publish: createAction(PUBLISH, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Option);
 

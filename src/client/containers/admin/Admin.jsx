@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from '../../components/Footer'
 import Navbar from '../../components/admin/Navigation';
 import {GET_CATEGORIES} from '../../actions/CategoryAction'
-import {GET_CONCEPTS} from '../../actions/ProductAction'
+import {GET_CONFIGS} from '../../actions/ProductAction'
 import {createAction} from '../../utils/SagaUtils'
 import {connect} from 'react-redux'
 require('./../../components/admin/admin.scss')
@@ -15,7 +15,7 @@ class Admin extends Component {
 
   componentDidMount() {
     this.props.getCategories();
-    this.props.getConcepts();
+    this.props.getConfigs();
   }
 
   render() {
@@ -39,7 +39,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getCategories: createAction(GET_CATEGORIES, dispatch),
-  getConcepts: createAction(GET_CONCEPTS, dispatch),
+  getConfigs: createAction(GET_CONFIGS, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

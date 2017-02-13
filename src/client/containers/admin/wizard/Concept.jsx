@@ -103,7 +103,7 @@ export class Concept extends Component {
 function mapStateToProps(state) {
   return {
     categories: state.categories.data,
-    concepts: state.concepts,
+    concepts: state.configs.concepts,
   }
 }
 

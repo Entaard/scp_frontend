@@ -31,10 +31,10 @@ export class AdminProduct extends Component {
               </div>
               <div className="product-item-actions">
                 <div className="actions-primary">
-                  <Link to={{pathname: "/admin/upload", query: {id: product.id}}}
-                        className="btn btn-sm btn-invert">
+                  {product.status !== 'publish' && <Link to={{pathname: "/admin/upload", query: {id: product.id}}}
+                                                        className="btn btn-sm btn-invert">
                     <span>Continue</span>
-                  </Link>
+                  </Link>}
                   <button onClick={this.props.deleteProduct}
                           className="btn btn-sm btn-invert">
                     <span>Delete</span>

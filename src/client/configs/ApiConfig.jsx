@@ -5,7 +5,7 @@ import { isDevelopment } from '../configs/EnvConfig'
 
 export function rootUrl() {
   if (isDevelopment()) {
-    return "http://192.168.1.14:3000"
+    return "https://scp-backend.herokuapp.com/"
   } else {
     return "https://scp-backend.herokuapp.com/"
   }

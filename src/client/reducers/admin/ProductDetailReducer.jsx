@@ -1,5 +1,6 @@
 import {
-  GET_ADMIN_PRODUCT_DETAIL, GET_ADMIN_PRODUCTS_IMAGES, CREATE_PRODUCT, ADD_IMAGES, TRAIN_PRODUCT, ADD_OPTIONS
+  GET_ADMIN_PRODUCT_DETAIL, GET_ADMIN_PRODUCTS_IMAGES, CREATE_PRODUCT,
+  ADD_IMAGES, TRAIN_PRODUCT, ADD_OPTIONS, REMOVE_OPTION
 } from '../../actions/ProductAction';
 
 export default function (state = {data: {concepts: [], images: {result: []}}, loading: true}, action) {
@@ -8,6 +9,7 @@ export default function (state = {data: {concepts: [], images: {result: []}}, lo
     case `${CREATE_PRODUCT}_DATA`:
     case `${ADD_IMAGES}_DATA`:
     case `${ADD_OPTIONS}_DATA`:
+    case `${REMOVE_OPTION}_DATA`:
     case `${GET_ADMIN_PRODUCT_DETAIL}_DATA`:
       return {
         ...state,

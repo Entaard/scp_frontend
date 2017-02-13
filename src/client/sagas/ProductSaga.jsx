@@ -1,8 +1,7 @@
-import {put, call, takeLatest} from 'redux-saga/effects'
-import {executeApi} from '../utils/SagaUtils'
+import {takeLatest} from 'redux-saga/effects'
 import {
   CREATE_PRODUCT,
-  DELETE_PRODUCT, ADD_OPTIONS, PUBLISH,
+  DELETE_PRODUCT, ADD_OPTIONS, PUBLISH, REMOVE_OPTION,
   ADD_IMAGES, GET_CONFIGS,
   TRAIN_PRODUCT,
   GET_ADMIN_PRODUCTS, GET_ADMIN_PRODUCT_DETAIL, GET_ADMIN_PRODUCTS_IMAGES
@@ -16,6 +15,7 @@ export default function* watchProduct() {
     takeLatest(ADD_IMAGES, bindAction(ProductApi.addImages)),
     takeLatest(PUBLISH, bindAction(ProductApi.publish)),
     takeLatest(ADD_OPTIONS, bindAction(ProductApi.addOptions)),
+    takeLatest(REMOVE_OPTION, bindAction(ProductApi.removeOption)),
     takeLatest(TRAIN_PRODUCT, bindAction(ProductApi.trainProduct)),
     takeLatest(GET_CONFIGS, bindAction(ProductApi.getConfigs)),
     takeLatest(GET_ADMIN_PRODUCTS, bindAction(ProductApi.getProducts)),

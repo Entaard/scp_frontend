@@ -43,7 +43,6 @@ export class Wizard extends Component {
     const product = response.data
     const {name, description, price, category_id, url} = product
     stateValues = {name, description, price, category_id, url}
-    console.log(stateValues)
     this.props.initializeForm(stateValues)
     this.setState({currentStatus: product.status})
   }

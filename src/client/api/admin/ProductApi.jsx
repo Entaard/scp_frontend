@@ -39,6 +39,10 @@ const ProductApi = {
     return axios.post(`/admins/products/${product_id}/attr_products`, {quantity, color_id, size_id})
   },
 
+  removeOption({product_id, id}) {
+    return axios.delete(`/admins/products/${product_id}/attr_products/${id}`)
+  },
+
   publish(id) {
     return axios.post(`/admins/products/${id}/publish`)
   }

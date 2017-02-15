@@ -81,6 +81,7 @@ export class Wizard extends Component {
           <Info
             product={product}
             nextStep={this.nextStep}
+            previousStep={this.previousStep}
           />
         )
     }

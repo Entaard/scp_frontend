@@ -90,7 +90,7 @@ export class Option extends Component {
             </div>
           </div>
 
-          {this.props.product.attr_products.length > 0 &&
+          {this.props.product.attr_products &&
           <table className="table table-bordered">
             <tbody>
             <tr>

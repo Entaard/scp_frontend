@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {createAction} from '../../utils/SagaUtils'
-import {CREATE_CATEGORY, DELETE_CATEGORY, UPDATE_CATEGORY} from '../../actions/CategoryAction'
+import {CREATE_CATEGORY, UPDATE_CATEGORY} from '../../actions/CategoryAction'
 import CategoryForm from '../../components/admin/CategoryForm'
 import {connect} from 'react-redux'
 export class Category extends Component {
@@ -56,9 +56,8 @@ export class Category extends Component {
         <td>
           <a className="btn btn-alt"
              onClick={() => this.toggleEditing(item.id) }>Edit</a>
-          <a style={{marginLeft: '20px'}}
-             className="btn"
-             onClick={() => this.props.deleteCategory(item.id) }>Delete</a>
+          {/*<a style={{marginLeft: '20px'}}*/}
+             {/*className="btn">Delete</a>*/}
         </td>
       </tr>
     ))
@@ -107,7 +106,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createCategory: createAction(CREATE_CATEGORY, dispatch),
-  deleteCategory: createAction(DELETE_CATEGORY, dispatch),
   updateCategory: createAction(UPDATE_CATEGORY, dispatch),
 })
 

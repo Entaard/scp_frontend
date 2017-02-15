@@ -7,6 +7,7 @@ import adminProductReducer from './admin/ProductReducer'
 import adminProductDetailReducer from './admin/ProductDetailReducer'
 import categoryReducer from './admin/CategoryReducer'
 import configReducer from './admin/ConfigReducer'
+import logReducer from './admin/LogReducer'
 
 const RootReducer = combineReducers({
   routing: routerReducer,
@@ -17,6 +18,7 @@ const RootReducer = combineReducers({
   productDetail: adminProductDetailReducer,
   categories: categoryReducer,
   configs: configReducer,
+  logs: logReducer,
 });
 
 export default RootReducer;

@@ -37,6 +37,19 @@ export class InfoForm extends Component {
     )
   }
 
+  renderNumberField({input, label, type, meta: {touched, error, warning}}) {
+    return (
+      <div className="sideblock half">
+        { label && <h2>{label}</h2> }
+        <input {...input} className="form-control price-input"
+               placeholder={label}
+               type={type}/><p className="inline">.000 vnd</p>
+        {touched && ((error && <span className="has-error">{error}</span>) || (warning &&
+        <span className="has-warning">{warning}</span>))}
+      </div>
+    )
+  }
+
   renderHiddenField({input, type, url, meta: {error, submitFailed}}) {
     return (
       <div>
@@ -73,7 +86,7 @@ export class InfoForm extends Component {
         <Field name="price"
                label="Price"
                type="number"
-               component={this.renderField}/>
+               component={this.renderNumberField}/>
         <Field name="description"
                label="Description"
                component={this.renderTextArea}/>

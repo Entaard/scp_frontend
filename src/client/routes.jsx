@@ -20,6 +20,7 @@ import Category from './containers/admin/Category'
 import Wizard from './containers/admin/wizard/Wizard'
 import AdminProductDetail from './containers/admin/ProductDetail'
 import Admin from './containers/admin/Admin'
+import Log from './containers/admin/Log'
 import Test from './components/Test'
 
 export default [
@@ -27,6 +28,7 @@ export default [
     <IndexRoute component={AdminHome}/>
     <Route path="/admin/upload" components={Wizard}/>
     <Route path="/admin/category" components={Category}/>
+    <Route path="/admin/log" components={Log}/>
     <Route path="/admin/login" components={AdminLogin}/>
     <Route path="/admin/product-detail/:id" components={AdminProductDetail}/>
   </Route>,

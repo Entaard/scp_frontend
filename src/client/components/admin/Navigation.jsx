@@ -10,7 +10,8 @@ export class Navigation extends Component {
     return [
       {path: '/admin', name: 'PRODUCT'},
       {path: '/admin/upload', name: 'UPLOAD'},
-      {path: '/admin/category', name: 'CATEGORY'}
+      {path: '/admin/category', name: 'CATEGORY'},
+      {path: '/admin/log', name: 'LOGS'}
     ]
   }
 

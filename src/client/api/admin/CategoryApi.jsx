@@ -7,9 +7,6 @@ const CategoryApi = {
   addCategory(category) {
     return axios.post('/admins/categories', category)
   },
-  deleteCategory(id) {
-    return axios.delete(`/admin/categories/${id}`)
-  },
   updateCategory({id, data}) {
     return axios.post(`/admin/categories/${id}`, data)
   },

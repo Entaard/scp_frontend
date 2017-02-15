@@ -3,6 +3,7 @@ import watchAuth from './AuthSaga'
 import watchHome from './HomeSaga'
 import watchProduct from './ProductSaga'
 import watchCategory from './CategorySaga'
+import watchLog from './LogSaga'
 
 export default function* saga() {
   yield [
@@ -10,5 +11,6 @@ export default function* saga() {
     fork(watchAuth),
     fork(watchProduct),
     fork(watchCategory),
+    fork(watchLog),
   ]
 }

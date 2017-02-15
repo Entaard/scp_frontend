@@ -1,4 +1,10 @@
 #wrapper {
+  .inline {
+    display: inline-block;
+  }
+  .no-padding {
+    padding: 0;
+  }
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -20,7 +26,7 @@
           padding-top: 2%;
           display: block;
           margin: 0 auto;
-          width: 5%;
+          width: 8%;
           height: auto;
         }
         h3.text-center {
@@ -64,6 +70,12 @@
             cursor: pointer;
           }
           margin-right: 5px;
+        }
+      }
+      form.white {
+        .price-input {
+          display: inline-block;
+          width: 75%;
         }
       }
       .sideblock.third {
@@ -128,6 +140,10 @@
         width: 27px;
         height: 27px;
         display: block;
+      }
+      .trained-img-container {
+        flex-wrap: wrap;
+        display: flex;
       }
     }
     .sidebar-wrapper {

@@ -97,8 +97,8 @@ export class Training extends Component {
             <span className="has-error">{this.state.error}</span>
           </div>
         </div>
-        <div className="col-md-11 col-lg-11">
-          <h2 className="custom-color">images ({this.state.files.length})</h2>
+        <h2 className="custom-color">images ({this.state.files.length})</h2>
+        <div className="col-md-11 col-lg-11 trained-img-container">
           {this.renderImages()}
         </div>
 

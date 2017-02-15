@@ -1,9 +1,6 @@
 // Saga Action
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const CREATE_CATEGORY = 'CREATE_CATEGORY'
-export const DELETE_CATEGORY = 'DELETE_CATEGORY'
 export const UPDATE_CATEGORY = 'UPDATE_CATEGORY'
 
 // Reducer Action
-export const CATEGORY_CREATED = 'CATEGORY_CREATED'
-export const CREATE_CAT_ERROR = 'CREATE_CAT_ERROR'

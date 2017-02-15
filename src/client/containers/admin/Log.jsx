@@ -15,10 +15,12 @@ export class Log extends Component {
     return this.props.logs.map((log, index) => (
       <tr key={index}>
         <td>{index + 1}</td>
-        <td><code>{log.url}</code></td>
+        <td>
+          <img src={log.url} style={{width: '20%'}}/>
+        </td>
         <td>{log.created_at}</td>
         <td>
-          <input type="checkbox" disabled="true" checked={log.finish && 'checked'}/>
+          <input type="checkbox" disabled="true" checked={log.finish}/>
         </td>
         <td>
           {!log.finish && <Link to={{pathname: "/admin/upload", query: {logId: log.id}}}

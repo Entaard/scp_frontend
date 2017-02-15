@@ -66,7 +66,7 @@ class Uploader extends Component {
     return (
       <div className="btn btn-default multi-uploader">
         <Dropzone onDrop={this.onDrop.bind(this)}>
-          <div>Browse</div>
+          <div>Upload photos</div>
         </Dropzone>
       </div>
     )

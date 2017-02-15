@@ -82,13 +82,13 @@ export class Category extends Component {
         <table className="table table-bordered">
           <tbody>
           <tr>
-            <th className="col-md-2"
+            <th className="col-md-1"
                 scope="col">No.
             </th>
-            <th className="col-md-6"
+            <th className="col-md-9"
                 scope="col">Name
             </th>
-            <th className="col-md-4"
+            <th className="col-md-2"
                 scope="col">Acion
             </th>
           </tr>

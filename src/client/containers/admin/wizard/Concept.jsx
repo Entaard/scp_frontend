@@ -86,7 +86,7 @@ export class Concept extends Component {
             {this.renderTags(this.props.product.not_concepts)}
           </ul>
         </div>
-        <div className="col-sm-11 col-md-11">
+        <div className="col-sm-10 col-md-offset-1 col-md-10">
           <button
             className="btn btn-alt"
             onClick={this.props.previousStep}>

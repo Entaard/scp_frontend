@@ -27,8 +27,8 @@ export class Home extends Component {
   }
 
   handleDelete(id) {
-    // console.log(id)
     this.props.deleteProduct(id)
+      .then(() => this.props.getProducts(this.state.currentPage))
   }
 
   renderProducts() {

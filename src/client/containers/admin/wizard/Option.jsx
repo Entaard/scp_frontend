@@ -113,7 +113,7 @@ export class Option extends Component {
             <button
               onClick={this.handleFinish.bind(this)}
               className="btn btn-alt pull-right">
-              Finish
+              Publish
             </button>
           </div>
         </div>

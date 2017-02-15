@@ -80,6 +80,7 @@ export class Wizard extends Component {
       default:
         return (
           <Info
+            logId={this.props.location.query.logId}
             product={product}
             nextStep={this.nextStep}
             previousStep={this.previousStep}

@@ -21,7 +21,8 @@ export class Info extends Component {
   }
 
   handleSubmit = (values) => {
-    this.props.createProduct({ ...values, product_id: this.props.product.id })
+    const logId = this.props.logId
+    this.props.createProduct({ ...values, product_id: this.props.product.id, log_id: logId })
       .then(() => this.props.nextStep())
   }
 

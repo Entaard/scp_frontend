@@ -10,7 +10,7 @@ export class AdminProduct extends Component {
           <div className="product-item-info">
             <div className="product-item-photo">
               <Link to={`/admin/product-detail/${product.id}`}>
-                <img
+                <img style={{height: '200px'}}
                   className="product-image-photo"
                   src={product.url}
                   alt=""/>

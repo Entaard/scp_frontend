@@ -33,6 +33,7 @@ export class Wizard extends Component {
         .then(this.reloadForm.bind(this))
     } else {
       this.props.resetWizard()
+      this.props.initializeForm({})
     }
   }
 

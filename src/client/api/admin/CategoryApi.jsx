@@ -4,12 +4,14 @@ const CategoryApi = {
   getCategories() {
     return axios.get('/api/categories')
   },
-  addCategory(category) {
-    return axios.post('/admins/categories', category)
+
+  addCategory({ name }) {
+    return axios.post('/admins/categories', { name })
   },
+
   updateCategory({id, data}) {
     return axios.post(`/admin/categories/${id}`, data)
-  },
+  }
 }
 
 export default CategoryApi;

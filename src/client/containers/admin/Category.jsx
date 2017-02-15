@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {createAction} from '../../utils/SagaUtils'
-import {CREATE_CATEGORY, UPDATE_CATEGORY} from '../../actions/CategoryAction'
+import {CREATE_CATEGORY, UPDATE_CATEGORY, GET_CATEGORIES} from '../../actions/CategoryAction'
 import CategoryForm from '../../components/admin/CategoryForm'
 import {connect} from 'react-redux'
+import {reset} from 'redux-form';
+
 export class Category extends Component {
   constructor(props) {
     super(props)
@@ -16,13 +18,13 @@ export class Category extends Component {
     this.setState({editing: itemId});
   }
 
-  handleUpdate(id) {
+  handleUpdate() {
     this.toggleEditing(null)
-    console.log(id, this.state.category)
   }
 
   handleInputChange(event) {
-    this.setState({[event.target.id]: event.target.value})
+    const {id, value} = event.target
+    this.setState({[id]: value})
   }
 
   renderNameOrEditField(item) {
@@ -57,14 +59,19 @@ export class Category extends Component {
           <a className="btn btn-alt"
              onClick={() => this.toggleEditing(item.id) }>Edit</a>
           {/*<a style={{marginLeft: '20px'}}*/}
-             {/*className="btn">Delete</a>*/}
+          {/*className="btn">Delete</a>*/}
         </td>
       </tr>
     ))
   }
 
   handleSubmit = (values) => {
+    const self = this
     this.props.createCategory(values)
+      .then(() => {
+        self.props.getCategories()
+        self.props.resetForm()
+      })
   }
 
   render() {
@@ -75,26 +82,29 @@ export class Category extends Component {
             <h1>Category</h1>
           </div>
         </div>
-        <div className="col-lg-8 no-padding">
+        <div className="col-md-6 col-md-offset-4 no-padding">
           <CategoryForm onSubmit={this.handleSubmit}/>
         </div>
-
-        <table className="table table-bordered">
-          <tbody>
-          <tr>
-            <th className="col-md-1"
-                scope="col">No.
-            </th>
-            <th className="col-md-9"
-                scope="col">Name
-            </th>
-            <th className="col-md-2"
-                scope="col">Acion
-            </th>
-          </tr>
-          {this.renderRow()}
-          </tbody>
-        </table>
+        <div className="row">
+          <div className="col-md-8 col-md-offset-2 no-padding">
+            <table className="table table-bordered">
+              <tbody>
+              <tr>
+                <th className="col-md-1"
+                    scope="col">No.
+                </th>
+                <th className="col-md-9"
+                    scope="col">Name
+                </th>
+                <th className="col-md-2"
+                    scope="col">Acion
+                </th>
+              </tr>
+              {this.renderRow()}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     )
   }
@@ -105,8 +115,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  getCategories: createAction(GET_CATEGORIES, dispatch),
   createCategory: createAction(CREATE_CATEGORY, dispatch),
   updateCategory: createAction(UPDATE_CATEGORY, dispatch),
+  resetForm: () => dispatch(reset('category'))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category);

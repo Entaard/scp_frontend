@@ -28,8 +28,10 @@ export class CategoryForm extends Component {
                  type="text"
                  component={this.renderField}/>
           <button type="submit"
+                  style={{marginTop: '12%'}}
                   disabled={submitting}
-                  className="btn btn-alt pull-right">Add
+                  className="btn btn-alt pull-right">
+            Add
           </button>
         </div>
       </form>
